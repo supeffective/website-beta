@@ -1,0 +1,49 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "codegen": {
+      "dependsOn": []
+    },
+    "lint": {
+      "dependsOn": []
+    },
+    "//#lint": {
+      "dependsOn": []
+    },
+    "lint-fix": {
+      "dependsOn": []
+    },
+    "//#lint-fix": {
+      "dependsOn": []
+    },
+    "publint": {
+      "dependsOn": ["^build", "build"]
+    },
+    "//#publint": {
+      "dependsOn": []
+    },
+    "typelint": {
+      "dependsOn": []
+    },
+    "test": {
+      "outputs": ["coverage/**"]
+    },
+    "//#test": {
+      "dependsOn": []
+    },
+    "test:ci": {
+      "outputs": ["coverage/**"]
+    },
+    "//#test:ci": {
+      "dependsOn": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

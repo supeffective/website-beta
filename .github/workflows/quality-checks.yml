@@ -1,0 +1,37 @@
+name: Quality Checks
+
+env:
+  NODE_VERSION: '>=20.8.0'
+  PNPM_VERSION: '8.9.0'
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: checkCodeQuality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checkCodeQuality:
+    name: 'Quality Checks'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Setup project'
+        uses: ./.github/actions/setup-project
+
+      - name: 'Check code quality'
+        uses: ./.github/actions/check-quality
+
+      ## Uncomment the following lines to enable Codecov
+      # - name: Upload coverage reports to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     directory: ./
+      #     token: ${{ secrets.CODECOV_TOKEN }}

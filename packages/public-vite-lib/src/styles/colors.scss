@@ -1,0 +1,117 @@
+/*
+ * Created with ColorSlurp.
+ * Slate colors are based on Github's dark theme.
+ */
+:root {
+  --slate-950: #1b2128;
+  --slate-900: #22272e;
+  --slate-800: #2d333b;
+  --slate-700: #383e47;
+  --slate-600: #444c56;
+  --slate-500: #555f6b;
+  --slate-400: #636e7b;
+  --slate-300: #768390;
+  --slate-200: #adbac7;
+  --slate-100: #c7d4e2;
+  --primary: #539bf5;
+  --primary-strong: #316dca;
+  --accent: #ec775c;
+  --success: #57ab5a;
+  --success-strong: #438645;
+  --danger: #e5534b;
+  --danger-strong: #c93c37;
+  --go-bg-dark: #00475d;
+  --go-border-dark: #4f8499;
+  --go-text-dark: #cce5f2;
+  --go-button-bg: #198390;
+  --go-button-border: #6cd8c5;
+  --go-main-btn-start: #a1dc97;
+  --go-main-btn-end: #28cfaf;
+  --go-tile-hover: #dbf6cd;
+  --go-tile-underline: #6decb8;
+  --go-tile-hover2: #e0f7d8;
+  --go-grid-bg: #f8fef7;
+  --home-bg-end: #78c8a6;
+  --home-bg: #32b5af;
+  --home-bg-strong: #129c9f;
+  --home-text: #e8fef9;
+  --home-btn: #ffad00;
+  --home-btn-secondary: #269f6c;
+  --home-danger: #ec5f42;
+  --home-bg-light: #cafff8;
+  --home-bg-end-light: #c1fabc;
+  --home-bg-box: #80d5bb;
+  --home-bg-box: #9fe1ab;
+  --home-select: #66ccc1;
+  --home-bg-box-title: #39b7ad;
+  --home-panel-bg: #e9f7f0;
+  --home-pastel-blue: #dcf3fe;
+  --home-pastel-purple: #f7eefc;
+  --home-pastel-green: #d5f1e8;
+  --home-pastel-yellow: #fff9bb;
+  --home-pastel-salmon: #ef9871;
+  --home-dex: #8370cc;
+  --home-dex-title: #bca6de;
+  --home-dex-bg: #e6c9ea;
+  --home-trade: #4f7ec4;
+  --home-trade-bg: #abf0f8;
+  --home-search-bg: #cff1b8;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --slate-950: color(display-p3 0.107 0.129 0.155 / 1);
+    --slate-900: color(display-p3 0.132 0.153 0.179 / 1);
+    --slate-800: color(display-p3 0.176 0.201 0.23 / 1);
+    --slate-700: color(display-p3 0.218 0.242 0.28 / 1);
+    --slate-600: color(display-p3 0.267 0.299 0.336 / 1);
+    --slate-500: color(display-p3 0.333 0.372 0.421 / 1);
+    --slate-400: color(display-p3 0.389 0.432 0.483 / 1);
+    --slate-300: color(display-p3 0.461 0.515 0.565 / 1);
+    --slate-200: color(display-p3 0.678 0.728 0.782 / 1);
+    --slate-100: color(display-p3 0.78 0.832 0.885 / 1);
+    --primary: color(display-p3 0.326 0.609 0.961 / 1);
+    --primary-strong: color(display-p3 0.194 0.427 0.792 / 1);
+    --accent: color(display-p3 0.927 0.466 0.36 / 1);
+    --success: color(display-p3 0.34 0.669 0.354 / 1);
+    --success-strong: color(display-p3 0.262 0.525 0.272 / 1);
+    --danger: color(display-p3 0.897 0.326 0.295 / 1);
+    --danger-strong: color(display-p3 0.79 0.234 0.215 / 1);
+    --go-bg-dark: color(display-p3 0 0.278 0.364 / 1);
+    --go-border-dark: color(display-p3 0.308 0.52 0.601 / 1);
+    --go-text-dark: color(display-p3 0.799 0.898 0.95 / 1);
+    --go-button-bg: color(display-p3 0.098 0.516 0.566 / 1);
+    --go-button-border: color(display-p3 0.425 0.849 0.773 / 1);
+    --go-main-btn-start: color(display-p3 0.633 0.862 0.591 / 1);
+    --go-main-btn-end: color(display-p3 0.156 0.81 0.688 / 1);
+    --go-tile-hover: color(display-p3 0.86 0.965 0.803 / 1);
+    --go-tile-underline: color(display-p3 0.429 0.925 0.721 / 1);
+    --go-tile-hover2: color(display-p3 0.878 0.969 0.848 / 1);
+    --go-grid-bg: color(display-p3 0.972 0.997 0.968 / 1);
+    --home-bg-end: color(display-p3 0.469 0.785 0.652 / 1);
+    --home-bg: color(display-p3 0.198 0.71 0.686 / 1);
+    --home-bg-strong: color(display-p3 0.071 0.613 0.623 / 1);
+    --home-text: color(display-p3 0.912 0.997 0.976 / 1);
+    --home-btn: color(display-p3 1 0.678 0.002 / 1);
+    --home-btn-secondary: color(display-p3 0.147 0.625 0.424 / 1);
+    --home-danger: color(display-p3 0.924 0.372 0.259 / 1);
+    --home-bg-light: color(display-p3 0.792 1 0.973 / 1);
+    --home-bg-end-light: color(display-p3 0.756 0.982 0.736 / 1);
+    --home-bg-box: color(display-p3 0.503 0.835 0.735 / 1);
+    --home-bg-box: color(display-p3 0.623 0.883 0.671 / 1);
+    --home-select: color(display-p3 0.401 0.8 0.757 / 1);
+    --home-bg-box-title: color(display-p3 0.225 0.717 0.678 / 1);
+    --home-panel-bg: color(display-p3 0.913 0.969 0.941 / 1);
+    --home-pastel-blue: color(display-p3 0.862 0.953 0.997 / 1);
+    --home-pastel-purple: color(display-p3 0.97 0.932 0.99 / 1);
+    --home-pastel-green: color(display-p3 0.834 0.946 0.91 / 1);
+    --home-pastel-yellow: color(display-p3 0.999 0.975 0.734 / 1);
+    --home-pastel-salmon: color(display-p3 0.939 0.597 0.445 / 1);
+    --home-dex: color(display-p3 0.513 0.439 0.802 / 1);
+    --home-dex-title: color(display-p3 0.736 0.652 0.87 / 1);
+    --home-dex-bg: color(display-p3 0.904 0.789 0.918 / 1);
+    --home-trade: color(display-p3 0.31 0.494 0.768 / 1);
+    --home-trade-bg: color(display-p3 0.672 0.939 0.974 / 1);
+    --home-search-bg: color(display-p3 0.81 0.945 0.72 / 1);
+  }
+}

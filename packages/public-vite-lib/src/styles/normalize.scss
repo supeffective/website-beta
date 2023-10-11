@@ -1,0 +1,13 @@
+/* Welcome 🎉 */
+/* Use Open-Props from NPM or CDN */
+/* @import 'open-props/style'; */
+/* @import 'https://unpkg.com/open-props'; */
+/* not needed here because JIT Props adds what you use! */
+
+/* 
+ open-props normalize isn't required, but makes for a nice base.
+ add this to see default styles for <details> and other HTM5 elements
+ Bonus: normalize includes light and dark vars for adaptive theming */
+@import 'open-props/normalize';
+/* @import 'https://unpkg.com/open-props/normalize.min.css'; */
+@import 'open-props/buttons';

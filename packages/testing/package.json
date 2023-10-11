@@ -1,0 +1,7 @@
+{
+    "name": "supereffective-2024-testing",
+    "private": true,
+    "scripts": {
+        "typelint": "tsc --noEmit"
+    }
+}

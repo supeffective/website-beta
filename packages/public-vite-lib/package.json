@@ -1,0 +1,62 @@
+{
+  "name": "@itsjavi/public-vite-lib",
+  "version": "0.0.8",
+  "description": "public-vite-lib demo",
+  "homepage": "https://github.com/itsjavi/supereffective-2024#readme",
+  "bugs": {
+    "url": "https://github.com/itsjavi/supereffective-2024/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsjavi/supereffective-2024.git"
+  },
+  "license": "MIT",
+  "author": "Javier Aguilar",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "typelint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@itsjavi/cn": "^0.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "@vitejs/plugin-react-swc": "^3.4.0",
+    "open-props": "^1.6.5",
+    "postcss-jit-props": "^1.0.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.2",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.11",
+    "vite-plugin-dts": "^3.6.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
