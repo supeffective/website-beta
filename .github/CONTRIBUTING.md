@@ -4,8 +4,7 @@ Thanks for your interest to contribute to this project. Please take a moment and
 
 ## Repository
 
-- We use Node v20 and the `pnpm` package manager.
-- This project is a monorepo using `turbo` and `pnpm` workspaces.
+- We use Node v20 and `bun` as package manager together with `turbo` as script runner.
 - We use [Convention Commits](https://www.conventionalcommits.org/en/v1.0.0/) for our commit messages.
 
 ## Developing
@@ -19,31 +18,31 @@ Here are the basic commands you'll need to get started:
 ```sh
 
 # Install dependencies
-pnpm install
+bun install
 
 # Start the dev server
-pnpm dev
+bun run dev
 
 # Build dist files
-pnpm build
+bun build
 
 # Run tests
-pnpm test
+bun test
 
 # Run tests with coverage
-pnpm test:coverage
+bun test:coverage
 
 # Lint (formatter and linter)
-pnpm lint
+bun lint
 
 # Format (fixes linting and formatting issues)
-pnpm lint-fix
+bun lint-fix
 
 # Type check
-pnpm typelint
+bun typelint
 
 # Run all quality checks (prettier-check, type-check, lint, build, publint, test)
-pnpm quality-checks
+bun quality-checks
 
 ```
 
@@ -52,7 +51,7 @@ pnpm quality-checks
 We use `bun` to run tests. You can run all tests with:
 
 ```sh
-pnpm test
+bun test
 ```
 
 Tests ending with `*.test.tsx` or `*.dom.test.ts` are considered browser tests and will be run in a browser-like

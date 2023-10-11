@@ -22,6 +22,7 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+*.pem
 *.suo
 *.ntvs*
 *.njsproj
@@ -54,6 +55,9 @@ out/
 .cache/
 .next/
 .vercel/
+*.tsbuildinfo
+next-env.d.ts
+
 
 ## Nuxt.js
 .nuxt/

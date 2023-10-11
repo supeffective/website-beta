@@ -1,58 +1,60 @@
 {
-  "version": "0.0.8",
-  "type": "module",
+  "name": "supereffective-2024",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "turbo build",
-    "codegen": "turbo codegen",
-    "deps": "pnpm install",
-    "deps:update": "pnpm -r update",
-    "deps:upgrade": "pnpm --recursive update --latest",
-    "dev": "pnpm --parallel --recursive dev",
-    "format": "pnpm lint-fix && pnpm format-package-json",
-    "format-package-json": "sort-package-json && pnpm -r exec sort-package-json",
-    "hooks:pre-commit": "pnpm lint-staged",
-    "hooks:pre-push": "pnpm quality-checks",
-    "postinstall": "pnpm format-package-json",
-    "lint": "biome lint . && pnpm -r lint",
-    "lint-fix": "biome check --apply . && pnpm format-package-json && pnpm -r lint-fix",
+    "build": "next build",
+    "dev": "next dev",
+    "format": "bun lint-fix",
+    "format-package-json": "sort-package-json",
+    "hooks:pre-commit": "bun lint-staged",
+    "hooks:pre-push": "bun quality-checks",
+    "postinstall": "bun format-package-json",
+    "lint": "next lint",
+    "lint-fix": "next lint --fix && bun format-package-json",
     "prepare": "husky install",
-    "pretty": "pnpm format",
-    "preview": "pnpm --parallel --recursive preview",
-    "publint": "pnpm -r exec pnpm publint",
-    "quality-checks": "turbo build && turbo lint && turbo typelint && turbo publint && turbo test:ci",
-    "quality-checks:ci": "pnpm quality-checks",
+    "pretty": "bun format",
+    "preview": "bun start",
+    "quality-checks": "turbo build && turbo lint && turbo typelint && turbo test:ci",
+    "quality-checks:ci": "bun quality-checks",
+    "start": "next start",
     "test": "bun test",
     "test:ci": "bun test --coverage --bail=5 --ci",
     "test:coverage": "bun test --coverage",
-    "typelint": "turbo typelint",
-    "version:bump": "semver-release version:bump",
-    "version:publish": "semver-release version:release --tags --npm --filter '@itsjavi/*'",
-    "version:publish-notes": "semver-release version:release --github",
-    "version:release": "pnpm version:publish"
+    "typelint": "tsc --noEmit"
   },
   "lint-staged": {
     "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}": [
-      "biome check --no-errors-on-unmatched --apply"
+      "eslint --fix"
     ],
     "package.json": [
       "sort-package-json"
     ]
   },
+  "dependencies": {
+    "next": "13.5.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
   "devDependencies": {
-    "@biomejs/biome": "1.2.2",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
-    "@itsjavi/semver-release": "^0.7.2",
     "@types/jest": "^29.5.5",
     "@types/node": "^20.8.4",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
     "bun": "^1.0.5",
-    "changelogen": "^0.5.5",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.4",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+    "postcss": "^8",
     "publint": "^0.2.4",
     "sort-package-json": "^2.6.0",
+    "tailwindcss": "^3",
     "turbo": "^1.10.15",
     "typescript": "^5.2.2"
   },
-  "packageManager": "pnpm@8.9.0"
+  "packageManager": "bun@1.0.5"
 }

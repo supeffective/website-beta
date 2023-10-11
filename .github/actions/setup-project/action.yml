@@ -3,20 +3,15 @@ description: 'Sets up project and its dependencies'
 runs:
   using: 'composite'
   steps:
-    # Setup Bun, PNPM and Node
+    # Setup Bun and Node
     - uses: oven-sh/setup-bun@v1
-
-    - uses: pnpm/action-setup@v2
-      with:
-        version: ${{ env.PNPM_VERSION }}
-        run_install: false
 
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ env.NODE_VERSION }}
         # registry-url: https://npm.pkg.github.com
-        cache: 'pnpm'
-        cache-dependency-path: './pnpm-lock.yaml'
+        # cache: 'pnpm'
+        # cache-dependency-path: './bun.lockb'
 
     - uses: actions/cache@v3
       name: Setup cache for turbo
@@ -27,4 +22,4 @@ runs:
           turbo-${{ github.job }}-${{ github.ref_name }}-
 
     - shell: bash
-      run: pnpm install --frozen-lockfile
+      run: bun install --frozen-lockfile

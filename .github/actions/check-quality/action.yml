@@ -4,4 +4,4 @@ runs:
   using: 'composite'
   steps:
     - shell: bash
-      run: pnpm quality-checks:ci
+      run: bun quality-checks:ci

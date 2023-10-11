@@ -2,7 +2,6 @@ name: Upgrade Dependencies
 
 env:
   NODE_VERSION: '>=20.8.0'
-  PNPM_VERSION: '8.9.0'
 
 on:
   ## Uncomment the following lines to run this in a schedule:
@@ -29,7 +28,7 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: 'Update all dependencies'
-        run: pnpm -r update --latest
+        run: bun update --latest
 
       - name: 'Check code quality'
         uses: ./.github/actions/check-quality
