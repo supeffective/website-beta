@@ -10,8 +10,15 @@ runs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         # registry-url: https://npm.pkg.github.com
-        # cache: 'pnpm'
-        # cache-dependency-path: './bun.lockb'
+
+    - uses: actions/cache@v3
+      name: Setup cache for node_modules
+      with:
+        path: node_modules
+        key: node_modules-${{ hashFiles('bun.lockb') }}
+        restore-keys: |
+          node_modules-${{ hashFiles('bun.lockb') }}
+          node_modules-
 
     - uses: actions/cache@v3
       name: Setup cache for turbo
