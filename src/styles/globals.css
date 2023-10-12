@@ -74,4 +74,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  a {
+    @apply text-primary hover:text-blue-600;
+  }
 }

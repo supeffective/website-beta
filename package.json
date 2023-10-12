@@ -33,8 +33,8 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
-    "@supeffective/dataset": "^0.5.1",
-    "@supeffective/ui": "^0.5.1",
+    "@supeffective/dataset": "^0.5.2",
+    "@supeffective/ui": "^0.5.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.286.0",
