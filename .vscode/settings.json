@@ -34,16 +34,16 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
@@ -55,8 +55,8 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "editor.formatOnSave": true,
-  "typescript.format.enable": false,
-  "javascript.format.enable": false,
+  "typescript.format.enable": true,
+  "javascript.format.enable": true,
   "eslint.enable": true,
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.format.enable": true,
