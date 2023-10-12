@@ -1,5 +1,10 @@
 name: 'Check code quality'
 description: 'Checks code quality: prettier, linters, build and test'
+env:
+  APP_DATA_URL: 'https://itsjavi.com/supereffective-sdk/data'
+  NEXT_PUBLIC_APP_DATA_URL: 'https://itsjavi.com/supereffective-sdk/data'
+  APP_ASSETS_URL: 'https://itsjavi.com/supereffective-assets/assets'
+  NEXT_PUBLIC_APP_ASSETS_URL: 'https://itsjavi.com/supereffective-assets/assets'
 runs:
   using: 'composite'
   steps:
