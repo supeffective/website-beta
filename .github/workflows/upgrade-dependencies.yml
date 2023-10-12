@@ -1,8 +1,5 @@
 name: Upgrade Dependencies
 
-env:
-  NODE_VERSION: '>=20.8.0'
-
 on:
   ## Uncomment the following lines to run this in a schedule:
   # schedule: # every monday at 17pm UTC

@@ -1,5 +1,8 @@
 name: 'Setup project'
 description: 'Sets up project and its dependencies'
+
+env:
+  NODE_VERSION: '>=20.8.0'
 runs:
   using: 'composite'
   steps:

@@ -1,8 +1,5 @@
 name: Quality Checks
 
-env:
-  NODE_VERSION: '>=20.8.0'
-
 on:
   push:
     branches:
