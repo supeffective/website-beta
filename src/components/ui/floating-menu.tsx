@@ -1,15 +1,29 @@
 'use client';
 
 import { cn } from "@/lib/utils";
-import { BookIcon, BoxIcon, MenuIcon, User2Icon, XIcon } from "lucide-react";
+import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { ReactElement, useState } from "react";
 import { Button } from "./button";
 
-export function FloatingMenu(props: { radiusOpen?: number, radiusClosed?: number }): ReactElement {
+type FloatingMenuProps = {
+    radiusOpen?: number,
+    radiusClosed?: number,
+    buttons: Array<{
+        className?: string,
+        onClick?: () => void,
+        href?: string,
+        children?: ReactElement,
+        title?: string,
+        text?: string,
+    }>
+}
+
+export function FloatingMenu(props: FloatingMenuProps): ReactElement {
     const [isOpen, setIsOpen] = useState(false)
     const radiusOpen = props.radiusOpen ?? 60;
     const radiusClosed = props.radiusClosed ?? (radiusOpen * -1);
+    const { buttons } = props;
 
     function closeMenu() {
         setIsOpen(false)
@@ -26,7 +40,7 @@ export function FloatingMenu(props: { radiusOpen?: number, radiusClosed?: number
 
     function renderTrigger() {
         return (
-            <Button className="pointer-events-auto transition-transform hover:scale-110" data-testid="trigger" variant={isOpen ? "primary" : "secondary"} radius="full" size="icon"
+            <Button role="menu" title="Menu" tabIndex={0} className="pointer-events-auto transition-transform hover:scale-110" data-testid="trigger" variant={isOpen ? "primary" : "secondary"} radius="full" size="icon"
                 onClick={
                     () => setIsOpen(!isOpen)
                 }>
@@ -47,45 +61,41 @@ export function FloatingMenu(props: { radiusOpen?: number, radiusClosed?: number
         }
     }
 
-    function renderLinks() {
+    function renderButtons() {
         const openClasses = "transition-all duration-300 ease-in-out opacity-100 pointer-events-auto"
         const closedClasses = "transition-all duration-300 ease-in-out opacity-0 pointer-events-none"
         const className = cn("inline-block w-[64px]", isOpen ? openClasses : closedClasses)
         const btnClasses = cn("bg-nb-white hover:bg-nb-accent transition-transform hover:scale-110")
 
-        const translate0 = cn(className, { "-translate-y-[10px] -translate-x-[30px]": isOpen, "translate-y-[20px] translate-x-0": !isOpen })
-        const translate1 = cn(className, { "-translate-y-[60px]": isOpen, "translate-y-0": !isOpen })
-        const translate2 = cn(className, { "-translate-y-[10px] translate-x-[30px]": isOpen, "translate-y-[20px] translate-x-0": !isOpen })
 
         return (
-            <div className="text-center">
-                <div className={className} style={_calculateTransform(3, 0)}>
-                    <Button radius="full" size="icon" className={btnClasses} asChild onClick={closeMenu}>
-                        <Link href="/pokedex/national" title="National Pokédex"><BookIcon /></Link>
-                    </Button>
-                    {isOpen && <div>Pokédex</div>}
-                </div>
-                <div className={className} style={_calculateTransform(3, 1)}>
-                    <Button radius="full" size="icon" className={btnClasses} asChild onClick={closeMenu}>
-                        <Link href="/boxes" title="Living Dex Tracker"><BoxIcon /></Link>
-                    </Button>
-                    {isOpen && <div>Tracker</div>}
-                </div>
-                <div className={className} style={_calculateTransform(3, 2)}>
-                    <Button radius="full" size="icon" className={btnClasses} asChild onClick={closeMenu}>
-                        <Link href="/" title="Homepage"><User2Icon /></Link>
-                    </Button>
-                    {isOpen && <div>Profile</div>}
-                </div>
-            </div>
+            <nav className="text-center">
+                {buttons?.map((btn, index) => {
+                    const child = btn.href ? <Link href={btn.href} title={btn.title}>{btn.children}</Link> : btn.children;
+                    return (
+                        <div key={`btn-${index}`} className={className} style={_calculateTransform(buttons.length, index)}>
+                            <Button tabIndex={isOpen ? 0 : -1} title={btn.title} radius="full" size="icon" className={btnClasses} asChild
+                                onClick={() => {
+                                    if (btn.onClick) {
+                                        btn.onClick()
+                                    }
+                                    closeMenu()
+                                }}>
+                                {child}
+                            </Button>
+                            {isOpen && btn.text && <div>{btn.text}</div>}
+                        </div>
+                    )
+                })}
+            </nav>
         )
     }
 
     return (
         <>
             {renderOverlay()}
-            <div className="fixed z-50 select-none bottom-0 left-0 right-0 pb-7 text-center pointer-events-none">
-                {renderLinks()}
+            <div className={cn("fixed z-50 select-none bottom-0 left-0 right-0 pb-7 text-center pointer-events-none")}>
+                {renderButtons()}
                 {renderTrigger()}
             </div>
         </>

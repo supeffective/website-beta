@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 // Neobrutalism fonts:
 // import { Lexend_Mega, Public_Sans, Archivo_Black, Bebas_Neue, Maven_Pro, Reem_Kufi } from 'next/font/google'
 
-import { FloatingMenu } from '@/components/ui/floating-menu'
+import { MainMenu } from '@/components/layout/main-menu'
 import { Reem_Kufi } from 'next/font/google'
 import '../styles/globals.scss'
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body className={baseFont.className}>
-        <FloatingMenu radiusOpen={50} radiusClosed={-50} />
+        <MainMenu />
         <main className="flex min-h-screen flex-col items-center justify-between p-4">
           {children}
         </main>
