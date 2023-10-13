@@ -93,13 +93,20 @@ const config: Config = {
           borders: "rgb(var(--nb-borders))",
           shadows: "rgb(var(--nb-shadows))",
           //
-          primary: 'rgb(var(--nb-primary))',
-          'primary-foreground': 'rgb(var(--nb-black))',
-          'primary-lighter': 'rgb(var(--nb-primary-lighter))',
           white: 'rgb(var(--nb-white))',
           black: 'rgb(var(--nb-black))',
           gray: 'rgb(var(--nb-gray))',
           'light-gray': 'rgb(var(--nb-light-gray))',
+          //
+          muted: 'rgb(var(--nb-muted))',
+          'muted-foreground': 'rgb(var(--nb-muted-foreground))',
+          primary: 'rgb(var(--nb-primary))',
+          'primary-foreground': 'rgb(var(--nb-primary-foreground))',
+          secondary: 'rgb(var(--nb-secondary))',
+          'secondary-foreground': 'rgb(var(--nb-secondary-foreground))',
+          accent: 'rgb(var(--nb-accent))',
+          'accent-foreground': 'rgb(var(--nb-accent-foreground))',
+          //
           'neon-cyan': 'rgb(var(--nb-neon-cyan))',
           'cyan-100': 'rgb(var(--nb-cyan-100))',
           'cyan-200': 'rgb(var(--nb-cyan-200))',

@@ -1,14 +1,14 @@
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <nav className="flex gap-4">
-        <Link href={`/pokemon`}>Pokémon</Link>
-        <Link href={`/pokedex`}>Pokédexes</Link>
-        <Link href={`/games`}>Games</Link>
-        <Link href={`/boxes`}>Box System</Link>
+    <div>
+      <nav className="flex gap-0 btn-group">
+        <Button asChild><Link href={`/pokedex/national`}>Pokédex</Link></Button>
+        <Button asChild><Link href={`/boxes`}>Tracker</Link></Button>
+        <Button asChild><Link href={`/games`}>Profile</Link></Button>
       </nav>
-    </main>
+    </div>
   )
 }
