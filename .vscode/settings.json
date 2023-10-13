@@ -66,4 +66,6 @@
     "typescript",
     "typescriptreact"
   ],
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
 }

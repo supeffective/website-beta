@@ -1,8 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import '../styles/globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// Default Next.js font:
+// import { Inter } from 'next/font/google'
+
+// Neobrutalism fonts:
+// import { Lexend_Mega, Public_Sans, Archivo_Black, Bebas_Neue, Maven_Pro, Reem_Kufi } from 'next/font/google'
+
+import { Reem_Kufi } from 'next/font/google'
+import '../styles/globals.scss'
+
+const baseFont = Reem_Kufi({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'SuperEffective 2024',
@@ -17,8 +24,8 @@ export default function RootLayout({
   modal?: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>{children}{modal}</body>
+    <html lang="en">
+      <body className={baseFont.className}>{children}{modal}</body>
     </html>
   )
 }

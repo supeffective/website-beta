@@ -1,0 +1,17 @@
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    html {
+        font-size: 18px;
+    }
+
+    body {
+        @apply bg-nb-primary text-foreground;
+    }
+
+    a {
+        @apply text-primary hover:text-blue-600;
+    }
+}
