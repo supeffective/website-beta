@@ -24,7 +24,7 @@ export default function RootLayout({
   modal?: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body className={baseFont.className}>{children}{modal}</body>
     </html>
   )

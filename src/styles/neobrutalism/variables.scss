@@ -2,77 +2,83 @@
 // colorslurp://x-callback-url/show-palettes?paletteId=4B8586E9-1D84-4143-8DEE-68A40C445400
 @layer base {
     :root {
-        --nb-primary: #ffb802;
-        --nb-primary-lighter: #ffdc02;
-        --nb-white: #ffffff;
-        --nb-black: #000000;
-        --nb-neon-blue: #3201ff;
-        --nb-neon-cyan: #7df9fe;
-        --nb-cyan-100: #daf4f1;
-        --nb-cyan-200: #a7dbda;
-        --nb-cyan-300: #86ceeb;
-        --nb-cyan-400: #52cbe4;
-        --nb-neon-green: #34ff32;
-        --nb-green-100: #b7d2ad;
-        --nb-green-200: #b9fca2;
-        --nb-green-300: #91ee8f;
-        --nb-green-400: #7dbc8c;
-        --nb-neon-yellow: #ffff05;
-        --nb-yellow-100: #fbfcb4;
-        --nb-yellow-200: #fedb56;
-        --nb-yellow-300: #efc226;
-        --nb-yellow-400: #e3a117;
-        --nb-neon-red: #ff490f;
-        --nb-red-100: #f8d5b3;
-        --nb-red-200: #ffa079;
-        --nb-red-300: #ff7b5b;
-        --nb-red-400: #f66567;
-        --nb-neon-pink: #ff00f5;
-        --nb-pink-100: #fcdfff;
-        --nb-pink-200: #ffc1cc;
-        --nb-pink-300: #ffb2ef;
-        --nb-pink-400: #ff68b4;
-        --nb-purple-100: #e3dff2;
-        --nb-purple-200: #c4a1ff;
-        --nb-purple-300: #a288ec;
-        --nb-purple-400: #9723c8;
+        --radius: 0.375rem;
+
+        --nb-black: 0, 0, 0;
+        --nb-white: 255, 243, 232;
+        --nb-gray: 114, 111, 109;
+        --nb-light-gray: 203, 196, 191;
+
+        --nb-muted: 216, 210, 204; // white muted
+        --nb-muted-foreground: var(--nb-gray);
+
+        --nb-primary: 255, 184, 2; // gold
+        --nb-primary-lighter: 255, 220, 2;
+        --nb-primary-foreground: var(--nb-black);
+
+        --nb-secondary: 2, 73, 255; // blue, primary complementary / tetradic 2
+        --nb-secondary-lighter: 52, 107, 248;
+        --nb-secondary-foreground: var(--nb-white);
+
+        --nb-accent: 255, 2, 199; // pink, primary tetradic 3
+        --nb-accent-lighter: 254, 85, 217;
+        --nb-accent-foreground: var(--nb-white);
+
+        --nb-neon-cyan: 125, 249, 254;
+        --nb-cyan-100: 218, 244, 241;
+        --nb-cyan-200: 167, 219, 218;
+        --nb-cyan-300: 134, 206, 235;
+        --nb-cyan-400: 82, 203, 228;
+
+        --nb-neon-green: 52, 255, 50;
+        --nb-green-100: 183, 210, 173;
+        --nb-green-200: 185, 252, 162;
+        --nb-green-300: 145, 238, 143;
+        --nb-green-400: 125, 188, 140;
+
+        --nb-neon-yellow: 255, 255, 5;
+        --nb-yellow-100: 251, 252, 180;
+        --nb-yellow-200: 254, 219, 86;
+        --nb-yellow-300: 239, 194, 38;
+        --nb-yellow-400: 227, 161, 23;
+
+        --nb-neon-red: 255, 73, 15;
+        --nb-red-100: 248, 213, 179;
+        --nb-red-200: 255, 160, 121;
+        --nb-red-300: 255, 123, 91;
+        --nb-red-400: 246, 101, 103;
+
+        --nb-neon-pink: 255, 0, 245;
+        --nb-pink-100: 252, 223, 255;
+        --nb-pink-200: 255, 193, 204;
+        --nb-pink-300: 255, 178, 239;
+        --nb-pink-400: 255, 104, 180;
+
+        --nb-neon-blue: 50, 1, 255;
+
+        --nb-purple-100: 227, 223, 242;
+        --nb-purple-200: 196, 161, 255;
+        --nb-purple-300: 162, 136, 236;
+        --nb-purple-400: 151, 35, 200;
+    }
+}
+
+@layer base {
+    :root {
+        --nb-input: var(--nb-white);
+        --nb-shadows: var(--nb-black);
+        --nb-borders: var(--nb-black);
+        --nb-ring: var(--nb-black);
+        --nb-background: var(--nb-white);
+        --nb-foreground: var(--nb-black);
     }
 
-    @supports (color: color(display-p3 1 1 1)) {
-        :root {
-            --nb-primary-lighter: color(display-p3 0.983 0.875 0.059 / 1.0);
-            --nb-white: color(display-p3 1.0 1.0 1.0 / 1.0);
-            --nb-black: color(display-p3 0.0 0.0 0.0 / 1.0);
-            --nb-neon-blue: color(display-p3 0.196 0.002 1.0 / 1.0);
-            --nb-neon-cyan: color(display-p3 0.491 0.976 0.996 / 1.0);
-            --nb-cyan-100: color(display-p3 0.856 0.956 0.946 / 1.0);
-            --nb-cyan-200: color(display-p3 0.656 0.861 0.853 / 1.0);
-            --nb-cyan-300: color(display-p3 0.525 0.807 0.923 / 1.0);
-            --nb-cyan-400: color(display-p3 0.323 0.797 0.895 / 1.0);
-            --nb-neon-green: color(display-p3 0.203 0.999 0.198 / 1.0);
-            --nb-green-100: color(display-p3 0.717 0.823 0.678 / 1.0);
-            --nb-green-200: color(display-p3 0.725 0.988 0.635 / 1.0);
-            --nb-green-300: color(display-p3 0.57 0.935 0.562 / 1.0);
-            --nb-green-400: color(display-p3 0.491 0.736 0.549 / 1.0);
-            --nb-neon-yellow: color(display-p3 1.0 1.0 0.02 / 1.0);
-            --nb-yellow-100: color(display-p3 0.983 0.987 0.705 / 1.0);
-            --nb-yellow-200: color(display-p3 0.995 0.858 0.338 / 1.0);
-            --nb-yellow-300: color(display-p3 0.936 0.76 0.151 / 1.0);
-            --nb-yellow-400: color(display-p3 0.889 0.632 0.089 / 1.0);
-            --nb-neon-red: color(display-p3 0.998 0.286 0.059 / 1.0);
-            --nb-red-100: color(display-p3 0.972 0.834 0.701 / 1.0);
-            --nb-red-200: color(display-p3 1.0 0.626 0.474 / 1.0);
-            --nb-red-300: color(display-p3 0.999 0.481 0.359 / 1.0);
-            --nb-red-400: color(display-p3 0.965 0.397 0.403 / 1.0);
-            --nb-neon-pink: color(display-p3 1.0 0.0 0.96 / 1.0);
-            --nb-pink-100: color(display-p3 0.987 0.874 1.0 / 1.0);
-            --nb-pink-200: color(display-p3 0.998 0.755 0.799 / 1.0);
-            --nb-pink-300: color(display-p3 1.0 0.697 0.939 / 1.0);
-            --nb-pink-400: color(display-p3 1.0 0.41 0.708 / 1.0);
-            --nb-purple-100: color(display-p3 0.889 0.874 0.947 / 1.0);
-            --nb-purple-200: color(display-p3 0.767 0.63 1.0 / 1.0);
-            --nb-purple-300: color(display-p3 0.636 0.533 0.927 / 1.0);
-            --nb-purple-400: color(display-p3 0.593 0.136 0.785 / 1.0);
-        }
+    .dark {
+        --nb-input: var(--nb-black);
+        --nb-shadows: var(--nb-light-gray);
+        --nb-borders: var(--nb-light-gray);
+        --nb-ring: var(--nb-white);
+        --nb-background: var(--nb-black);
+        --nb-foreground: var(--nb-white);
     }
 }

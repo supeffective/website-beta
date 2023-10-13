@@ -8,10 +8,10 @@
     }
 
     body {
-        @apply bg-nb-primary text-foreground;
+        @apply bg-nb-primary text-nb-primary-foreground;
     }
 
     a {
-        @apply text-primary hover:text-blue-600;
+        @apply underline hover:text-muted-foreground;
     }
 }
