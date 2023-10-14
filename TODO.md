@@ -1,0 +1,21 @@
+# TO-DO
+
+- [ ] Homepage
+- [ ] Blog / news
+- [ ] Logo
+- [ ] Static text pages with Markdown (About, Contact, etc.)
+- [ ] Menu working without JS (a11y, SEO)
+- [ ] Generate optimized custom JSON data files for lists (e.g. Pokemon list)
+- [ ] Pokédex viewer with search and filters
+- [ ] Pokémon detail view (modal and page)
+- [ ] Game list viewer (by year, or by generation, by region, by console, etc.)
+- [ ] Game list viewer: Game detail (data, obtainable Pokémon, pokedexes, box presets, etc.)
+- [ ] Box Preset viewer
+- [ ] Database abstraction layer with migration support
+- [ ] Login/Registration with Magic Link
+- [ ] User profile page
+- [ ] User profile editor (email, user handle, display name, avatar, etc.)
+- [ ] Living Dex viewer
+- [ ] Box Preset importer
+- [ ] Living Dex editor
+- [ ] Living Dex editor: Pokemon data editor modal
