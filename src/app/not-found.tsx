@@ -1,3 +1,9 @@
+import config from "@/config"
+
+const metadata = config.baseMetadata
+metadata.robots = 'noindex, nofollow'
+
+export { metadata }
 
 export default function NotFoundPage() {
   return (

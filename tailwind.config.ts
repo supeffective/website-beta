@@ -13,6 +13,7 @@ const config: Config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        "standalone": { raw: "(display-mode: standalone)" },
       },
     },
     // fontSize: {
@@ -52,6 +53,12 @@ const config: Config = {
       none: 'none',
     },
     extend: {
+      spacing: {
+        "safe-top": "env(safe-area-inset-top, var(----safe-area-inset-fallback))",
+        "safe-right": "env(safe-area-inset-right, var(----safe-area-inset-fallback))",
+        "safe-bottom": "env(safe-area-inset-bottom, var(----safe-area-inset-fallback))",
+        "safe-left": "env(safe-area-inset-left, var(----safe-area-inset-fallback))"
+      },
       colors: {
         border: "rgb(var(--nb-borders))",
         input: "rgb(var(--nb-input))",

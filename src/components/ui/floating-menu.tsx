@@ -37,7 +37,7 @@ export function FloatingMenu(props: FloatingMenuProps): ReactElement {
             return null;
         }
         return (
-            <div data-state={isOpen ? 'open' : 'closed'} className="fixed inset-0 z-40 bg-nb-banana-gold data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
+            <div data-state={isOpen ? 'open' : 'closed'} className="fixed border-2 pt-safe-top pb-safe-bottom pr-safe-right pl-safe-left inset-0 z-40 bg-nb-banana-gold data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
                 {overlayContent}
             </div>
         )

@@ -1,4 +1,4 @@
-import { BASE_DATA_URL } from '@/lib/constants'
+import { BASE_DATA_URL } from '@/config'
 import { PageProps } from '@/lib/types'
 import { fetchBoxPreset, fetchBoxPresetIndex } from '@supeffective/dataset'
 import { notFound } from 'next/navigation'

@@ -1,4 +1,4 @@
-import { BASE_DATA_URL } from '@/lib/constants'
+import { BASE_DATA_URL } from '@/config'
 import { PageProps } from '@/lib/types'
 import { fetchPokemon, fetchPokemonIndex } from '@supeffective/dataset'
 import { notFound } from 'next/navigation'

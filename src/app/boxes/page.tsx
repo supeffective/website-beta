@@ -1,5 +1,5 @@
 
-import { BASE_DATA_URL } from '@/lib/constants'
+import { BASE_DATA_URL } from '@/config'
 import { fetchBoxPresetIndex } from '@supeffective/dataset'
 import Link from 'next/link'
 

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "id": "gg.supereffective",
+  "name": "SuperEffective.gg",
+  "short_name": "SuperEffective",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#52CBE3",
+  "background_color": "#52CBE3",
+  "shortcuts": [
+    {
+      "name": "Pokedex",
+      "short_name": "Pokedex",
+      "description": "Search for Pokemon",
+      "url": "/pokedex"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon/apple-touch-icon.png?v=20230331",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon/android-chrome-192x192.png?v=20230331",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/android-chrome-512x512.png?v=20230331",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 @layer base {
     :root {
         --radius: 0.375rem;
+        --safe-area-inset-fallback: 20px;
 
         --nb-black: 0 0 0;
         --nb-white: 255 243 232;

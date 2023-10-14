@@ -1,5 +1,5 @@
 import { BoxPreset, Pokedex, Pokemon, getAllBoxPresets, getAllPokedexes, getAllPokemon } from '@supeffective/dataset'
-import { BASE_DATA_URL } from './constants'
+import { BASE_DATA_URL } from '../config'
 
 export async function getPokedexesByGameSet(gameSet: string): Promise<Pokedex[]> {
   const dexes = await getAllPokedexes(BASE_DATA_URL)

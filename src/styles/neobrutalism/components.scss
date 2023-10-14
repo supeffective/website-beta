@@ -1,2 +1,23 @@
 @use './components/button.scss';
 @use './components/dialog.scss';
+
+@layer components {
+
+    // A flex container that fills the viewport height, and has a minimum width of 300px.
+    .fluent-layout {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: var(--tw-space-3);
+        height: 100dvh;
+        max-height: 100dvh;
+        min-width: 300px;
+        overflow: hidden;
+
+        // standalone:
+        @media (display-mode: standalone) {
+            height: 100vh;
+            max-height: 100vh;
+        }
+    }
+}
