@@ -14,6 +14,7 @@ const buttonVariants = cva(
         destructive: "btn-destructive",
         outline: "btn-outline",
         secondary: "btn-secondary",
+        gold: "btn-gold",
         accent: "btn-accent",
         ghost: "btn-ghost",
         link: "btn-link",

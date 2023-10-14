@@ -9,6 +9,7 @@
 
     body {
         @apply bg-nb-primary text-nb-primary-foreground;
+        min-width: 320px;
     }
 
     a {

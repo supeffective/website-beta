@@ -1,9 +1,9 @@
 @layer components {
     .btn {
         @apply border-2 inline-flex items-center justify-center text-sm font-medium ring-offset-background;
-        @apply transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+        @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
         @apply focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
-        @apply no-underline;
+        @apply no-underline shadow-sm duration-300 transition-all active:shadow-none active:translate-y-[2px];
     }
 
     .btn {
@@ -13,6 +13,10 @@
 
         &-primary {
             @apply bg-primary text-primary-foreground hover:bg-primary/90;
+        }
+
+        &-gold {
+            @apply bg-nb-banana-gold text-primary-foreground hover:bg-nb-banana-gold/90;
         }
 
         &-destructive {

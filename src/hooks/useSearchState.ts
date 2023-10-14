@@ -34,7 +34,7 @@ export function useSearchState<T extends NewSearchState>(): UseSearchStateReturn
         const link = buildHref(window.location.href, newState);
 
         const newUrl = new URL(link.pathname);
-        newUrl.search = new URLSearchParams(link.query.entries).toString();
+        newUrl.search = new URLSearchParams(link.query).toString();
 
         router.push(newUrl.toString());
     }, [router, buildHref]);

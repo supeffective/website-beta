@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en" className="light">
       <body className={baseFont.className}>
         <MainMenu />
-        <main className="flex min-h-screen flex-col items-center justify-between p-4">
+        <main className="min-h-dvh flex flex-col items-center justify-between p-4">
           {children}
         </main>
         {modal}

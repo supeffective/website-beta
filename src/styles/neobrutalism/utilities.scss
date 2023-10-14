@@ -1,0 +1,11 @@
+@layer utilities {
+    .min-h-dvh {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    .min-w-dvw {
+        min-width: 100vw;
+        min-width: 100dvw;
+    }
+}

@@ -1,14 +1,16 @@
 'use client';
 
+import { useSearchState } from "@/hooks/useSearchState";
 import { cn } from "@/lib/utils";
 import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
-import { ReactElement, useState } from "react";
+import { ReactElement, ReactNode } from "react";
 import { Button } from "./button";
 
 type FloatingMenuProps = {
     radiusOpen?: number,
     radiusClosed?: number,
+    children?: ReactNode,
     buttons: Array<{
         className?: string,
         onClick?: () => void,
@@ -20,13 +22,14 @@ type FloatingMenuProps = {
 }
 
 export function FloatingMenu(props: FloatingMenuProps): ReactElement {
-    const [isOpen, setIsOpen] = useState(false)
+    const [search, setSearch] = useSearchState<{ menu?: string }>()
     const radiusOpen = props.radiusOpen ?? 60;
     const radiusClosed = props.radiusClosed ?? (radiusOpen * -1);
-    const { buttons } = props;
+    const { buttons, children: overlayContent } = props;
+    const isOpen = search.menu === '1'
 
-    function closeMenu() {
-        setIsOpen(false)
+    function setIsOpen(value: boolean) {
+        setSearch({ menu: value ? '1' : undefined })
     }
 
     function renderOverlay() {
@@ -34,13 +37,15 @@ export function FloatingMenu(props: FloatingMenuProps): ReactElement {
             return null;
         }
         return (
-            <div data-state={isOpen ? 'open' : 'closed'} className="fixed inset-0 z-40 bg-nb-primary data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+            <div data-state={isOpen ? 'open' : 'closed'} className="fixed inset-0 z-40 bg-nb-banana-gold data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
+                {overlayContent}
+            </div>
         )
     }
 
     function renderTrigger() {
         return (
-            <Button role="menu" title="Menu" tabIndex={0} className="pointer-events-auto transition-transform hover:scale-110" data-testid="trigger" variant={isOpen ? "primary" : "secondary"} radius="full" size="icon"
+            <Button title="Menu" tabIndex={0} className="pointer-events-auto transition-transform hover:scale-110" data-testid="trigger" variant={isOpen ? "primary" : "secondary"} radius="full" size="icon"
                 onClick={
                     () => setIsOpen(!isOpen)
                 }>
@@ -75,12 +80,7 @@ export function FloatingMenu(props: FloatingMenuProps): ReactElement {
                     return (
                         <div key={`btn-${index}`} className={className} style={_calculateTransform(buttons.length, index)}>
                             <Button tabIndex={isOpen ? 0 : -1} title={btn.title} radius="full" size="icon" className={btnClasses} asChild
-                                onClick={() => {
-                                    if (btn.onClick) {
-                                        btn.onClick()
-                                    }
-                                    closeMenu()
-                                }}>
+                                onClick={btn.onClick}>
                                 {child}
                             </Button>
                             {isOpen && btn.text && <div>{btn.text}</div>}

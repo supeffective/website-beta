@@ -107,6 +107,10 @@ const config: Config = {
           accent: 'rgb(var(--nb-accent))',
           'accent-foreground': 'rgb(var(--nb-accent-foreground))',
           //
+          'banana-gold': 'rgb(var(--nb-banana-gold))',
+          'berry-blue': 'rgb(var(--nb-berry-blue))',
+          'gum-pink': 'rgb(var(--nb-gum-pink))',
+          //
           'neon-cyan': 'rgb(var(--nb-neon-cyan))',
           'cyan-100': 'rgb(var(--nb-cyan-100))',
           'cyan-200': 'rgb(var(--nb-cyan-200))',
