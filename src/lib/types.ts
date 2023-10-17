@@ -15,5 +15,5 @@ export type PageProps<P extends Array<string> = [], S extends AppSearchParamKeys
 export type LayoutProps<K extends Array<string> = []> = {
   children: ReactNode
 } & {
-    [key in K[number]]: ReactNode
-  }
+  [key in K[number]]: ReactNode
+}

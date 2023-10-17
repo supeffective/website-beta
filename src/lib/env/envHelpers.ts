@@ -1,31 +1,31 @@
 function _getEnvName(): string {
-    return process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? 'development'
+  return process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? 'development'
 }
 
 export function hasDevFeaturesEnabled(): boolean {
-    return isDevelopmentEnv() && !isCIEnv()
+  return isDevelopmentEnv() && !isCIEnv()
 }
 
 export function isProductionEnv(): boolean {
-    return _getEnvName() === 'production'
+  return _getEnvName() === 'production'
 }
 
 export function isDevelopmentEnv(): boolean {
-    return _getEnvName() === 'development'
+  return _getEnvName() === 'development'
 }
 
 export function isPreviewEnv(): boolean {
-    return _getEnvName() === 'preview'
+  return _getEnvName() === 'preview'
 }
 
 export function isCIEnv(): boolean {
-    return process.env['CI'] === '1'
+  return process.env['CI'] === '1'
 }
 
 export function isServerSide(): boolean {
-    return typeof window === 'undefined'
+  return typeof window === 'undefined'
 }
 
 export function isClientSide(): boolean {
-    return typeof window !== 'undefined'
+  return typeof window !== 'undefined'
 }

@@ -9,7 +9,6 @@
 - ESLint: JS/TS linter
 - Bun: Test and TS script runner
 
-
 ## Design System Rules
 
 - Use Tailwind CSS classes as much as possible
@@ -32,7 +31,7 @@
 - You can use decorative elements like: raw unrefined shapes, Animated banners, neobrutalism images without background, neobrutalism illustrations, etc.
 - Allowed `sans-serif` fonts are: Lexend Mega, Public Sans, Archivo Black, Bebas Neue, and Maven Pro
 - Shadows:
-    - Have both X and Y
-    - Black or darkest colors
-    - 100% opaque
-    - No blur
+  - Have both X and Y
+  - Black or darkest colors
+  - 100% opaque
+  - No blur

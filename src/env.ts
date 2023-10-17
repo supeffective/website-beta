@@ -1,8 +1,8 @@
 import { z } from 'zod'
 import { parseEnvVars } from './lib/env'
 
-const BASE_DATA_URL = (process.env.APP_DATA_URL ?? process.env.NEXT_PUBLIC_APP_DATA_URL ?? '/static/data')
-const BASE_ASSETS_URL = (process.env.APP_ASSETS_URL ?? process.env.NEXT_PUBLIC_APP_ASSETS_URL ?? '/static/assets')
+const BASE_DATA_URL = process.env.APP_DATA_URL ?? process.env.NEXT_PUBLIC_APP_DATA_URL ?? '/static/data'
+const BASE_ASSETS_URL = process.env.APP_ASSETS_URL ?? process.env.NEXT_PUBLIC_APP_ASSETS_URL ?? '/static/assets'
 
 const serverVars = z.object({
   // static assets urls

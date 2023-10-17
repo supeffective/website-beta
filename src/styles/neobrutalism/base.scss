@@ -1,18 +1,18 @@
 @layer base {
-    * {
-        @apply border-border;
-    }
+  * {
+    @apply border-border;
+  }
 
-    html {
-        font-size: 18px;
-    }
+  html {
+    font-size: 18px;
+  }
 
-    body {
-        @apply bg-nb-primary text-nb-primary-foreground;
-        min-width: 320px;
-    }
+  body {
+    @apply bg-nb-primary text-nb-primary-foreground;
+    min-width: 320px;
+  }
 
-    a {
-        @apply underline hover:text-muted-foreground;
-    }
+  a {
+    @apply underline hover:text-muted-foreground;
+  }
 }

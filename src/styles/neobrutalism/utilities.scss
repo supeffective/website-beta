@@ -1,38 +1,38 @@
 @layer utilities {
-    .min-h-dvh {
-        min-height: 100vh;
-        min-height: 100dvh;
-    }
+  .min-h-dvh {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
 
-    .min-w-dvw {
-        min-width: 100vw;
-        min-width: 100dvw;
-    }
+  .min-w-dvw {
+    min-width: 100vw;
+    min-width: 100dvw;
+  }
 
-    .y-scrollable {
-        overflow-y: auto;
-        overscroll-behavior: none;
-        overflow-x: hidden;
-        max-width: 100%;
-    }
+  .y-scrollable {
+    overflow-y: auto;
+    overscroll-behavior: none;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
 
-    .x-scrollable {
-        overflow-x: auto;
-        overscroll-behavior: none;
-        overflow-y: hidden;
-        max-height: 100%;
-    }
+  .x-scrollable {
+    overflow-x: auto;
+    overscroll-behavior: none;
+    overflow-y: hidden;
+    max-height: 100%;
+  }
 
-    .full-words {
-        // A pattern that makes text wrap at word boundaries, without breaking word letters
-        overflow-wrap: normal;
-        hyphens: none;
-    }
+  .full-words {
+    // A pattern that makes text wrap at word boundaries, without breaking word letters
+    overflow-wrap: normal;
+    hyphens: none;
+  }
 
-    .full-word-break {
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        word-break: break-word;
-        hyphens: auto;
-    }
+  .full-word-break {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
 }

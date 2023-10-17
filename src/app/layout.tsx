@@ -1,4 +1,3 @@
-
 // Default Next.js font:
 // import { Inter } from 'next/font/google'
 
@@ -14,20 +13,12 @@ const baseFont = Reem_Kufi({ subsets: ['latin'] })
 
 export const metadata = config.baseMetadata
 
-export default function RootLayout({
-  children,
-  modal,
-}: {
-  children: React.ReactNode
-  modal?: React.ReactNode
-}) {
+export default function RootLayout({ children, modal }: { children: React.ReactNode; modal?: React.ReactNode }) {
   return (
     <html lang="en" className="light">
-      <body className={baseFont.className + " pt-safe-top pb-safe-bottom pr-safe-right pl-safe-left"}>
+      <body className={baseFont.className + ' pb-safe-bottom pl-safe-left pr-safe-right pt-safe-top'}>
         <MainMenu />
-        <main className="min-h-dvh flex flex-col items-center justify-between p-4">
-          {children}
-        </main>
+        <main className="min-h-dvh flex flex-col items-center justify-between p-4">{children}</main>
         {modal}
       </body>
     </html>

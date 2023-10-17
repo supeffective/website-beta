@@ -10,20 +10,16 @@ export function parseEnvVars<T extends Record<string, string | undefined>>(
   schema: {
     server: z.ZodObject<z.ZodRawShape>
     client: z.ZodObject<z.ZodRawShape>
-  }
+  },
 ): T {
   const serverSchema = schema.server
   const clientSchema = schema.client
-  const combinedSchema = isClientSide()
-    ? clientSchema
-    : serverSchema.merge(clientSchema)
+  const combinedSchema = isClientSide() ? clientSchema : serverSchema.merge(clientSchema)
 
   const parsed = combinedSchema.safeParse(envVars)
 
   if (!parsed.success) {
-    const errorMsg = `❌ Invalid environment variables: ${JSON.stringify(
-      parsed.error.flatten().fieldErrors
-    )}`
+    const errorMsg = `❌ Invalid environment variables: ${JSON.stringify(parsed.error.flatten().fieldErrors)}`
     console.log(envVars)
     throw new Error(errorMsg)
   }

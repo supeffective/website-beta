@@ -3,17 +3,15 @@ import animatePlugin from 'tailwindcss-animate'
 
 // Defaults: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js
 const config: Config = {
-  darkMode: ["class"],
-  content: [
-    './src/**/*.{ts,tsx}',
-  ],
+  darkMode: ['class'],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: '2rem',
       screens: {
-        "2xl": "1400px",
-        "standalone": { raw: "(display-mode: standalone)" },
+        '2xl': '1400px',
+        standalone: { raw: '(display-mode: standalone)' },
       },
     },
     // fontSize: {
@@ -54,51 +52,51 @@ const config: Config = {
     },
     extend: {
       spacing: {
-        "safe-top": "env(safe-area-inset-top, var(----safe-area-inset-fallback))",
-        "safe-right": "env(safe-area-inset-right, var(----safe-area-inset-fallback))",
-        "safe-bottom": "env(safe-area-inset-bottom, var(----safe-area-inset-fallback))",
-        "safe-left": "env(safe-area-inset-left, var(----safe-area-inset-fallback))"
+        'safe-top': 'env(safe-area-inset-top, var(----safe-area-inset-fallback))',
+        'safe-right': 'env(safe-area-inset-right, var(----safe-area-inset-fallback))',
+        'safe-bottom': 'env(safe-area-inset-bottom, var(----safe-area-inset-fallback))',
+        'safe-left': 'env(safe-area-inset-left, var(----safe-area-inset-fallback))',
       },
       colors: {
-        border: "rgb(var(--nb-borders))",
-        input: "rgb(var(--nb-input))",
-        ring: "rgb(var(--nb-ring))",
-        background: "rgb(var(--nb-background))",
-        foreground: "rgb(var(--nb-foreground))",
+        border: 'rgb(var(--nb-borders))',
+        input: 'rgb(var(--nb-input))',
+        ring: 'rgb(var(--nb-ring))',
+        background: 'rgb(var(--nb-background))',
+        foreground: 'rgb(var(--nb-foreground))',
         primary: {
-          DEFAULT: "rgb(var(--nb-primary))",
-          foreground: "rgb(var(--nb-primary-foreground))",
+          DEFAULT: 'rgb(var(--nb-primary))',
+          foreground: 'rgb(var(--nb-primary-foreground))',
         },
         secondary: {
-          DEFAULT: "rgb(var(--nb-secondary))",
-          foreground: "rgb(var(--nb-secondary-foreground))",
+          DEFAULT: 'rgb(var(--nb-secondary))',
+          foreground: 'rgb(var(--nb-secondary-foreground))',
         },
         accent: {
-          DEFAULT: "rgb(var(--nb-accent))",
-          foreground: "rgb(var(--nb-accent-foreground))",
+          DEFAULT: 'rgb(var(--nb-accent))',
+          foreground: 'rgb(var(--nb-accent-foreground))',
         },
         muted: {
-          DEFAULT: "rgb(var(--nb-muted))",
-          foreground: "rgb(var(--nb-muted-foreground))",
+          DEFAULT: 'rgb(var(--nb-muted))',
+          foreground: 'rgb(var(--nb-muted-foreground))',
         },
         destructive: {
-          DEFAULT: "rgb(var(--nb-red-400))",
-          foreground: "rgb(var(--nb-white))",
+          DEFAULT: 'rgb(var(--nb-red-400))',
+          foreground: 'rgb(var(--nb-white))',
         },
         popover: {
-          DEFAULT: "rgb(var(--nb-background))",
-          foreground: "rgb(var(--nb-foreground))",
+          DEFAULT: 'rgb(var(--nb-background))',
+          foreground: 'rgb(var(--nb-foreground))',
         },
         card: {
-          DEFAULT: "rgb(var(--nb-background))",
-          foreground: "rgb(var(--nb-foreground))",
+          DEFAULT: 'rgb(var(--nb-background))',
+          foreground: 'rgb(var(--nb-foreground))',
         },
         nb: {
-          DEFAULT: "rgb(var(--nb-primary))",
-          foreground: "rgb(var(--nb-black))",
-          background: "rgb(var(--nb-white))",
-          borders: "rgb(var(--nb-borders))",
-          shadows: "rgb(var(--nb-shadows))",
+          DEFAULT: 'rgb(var(--nb-primary))',
+          foreground: 'rgb(var(--nb-black))',
+          background: 'rgb(var(--nb-white))',
+          borders: 'rgb(var(--nb-borders))',
+          shadows: 'rgb(var(--nb-shadows))',
           //
           white: 'rgb(var(--nb-white))',
           black: 'rgb(var(--nb-black))',
@@ -151,18 +149,18 @@ const config: Config = {
         },
       },
       keyframes: {
-        "accordion-down": {
+        'accordion-down': {
           from: { height: '0' },
-          to: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
