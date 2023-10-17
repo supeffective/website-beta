@@ -8,7 +8,6 @@
 import { MainMenu } from '@/components/layout/main-menu'
 import config from '@/config'
 import { Reem_Kufi } from 'next/font/google'
-import { Suspense } from 'react'
 import '../styles/globals.scss'
 
 const baseFont = Reem_Kufi({ subsets: ['latin'] })
@@ -25,9 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body className={baseFont.className + " pt-safe-top pb-safe-bottom pr-safe-right pl-safe-left"}>
-        <Suspense>
-          <MainMenu />
-        </Suspense>
+        <MainMenu />
         <main className="min-h-dvh flex flex-col items-center justify-between p-4">
           {children}
         </main>

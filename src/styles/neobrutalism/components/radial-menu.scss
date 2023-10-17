@@ -1,0 +1,33 @@
+.radial-menu-overlay {
+    @apply fixed border-2 pt-safe-top pb-safe-bottom pr-safe-right pl-safe-left inset-0;
+    @apply z-40 bg-nb-banana-gold data-[state=open]:animate-in data-[state=closed]:animate-out;
+    @apply data-[state=closed]:fade-out-0 data-[state=open]:fade-in-100;
+}
+
+.radial-menu-container {
+    @apply fixed z-50 select-none bottom-0 left-0 right-0 pb-7 text-center pointer-events-none;
+}
+
+.radial-menu-trigger {
+    @apply pointer-events-auto transition-transform hover:scale-110;
+}
+
+.radial-menu-nav {
+    @apply text-center;
+}
+
+.radial-menu-item {
+    @apply inline-block w-[64px];
+
+    [data-state="open"] & {
+        @apply transition-all duration-300 ease-in-out opacity-100 pointer-events-auto;
+    }
+
+    [data-state="closed"] & {
+        @apply transition-all duration-300 ease-in-out opacity-0 pointer-events-none;
+    }
+}
+
+.radial-menu-btn {
+    @apply bg-nb-white hover:bg-nb-accent transition-transform hover:scale-110 aspect-square;
+}
