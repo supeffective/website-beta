@@ -1,0 +1,11 @@
+.git
+node_modules
+coverage
+.next
+.turbo
+build
+out
+public
+assets
+data
+

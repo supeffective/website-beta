@@ -5,15 +5,16 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "format": "bun lint-fix",
+    "format": "bun lint-fix && bun format-code && bun format-package-json",
+    "format-code": "prettier . --write",
     "format-package-json": "sort-package-json",
     "hooks:pre-commit": "bun lint-staged",
     "hooks:pre-push": "bun quality-checks",
     "postinstall": "bun format-package-json",
     "lint": "next lint",
-    "lint-fix": "next lint --fix && bun format-package-json",
+    "lint-fix": "next lint --fix",
     "prepare": "husky install",
-    "pretty": "bun format",
+    "pretty": "bun run format",
     "preview": "bun start",
     "quality-checks": "turbo build && turbo lint && turbo typelint && turbo test:ci",
     "quality-checks:ci": "bun quality-checks",
@@ -25,7 +26,11 @@
   },
   "lint-staged": {
     "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,mdx,yml,yaml}": [
+      "prettier --write"
     ],
     "package.json": [
       "sort-package-json"
@@ -57,9 +62,12 @@
     "bun": "^1.0.6",
     "eslint": "^8.51.0",
     "eslint-config-next": "13.5.4",
+    "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "postcss": "^8.4.31",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "publint": "^0.2.4",
     "sass": "^1.69.2",
     "sort-package-json": "^2.6.0",
