@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
-import { envVars } from './env'
-import { getBaseUrl } from './lib/utils/urls'
+import { getBaseUrl } from '../lib/utils/urls'
+import { clientEnvVars } from './clientEnvVars'
 
-export const BASE_DATA_URL = envVars.NEXT_PUBLIC_APP_DATA_URL
-export const BASE_ASSETS_URL = envVars.NEXT_PUBLIC_APP_ASSETS_URL
+export const BASE_DATA_URL = clientEnvVars.NEXT_PUBLIC_APP_DATA_URL
+export const BASE_ASSETS_URL = clientEnvVars.NEXT_PUBLIC_APP_ASSETS_URL
 
 const config = {
   version: '5.0.0',
@@ -42,7 +42,6 @@ const config = {
       },
     },
   },
-  env: envVars,
   baseMetadata: {} as Metadata,
 }
 
