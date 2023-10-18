@@ -17,7 +17,7 @@
     "pretty": "bun run format",
     "preview": "bun start",
     "quality-checks": "turbo build && turbo lint && turbo typelint && turbo test:ci",
-    "quality-checks:ci": "bun quality-checks",
+    "quality-checks:ci": "turbo lint && turbo typelint && turbo test:ci",
     "start": "next start",
     "test": "bun test",
     "test:ci": "bun test --coverage --bail=5 --ci",
