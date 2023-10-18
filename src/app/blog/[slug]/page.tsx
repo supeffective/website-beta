@@ -3,13 +3,15 @@ import { MarkdownPage } from '@/lib/services/mdx-cms/renderer'
 import { PageType } from '@/lib/services/mdx-cms/types'
 import { notFound } from 'next/navigation'
 
+const pageType = PageType.Blog
+
 export async function generateStaticParams() {
-  const pages = await fetchPages(PageType.Page)
+  const pages = await fetchPages(pageType)
 
   return pages
     .filter((page) => page.properties.slug)
     .map((page) => {
-      console.log('generateStaticParams', page.properties.slug)
+      console.log('generateStaticParams blog/', page.properties.slug)
       return {
         params: {
           slug: page.properties.slug,
@@ -19,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const page = await fetchPageBySlug(params.slug, PageType.Page)
+  const page = await fetchPageBySlug(params.slug, pageType)
   if (!page) {
     notFound()
   }

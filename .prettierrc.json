@@ -5,6 +5,7 @@
   "tabWidth": 2,
   "printWidth": 120,
   "singleQuote": true,
+  "proseWrap": "always",
   "jsxSingleQuote": false,
   "plugins": ["prettier-plugin-tailwindcss"]
 }

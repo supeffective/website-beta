@@ -13,7 +13,8 @@
 
 - Use Tailwind CSS classes as much as possible
 - Avoid having long Tailwind class lists inside `className` attributes (4 classes at max.)
-- Merge component classes using `@apply` directives inside `src/styles/*/components/*.scss` files (similar to Daisy UI's approach)
+- Merge component classes using `@apply` directives inside `src/styles/*/components/*.scss` files (similar to Daisy UI's
+  approach)
 - Configure new global variables also in the `tailwind.config.ts` file.
 - Use Neobrutalism Design
 
@@ -28,7 +29,8 @@
 - Spacing is defined with lines or cards
 - Don't use gradients or blur
 - Use large font sizes for headings or decoration
-- You can use decorative elements like: raw unrefined shapes, Animated banners, neobrutalism images without background, neobrutalism illustrations, etc.
+- You can use decorative elements like: raw unrefined shapes, Animated banners, neobrutalism images without background,
+  neobrutalism illustrations, etc.
 - Allowed `sans-serif` fonts are: Lexend Mega, Public Sans, Archivo Black, Bebas Neue, and Maven Pro
 - Shadows:
   - Have both X and Y
