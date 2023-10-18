@@ -1,0 +1,140 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "next",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.telemetry.disable": true,
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.framework.startCommand": "bun run dev",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Blog",
+      "path": "[[workspace]]/articles/blog",
+      "previewPath": "/blog/{{pathToken.relPath}}",
+      "contentTypes": ["blog"]
+    },
+    {
+      "title": "Page",
+      "path": "[[workspace]]/articles/page",
+      "previewPath": "/{{pathToken.relPath}}",
+      "contentTypes": ["page"]
+    },
+    {
+      "title": "Singleton",
+      "path": "[[workspace]]/articles/singleton",
+      "previewPath": "/{{pathToken.relPath}}",
+      "contentTypes": ["singleton"]
+    }
+  ],
+  "frontMatter.taxonomy.fieldGroups": [
+    {
+      "id": "generalFields",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "choice",
+          "choices": ["draft", "published", "archived"],
+          "default": "draft",
+          "required": true
+        },
+        {
+          "title": "Meta Title",
+          "name": "metaTitle",
+          "type": "string",
+          "single": true,
+          "required": true,
+          "default": "{{title}}"
+        },
+        {
+          "title": "Meta Description",
+          "name": "metaDescription",
+          "type": "string",
+          "single": false,
+          "required": true
+        },
+        {
+          "title": "Meta Robots",
+          "name": "robots",
+          "type": "choice",
+          "choices": ["noindex, nofollow", "index, follow"],
+          "default": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "blog",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "name": "general_fields",
+          "type": "fieldCollection",
+          "fieldGroup": "generalFields"
+        },
+        {
+          "title": "Publish Date",
+          "name": "publishedAt",
+          "type": "datetime",
+          "isPublishDate": true
+        },
+        {
+          "title": "Modification Date",
+          "name": "updatedAt",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "categories",
+          "multiple": false,
+          "taxonomyLimit": 1
+        },
+        {
+          "title": "Summary",
+          "name": "summary",
+          "type": "string",
+          "wysiwyg": true
+        }
+      ]
+    },
+    {
+      "name": "page",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "name": "fieldCollection1",
+          "type": "fieldCollection",
+          "fieldGroup": "generalFields"
+        }
+      ]
+    },
+    {
+      "name": "singleton",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "name": "fieldCollection1",
+          "type": "fieldCollection",
+          "fieldGroup": "generalFields"
+        }
+      ]
+    }
+  ]
+}

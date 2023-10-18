@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "eliostruyf.vscode-front-matter",
+    "unifiedjs.vscode-mdx",
+    "csstools.postcss",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
