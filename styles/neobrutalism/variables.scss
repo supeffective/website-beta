@@ -1,0 +1,100 @@
+// NEOBRUTALISM color palette - Created with ColorSlurp
+// colorslurp://x-callback-url/show-palettes?paletteId=4B8586E9-1D84-4143-8DEE-68A40C445400
+@layer base {
+  :root {
+    --radius: 0.375rem;
+    --safe-area-inset-fallback: 20px;
+
+    --nb-black: 0 0 0;
+    --nb-white: 255 243 232;
+    --nb-gray: 114 111 109;
+    --nb-light-gray: 203 196 191;
+
+    --nb-muted: 216 210 204; // white muted
+    --nb-muted-foreground: var(--nb-gray);
+
+    --nb-banana-gold: 255 184 2;
+    --nb-berry-blue: 2 73 255;
+    --nb-gum-pink: 255 145 231;
+
+    --nb-primary: 82 203 228; // cyan
+    --nb-primary-foreground: var(--nb-black);
+    --nb-secondary: var(--nb-berry-blue); // dark blue
+    --nb-secondary-foreground: var(--nb-white);
+    --nb-tertiary: 82 203 120; // green
+    --nb-tertiary-foreground: var(--nb-black);
+    --nb-accent: var(--nb-gum-pink); // chewing gum pink
+    --nb-accent-foreground: var(--nb-black);
+
+    // --nb-primary: 255 184 2; // gold
+    // --nb-primary-lighter: 255 220 2;
+    // --nb-primary-foreground: var(--nb-black);
+    // --nb-secondary: 2 73 255; // blue primary complementary / tetradic 2
+    // --nb-secondary-lighter: 52 107 248;
+    // --nb-secondary-foreground: var(--nb-white);
+
+    // --nb-primary: 46 2 204; // blue primary complementary / tetradic 2
+    // --nb-primary-lighter: 2 73 255;
+    // --nb-primary-foreground: var(--nb-white);
+    // --nb-secondary: 255 184 2; // gold
+    // --nb-secondary-lighter: 255 220 2;
+    // --nb-secondary-foreground: var(--nb-black);
+
+    --nb-neon-cyan: 125 249 254;
+    --nb-cyan-100: 218 244 241;
+    --nb-cyan-200: 167 219 218;
+    --nb-cyan-300: 134 206 235;
+    --nb-cyan-400: 82 203 228;
+
+    --nb-neon-green: 52 255 50;
+    --nb-green-100: 183 210 173;
+    --nb-green-200: 185 252 162;
+    --nb-green-300: 145 238 143;
+    --nb-green-400: 125 188 140;
+
+    --nb-neon-yellow: 255 255 5;
+    --nb-yellow-100: 251 252 180;
+    --nb-yellow-200: 254 219 86;
+    --nb-yellow-300: 239 194 38;
+    --nb-yellow-400: 227 161 23;
+
+    --nb-neon-red: 255 73 15;
+    --nb-red-100: 248 213 179;
+    --nb-red-200: 255 160 121;
+    --nb-red-300: 255 123 91;
+    --nb-red-400: 246 101 103;
+
+    --nb-neon-pink: 255 0 245;
+    --nb-pink-100: 252 223 255;
+    --nb-pink-200: 255 193 204;
+    --nb-pink-300: 255 178 239;
+    --nb-pink-400: 255 104 180;
+
+    --nb-neon-blue: 50 1 255;
+
+    --nb-purple-100: 227 223 242;
+    --nb-purple-200: 196 161 255;
+    --nb-purple-300: 162 136 236;
+    --nb-purple-400: 151 35 200;
+  }
+}
+
+@layer base {
+  :root {
+    --nb-input: var(--nb-white);
+    --nb-shadows: var(--nb-black);
+    --nb-borders: var(--nb-black);
+    --nb-ring: var(--nb-black);
+    --nb-background: var(--nb-white);
+    --nb-foreground: var(--nb-black);
+  }
+
+  .dark {
+    --nb-input: var(--nb-black);
+    --nb-shadows: var(--nb-light-gray);
+    --nb-borders: var(--nb-light-gray);
+    --nb-ring: var(--nb-white);
+    --nb-background: var(--nb-black);
+    --nb-foreground: var(--nb-white);
+  }
+}

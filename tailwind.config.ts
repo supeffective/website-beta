@@ -4,7 +4,13 @@ import animatePlugin from 'tailwindcss-animate'
 // Defaults: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js
 const config: Config = {
   darkMode: ['class'],
-  content: ['./src/**/*.{ts,tsx}'],
+  content: [
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './config/**/*.{ts,tsx}',
+    './lib/**/*.{ts,tsx}',
+    './styles/**/*.{ts,tsx}',
+  ],
   theme: {
     container: {
       center: true,
@@ -70,6 +76,10 @@ const config: Config = {
         secondary: {
           DEFAULT: 'rgb(var(--nb-secondary))',
           foreground: 'rgb(var(--nb-secondary-foreground))',
+        },
+        tertiary: {
+          DEFAULT: 'rgb(var(--nb-tertiary))',
+          foreground: 'rgb(var(--nb-tertiary-foreground))',
         },
         accent: {
           DEFAULT: 'rgb(var(--nb-accent))',

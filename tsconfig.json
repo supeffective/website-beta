@@ -19,9 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "resources1"]
+  "exclude": ["node_modules", "articles", "public", ".next", ".turbo", "build", "out"]
 }

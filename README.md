@@ -13,14 +13,14 @@
 
 - Use Tailwind CSS classes as much as possible
 - Avoid having long Tailwind class lists inside `className` attributes (4 classes at max.)
-- Merge component classes using `@apply` directives inside `src/styles/*/components/*.scss` files (similar to Daisy UI's
+- Merge component classes using `@apply` directives inside `styles/*/components/*.scss` files (similar to Daisy UI's
   approach)
 - Configure new global variables also in the `tailwind.config.ts` file.
 - Use Neobrutalism Design
 
 ### Neobrutalism Design Rules
 
-![Neobrutalism](resources/readme/shapes.webp)
+![Neobrutalism](assets/docs/neobrutalism-example.webp)
 
 - Use `black` for strokes and shadows
 - Main `background-color` should be other than black or gray.

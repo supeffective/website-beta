@@ -2,9 +2,10 @@
 
 - [ ] Homepage
 - [ ] Blog / news
-- [ ] Logo
-- [ ] Static text pages with Markdown (About, Contact, etc.)
-- [ ] Menu working without JS (a11y, SEO)
+- [ ] Add Logo
+- [x] Static text pages with Markdown (About, Contact, etc.)
+- [ ] Style MDX pages
+- [ ] Menu working without JS (a11y, SEO) or alternative
 - [ ] Generate optimized custom JSON data files for lists (e.g. Pokemon list)
 - [ ] Pokédex viewer with search and filters
 - [ ] Pokémon detail view (modal and page)
