@@ -9,7 +9,7 @@
     "format-code": "prettier . --write",
     "format-package-json": "sort-package-json",
     "hooks:pre-commit": "pnpm lint-staged",
-    "hooks:pre-push": "pnpm quality-checks",
+    "hooks:pre-push": "pnpm quality-checks:ci",
     "postinstall": "pnpm format-package-json",
     "lint": "next lint",
     "lint-fix": "next lint --fix",
