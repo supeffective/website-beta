@@ -1,4 +1,5 @@
 export enum PageType {
+  Singleton = 'singleton',
   Page = 'page',
   Post = 'post',
 }

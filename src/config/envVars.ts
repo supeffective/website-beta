@@ -9,6 +9,7 @@ const envVarSchema = z.object({
   APP_ASSETS_URL: z.string().url(),
   // notion
   NOTION_TOKEN: z.string(),
+  NOTION_SINGLETON_PAGES_DATABASE_ID: z.string(),
   NOTION_PAGES_DATABASE_ID: z.string(),
   NOTION_BLOG_DATABASE_ID: z.string(),
 })
@@ -23,6 +24,7 @@ const initialEnvVars: {
   APP_ASSETS_URL: process.env.APP_ASSETS_URL ?? '/static/assets',
   // notion
   NOTION_TOKEN: process.env.NOTION_TOKEN,
+  NOTION_SINGLETON_PAGES_DATABASE_ID: process.env.NOTION_SINGLETON_PAGES_DATABASE_ID,
   NOTION_PAGES_DATABASE_ID: process.env.NOTION_PAGES_DATABASE_ID,
   NOTION_BLOG_DATABASE_ID: process.env.NOTION_BLOG_DATABASE_ID,
 }

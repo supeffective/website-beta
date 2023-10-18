@@ -1,6 +1,7 @@
 import 'server-only'
 
 import { envVars } from '@/config/envVars'
+import { waitMs } from '@/lib/utils'
 import { Client } from '@notionhq/client'
 import {
   BlockObjectResponse,
@@ -10,12 +11,64 @@ import {
 import { cache } from 'react'
 import { PageEntry, PageProperty, PageStatus, PageType } from './types'
 
+// Wait 1s between requests to avoid rate limiting issues (Notion API allows 3 requests per second)
+const SLOWDOWN_MS = 1000
+
 export const notionClient = new Client({
   auth: envVars.NOTION_TOKEN,
 })
 
-function getDatabaseId(pageType: PageType) {
+export const fetchPages = cache(async (pageType: PageType) => {
+  console.log('notion: fetchPages', pageType)
+  const query: QueryDatabaseParameters = {
+    database_id: _getDatabaseId(pageType),
+    filter: {
+      property: PageProperty.Status,
+      status: {
+        equals: PageStatus.Published,
+      },
+    },
+  }
+  const pages = await notionClient.databases
+    .query(query)
+    .then((res) => res.results.map((page) => _transformPage(page as PageObjectResponse, pageType)))
+
+  await waitMs(SLOWDOWN_MS)
+  return pages
+})
+
+export const fetchPageBySlug = cache(async (slug: string, pageType: PageType) => {
+  console.log('notion: fetchPageBySlug', slug)
+  const page = await notionClient.databases
+    .query({
+      database_id: _getDatabaseId(pageType),
+      filter: {
+        property: PageProperty.Slug,
+        rich_text: {
+          equals: slug,
+        },
+      },
+    })
+    .then((res) => (res.results[0] ? _transformPage(res.results[0] as PageObjectResponse, pageType) : null))
+
+  await waitMs(SLOWDOWN_MS)
+  return page
+})
+
+export const fetchPageBlocks = cache(async (pageId: string) => {
+  console.log('notion: fetchPageBlocks', pageId)
+  const blocks = await notionClient.blocks.children
+    .list({ block_id: pageId })
+    .then((res) => res.results as BlockObjectResponse[])
+
+  await waitMs(SLOWDOWN_MS)
+  return blocks
+})
+
+function _getDatabaseId(pageType: PageType) {
   switch (pageType) {
+    case PageType.Singleton:
+      return envVars.NOTION_SINGLETON_PAGES_DATABASE_ID
     case PageType.Page:
       return envVars.NOTION_PAGES_DATABASE_ID
     case PageType.Post:
@@ -25,43 +78,7 @@ function getDatabaseId(pageType: PageType) {
   }
 }
 
-export const fetchPages = cache((pageType: PageType) => {
-  const query: QueryDatabaseParameters = {
-    database_id: getDatabaseId(pageType),
-    filter: {
-      property: PageProperty.Status,
-      status: {
-        equals: PageStatus.Published,
-      },
-    },
-  }
-  console.log('notion: fetchPages', pageType, query)
-  return notionClient.databases
-    .query(query)
-    .then((res) => res.results.map((page) => transformPage(page as PageObjectResponse, pageType)))
-})
-
-export const fetchPageBySlug = cache(async (slug: string, pageType: PageType) => {
-  console.log('notion: fetchPageBySlug', slug, pageType)
-  return notionClient.databases
-    .query({
-      database_id: getDatabaseId(pageType),
-      filter: {
-        property: PageProperty.Slug,
-        rich_text: {
-          equals: slug,
-        },
-      },
-    })
-    .then((res) => (res.results[0] ? transformPage(res.results[0] as PageObjectResponse, pageType) : null))
-})
-
-export const fetchPageBlocks = cache(async (pageId: string) => {
-  console.log('notion: fetchPageBlocks', pageId)
-  return notionClient.blocks.children.list({ block_id: pageId }).then((res) => res.results as BlockObjectResponse[])
-})
-
-function transformPage(notionPage: PageObjectResponse, pageType: PageType): PageEntry {
+function _transformPage(notionPage: PageObjectResponse, pageType: PageType): PageEntry {
   const page: Record<string, any> = {
     id: notionPage.id,
     type: pageType,
