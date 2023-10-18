@@ -31,4 +31,4 @@ runs:
           turbo-${{ github.job }}-${{ github.ref_name }}-
 
     - shell: bash
-      run: bun install --frozen-lockfile
+      run: pnpm install --frozen-lockfile

@@ -18,31 +18,31 @@ Here are the basic commands you'll need to get started:
 ```sh
 
 # Install dependencies
-bun install
+pnpm install
 
 # Start the dev server
-bun run dev
+pnpm dev
 
 # Build dist files
-bun build
+pnpm build
 
 # Run tests
-bun test
+pnpm test
 
 # Run tests with coverage
-bun test:coverage
+pnpm test:coverage
 
 # Lint (formatter and linter)
-bun lint
+pnpm lint
 
 # Format (fixes linting and formatting issues)
-bun lint-fix
+pnpm lint-fix
 
 # Type check
-bun typelint
+pnpm typelint
 
 # Run all quality checks (prettier-check, type-check, lint, build, publint, test)
-bun quality-checks
+pnpm quality-checks
 
 ```
 
@@ -51,7 +51,7 @@ bun quality-checks
 We use `bun` to run tests. You can run all tests with:
 
 ```sh
-bun test
+pnpm test
 ```
 
 Tests ending with `*.test.tsx` or `*.dom.test.ts` are considered browser tests and will be run in a browser-like

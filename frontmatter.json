@@ -4,7 +4,7 @@
   "frontMatter.content.publicFolder": "public",
   "frontMatter.telemetry.disable": true,
   "frontMatter.preview.host": "http://localhost:3000",
-  "frontMatter.framework.startCommand": "bun run dev",
+  "frontMatter.framework.startCommand": "pnpm run dev",
   "frontMatter.content.pageFolders": [
     {
       "title": "Blog",

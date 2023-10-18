@@ -25,7 +25,7 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: 'Update all dependencies'
-        run: bun update --latest
+        run: pnpm update --latest
 
       - name: 'Check code quality'
         uses: ./.github/actions/check-quality

@@ -4,7 +4,8 @@
 
 - Next.js: React framework
 - Tailwind CSS + SCSS: Styling framework
-- Bun: Package manager, Test runner and TS script runner
+- PNPM: Package manager
+- Bun: Test runner and TS script runner
 - Turbo: Package script runner
 - ESLint: JS/TS linter
 - Bun: Test and TS script runner
