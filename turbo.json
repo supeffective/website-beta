@@ -4,6 +4,9 @@
     "build": {
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "build:vercel": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
     "lint": {}
   }
 }
