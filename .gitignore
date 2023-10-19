@@ -71,3 +71,6 @@ build/
 
 # Sentry Config File
 .sentryclirc
+
+# Draw.io backlup files
+*.bkp
