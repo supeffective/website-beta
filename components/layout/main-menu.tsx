@@ -19,8 +19,6 @@ export function MainMenu() {
     }, 125)
   }
 
-  console.log('session', session)
-
   return (
     <RadialMenu
       isOpen={isOpen}

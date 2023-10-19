@@ -9,7 +9,7 @@ export async function generateStaticParams() {
   return pages
     .filter((page) => page.properties.slug)
     .map((page) => {
-      console.log('generateStaticParams', page.properties.slug)
+      // console.log('generateStaticParams', page.properties.slug)
       return {
         params: {
           slug: page.properties.slug,

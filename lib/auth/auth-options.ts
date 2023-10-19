@@ -38,7 +38,7 @@ export const authOptions: NextAuthOptions = {
           token.tier = patreonCampaign.tierIds.none
         }
       }
-      console.log('jwt callback', params)
+      // console.log('jwt callback', params)
       return token
     },
   },

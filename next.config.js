@@ -29,7 +29,7 @@ module.exports = withSentryConfig(
     transpileClientSDK: false,
 
     // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
-    tunnelRoute: '/monitoring',
+    // tunnelRoute: '/monitoring', // has CORS issues
 
     // Hides source maps from generated client bundles
     hideSourceMaps: true,
