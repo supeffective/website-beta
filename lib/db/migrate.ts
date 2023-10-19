@@ -1,3 +1,3 @@
 import { migrate } from './client'
 
-migrate()
+await migrate()

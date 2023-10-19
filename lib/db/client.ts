@@ -31,7 +31,7 @@ const _initDrizzleClient = (): [DrizzleMysqlClient, () => Promise<void>] => {
       planetscaleClient,
       async () => {
         console.log('[drizzle-orm] Running migrations...')
-        planetscale_migrate(planetscaleClient, { migrationsFolder })
+        await planetscale_migrate(planetscaleClient, { migrationsFolder })
         console.log('[drizzle-orm] Migrations done.')
       },
     ]
@@ -63,19 +63,16 @@ const _initDrizzleClient = (): [DrizzleMysqlClient, () => Promise<void>] => {
         password: envVars.DB_PASSWORD,
         database: envVars.DB_DATABASE,
         port: parseInt(envVars.DB_PORT),
-        connectTimeout: 2000,
-        connectionLimit: 1,
-        maxIdle: 1,
       })
       const mysqlMigrationsClient = mysql_drizzle(mysqlMigrationsConnection)
-      mysql_migrate(mysqlMigrationsClient, { migrationsFolder })
+      await mysql_migrate(mysqlMigrationsClient, { migrationsFolder })
       console.log('[drizzle-orm] Migrations done.')
       process.exit(0)
     },
   ]
 }
 
-function _getDrizzleGlobals(): [DrizzleMysqlClient, () => void] {
+function _getDrizzleGlobals(): [DrizzleMysqlClient, () => Promise<void>] {
   if (globalForDrizzle.drizzleDb !== undefined && globalForDrizzle.drizzleMigrate !== undefined) {
     return [globalForDrizzle.drizzleDb, globalForDrizzle.drizzleMigrate]
   }
