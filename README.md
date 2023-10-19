@@ -2,13 +2,36 @@
 
 ## Tech stack
 
-- Next.js: React framework
-- Tailwind CSS + SCSS: Styling framework
+### Development Tools
+
+- Node: JS runtime
 - PNPM: Package manager
-- Bun: Test runner and TS script runner
 - Turbo: Package script runner
 - ESLint: JS/TS linter
-- Bun: Test and TS script runner
+- Prettier: Code formatter
+- Bun: Test and TS script runner (replacing tsx, ts-node, jest, etc.)
+- VSCode + Front Matter CMS VSCode extension: IDE + CMS
+
+### Architecture
+
+- Next.js: React framework
+- Tailwind CSS + SCSS: Styling framework
+- MDX + Front Matter CMS: Static content management (pages, blog posts, etc.)
+- Next Auth / Auth.js: Authentication via email (magic link) or OAuth
+- MySQL: Database engine
+- Drizzle ORM: Database abstraction layer
+
+### Providers
+
+- OAuth: Google, GitHub, Discord & Patreon
+- Github Pages: Hosting & CDN origin for static files (JSON data, sprites)
+- CloudFlare: CDN proxy and DNS
+- Vercel: Serverless provider
+- PlanetScale: Serverless MySQL databases
+- Sentry: Error tracking
+- Resend: Transactional emails
+- Google Search Console: SEO
+- Google Analytics: Analytics
 
 ## Design System Rules
 

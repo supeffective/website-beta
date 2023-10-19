@@ -8,3 +8,5 @@ out
 public
 assets
 data
+db/migrations
+db/seeders

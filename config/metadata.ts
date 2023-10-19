@@ -15,7 +15,7 @@ const baseMetadata: Metadata = {
     capable: true,
   },
   manifest: '/manifest.json',
-  themeColor: '#52CBE3',
+  themeColor: config.themeColor,
   viewport: {
     // 'width=device-width, initial-scale=1, viewport-fit=cover',
     width: 'device-width',

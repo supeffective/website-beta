@@ -1,4 +1,4 @@
-import 'server-only'
+import '@/lib/server-only'
 
 import { appConfig } from '@/config'
 import { BoxPreset, Pokedex, Pokemon, getAllBoxPresets, getAllPokedexes, getAllPokemon } from '@supeffective/dataset'

@@ -3,6 +3,7 @@ import { clientEnvVars } from './env-client'
 
 const config = {
   version: '5.0.0',
+  themeColor: '#52CBE3',
   texts: {
     siteName: 'SuperEffective',
     standaloneTitle: 'SuperEffective',
@@ -29,8 +30,8 @@ const config = {
     },
   },
   static: {
-    dataUrl: clientEnvVars.NEXT_PUBLIC_APP_DATA_URL,
-    imagesUrl: `${clientEnvVars.NEXT_PUBLIC_APP_ASSETS_URL}/images`,
+    dataUrl: clientEnvVars.NEXT_PUBLIC_PKM_DATA_URL,
+    imagesUrl: `${clientEnvVars.NEXT_PUBLIC_PKM_ASSETS_URL}/images`,
     versions: {
       images: {
         stable: '20230809-01',

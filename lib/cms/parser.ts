@@ -1,4 +1,4 @@
-import 'server-only'
+import '@/lib/server-only'
 
 import { envVars } from '@/config/env-server'
 import fg from 'fast-glob'
