@@ -21,7 +21,7 @@
 
 ### Neobrutalism Design Rules
 
-![Neobrutalism](assets/docs/neobrutalism-example.webp)
+![Neobrutalism](components/assets/docs/neobrutalism-example.webp)
 
 - Use `black` for strokes and shadows
 - Main `background-color` should be other than black or gray.
