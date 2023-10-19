@@ -1,15 +1,22 @@
 .radial-menu-overlay {
-  @apply fixed inset-0 border-2 pb-safe-bottom pl-safe-left pr-safe-right pt-safe-top;
+  @apply fixed inset-0 border-y-2 pb-safe-bottom pl-safe-left pr-safe-right pt-safe-top standalone:border-y-0;
   @apply z-40 bg-nb-banana-gold data-[state=open]:animate-in data-[state=closed]:animate-out;
   @apply data-[state=closed]:fade-out-0 data-[state=open]:fade-in-100;
+  @apply pointer-events-none select-none overflow-hidden;
+  .with-open-menu & {
+    @apply pointer-events-auto select-auto;
+  }
 }
 
 .radial-menu-container {
   @apply pointer-events-none fixed bottom-0 left-0 right-0 z-50 select-none pb-7 text-center;
+  .with-open-menu & {
+    @apply pointer-events-auto;
+  }
 }
 
 .radial-menu-trigger {
-  @apply pointer-events-auto transition-transform hover:scale-110;
+  @apply pointer-events-auto select-none transition-transform hover:scale-110;
 }
 
 .radial-menu-nav {
@@ -31,3 +38,14 @@
 .radial-menu-btn {
   @apply aspect-square bg-nb-white transition-transform hover:scale-110 hover:bg-nb-accent;
 }
+
+html.with-open-menu,
+html.with-open-menu body,
+html.with-open-menu main {
+  @apply pointer-events-none select-none overflow-hidden;
+}
+
+// html.with-open-menu,
+// html.with-open-menu body {
+//   @apply bg-nb-banana-gold;
+// }

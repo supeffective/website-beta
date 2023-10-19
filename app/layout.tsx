@@ -16,11 +16,11 @@ export const metadata = baseMetadata
 
 export default function RootLayout({ children, modal }: { children: React.ReactNode; modal?: React.ReactNode }) {
   return (
-    <html lang="en" className="light">
-      <body className={baseFont.className + ' pb-safe-bottom pl-safe-left pr-safe-right pt-safe-top'}>
+    <html lang="en" className="light standalone-mobile-app">
+      <body className={baseFont.className}>
         <NextAuthProvider>
           <MainMenu />
-          <main className="min-h-dvh flex flex-col items-center justify-between p-4">{children}</main>
+          <main className="flex flex-col items-center justify-between p-4">{children}</main>
           {modal}
         </NextAuthProvider>
       </body>

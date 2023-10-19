@@ -1,12 +1,59 @@
 @layer utilities {
-  .min-h-dvh {
-    min-height: 100vh;
+  html.standalone-mobile-app {
+    @apply overscroll-none;
+    body {
+      @apply p-safe standalone:min-h-100vmax min-h-100vmin;
+      > main {
+        @apply p-4;
+      }
+    }
+    a {
+      -webkit-touch-callout: none !important; // disable preview links on long press
+      -webkit-tap-highlight-color: transparent; // disable tap highlight
+      -webkit-user-drag: none; // disable dragging of links
+    }
+  }
+
+  .p-safe {
+    @apply pb-safe-bottom pl-safe-left pr-safe-right pt-safe-top;
+  }
+
+  .px-safe {
+    @apply pl-safe-left pr-safe-right;
+  }
+
+  .py-safe {
+    @apply pb-safe-bottom pt-safe-top;
+  }
+
+  // 100% Large Viewport Height
+  .min-h-100lvh {
+    min-height: 100lvh;
+  }
+
+  // 100% Small Viewport Height
+  .min-h-100svh {
+    min-height: 100lvmin;
+  }
+
+  // 100% Dynamic Viewport Height
+  .min-h-100dvh {
     min-height: 100dvh;
   }
 
-  .min-w-dvw {
-    min-width: 100vw;
-    min-width: 100dvw;
+  // 100% Viewport Height
+  .min-h-100vh {
+    min-height: 100vh;
+  }
+
+  // 100% Maximum Viewport Height
+  .min-h-100vmax {
+    min-height: 100vmax;
+  }
+
+  // 100% Minimum Viewport Height
+  .min-h-100vmin {
+    min-height: 100vmin;
   }
 
   .y-scrollable {

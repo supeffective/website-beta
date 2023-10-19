@@ -2,7 +2,7 @@
 
 import { MenuIcon, XIcon } from 'lucide-react'
 import Link from 'next/link'
-import { ReactElement, ReactNode } from 'react'
+import { ReactElement, ReactNode, useEffect } from 'react'
 import { Button } from './button'
 
 type RadialMenuProps = {
@@ -25,6 +25,14 @@ export function RadialMenu(props: RadialMenuProps): ReactElement {
   const radiusOpen = props.radiusOpen ?? 60
   const radiusClosed = props.radiusClosed ?? radiusOpen * -1
   const { isOpen, onTriggerClick, buttons, children: overlayContent } = props
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('with-open-menu', isOpen)
+
+    return () => {
+      document.documentElement.classList.remove('with-open-menu')
+    }
+  }, [isOpen])
 
   function renderOverlay() {
     if (!isOpen) {

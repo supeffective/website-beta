@@ -19,6 +19,7 @@ const baseMetadata: Metadata = {
   viewport: {
     // 'width=device-width, initial-scale=1, viewport-fit=cover',
     width: 'device-width',
+    height: 'device-height',
     initialScale: 1,
     minimumScale: 1,
     maximumScale: 1,

@@ -57,6 +57,10 @@ const config: Config = {
       none: 'none',
     },
     extend: {
+      screens: {
+        '2xl': '1400px',
+        standalone: { raw: '(display-mode: standalone)' },
+      },
       spacing: {
         'safe-top': 'env(safe-area-inset-top, var(----safe-area-inset-fallback))',
         'safe-right': 'env(safe-area-inset-right, var(----safe-area-inset-fallback))',
