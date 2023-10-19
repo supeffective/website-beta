@@ -1,13 +1,9 @@
-import { UserRecord } from './lib/auth/types'
+import { UserRecord, UserSession } from './lib/auth/types'
 
 declare module 'next-auth' {
   interface Session {
-    user: {
-      id: UserRecord['id']
-      name?: UserRecord['name']
-      email: UserRecord['email']
-      image?: UserRecord['image']
-    }
+    user?: UserSession['user']
+    expires: UserSession['expires']
   }
 }
 

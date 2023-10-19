@@ -19,6 +19,8 @@ export function MainMenu() {
     }, 125)
   }
 
+  console.log('session', session)
+
   return (
     <RadialMenu
       isOpen={isOpen}
@@ -57,7 +59,11 @@ export function MainMenu() {
         </Button>
         <div className="text-center">
           <div className="text-3xl font-extrabold">SupEffective</div>
-          {user && <div>{user.email}</div>}
+          {user && (
+            <div>
+              {user.email} - {user.provider}
+            </div>
+          )}
         </div>
         <div className="flex flex-col gap-2">
           {user && (
