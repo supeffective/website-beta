@@ -1,5 +1,5 @@
 function _getEnvName(): string {
-  return process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? 'development'
+  return process.env.APP_ENV ?? process.env.NODE_ENV ?? 'development'
 }
 
 export function hasDevFeaturesEnabled(): boolean {
