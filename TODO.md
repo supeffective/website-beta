@@ -1,7 +1,7 @@
 # TO-DO
 
 - [ ] Homepage
-- [ ] Blog / news
+- [x] Blog / news CMS
 - [ ] Add Logo
 - [x] Static text pages with Markdown (About, Contact, etc.)
 - [ ] Style MDX pages
@@ -12,8 +12,10 @@
 - [ ] Game list viewer (by year, or by generation, by region, by console, etc.)
 - [ ] Game list viewer: Game detail (data, obtainable Pokémon, pokedexes, box presets, etc.)
 - [ ] Box Preset viewer
-- [ ] Database abstraction layer with migration support
+- [x] Database abstraction layer with migration support
+- [ ] Login/Registration with OAuth (Google, Github, Patreon, Discord)
 - [ ] Login/Registration with Magic Link
+- [x] Error monitoring and alerting (Sentry?)
 - [ ] User profile page
 - [ ] User profile editor (email, user handle, display name, avatar, etc.)
 - [ ] Living Dex viewer

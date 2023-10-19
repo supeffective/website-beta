@@ -68,3 +68,6 @@ build/
 .vite/
 *.timestamp-*.mjs
 *.timestamp-*.js
+
+# Sentry Config File
+.sentryclirc
