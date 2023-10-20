@@ -5,10 +5,6 @@
   "short_name": "SuperEffective",
   "start_url": "/",
   "scope": "/",
-  "display_override": [
-    "window-controls-overlay",
-    "minimal-ui"
-  ],
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#52CBE3",

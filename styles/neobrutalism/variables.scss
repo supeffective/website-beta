@@ -1,5 +1,7 @@
 // NEOBRUTALISM color palette - Created with ColorSlurp
-// colorslurp://x-callback-url/show-palettes?paletteId=4B8586E9-1D84-4143-8DEE-68A40C445400
+// @see https://neobrutalism-components.vercel.app
+// @see https://bootcamp.uxdesign.cc/how-can-i-design-in-the-neo-brutalism-style-d85c458042de
+// @see https://www.figchallenge.com
 @layer base {
   :root {
     --radius: 0.375rem;
@@ -62,14 +64,15 @@
 @layer base {
   :root {
     // Color Aliases (space-separated RGB values only)
-    // - Element groups
+    //// Element category colors
     --nb-input: var(--nb-white);
     --nb-shadows: var(--nb-black);
     --nb-borders: var(--nb-black);
     --nb-ring: var(--nb-black);
     --nb-background: var(--nb-white);
     --nb-foreground: var(--nb-black);
-    // - Color aliases
+
+    //// Important colors
     --nb-primary: var(--nb-cyan-400); // cyan
     --nb-primary-foreground: var(--nb-black);
     --nb-secondary: var(--nb-berry-blue); // dark blue
@@ -79,20 +82,6 @@
     --nb-accent: var(--nb-gum-pink); // chewing gum pink
     --nb-accent-foreground: var(--nb-black);
 
-    // --nb-primary: 255 184 2; // gold
-    // --nb-primary-lighter: 255 220 2;
-    // --nb-primary-foreground: var(--nb-black);
-    // --nb-secondary: 2 73 255; // blue primary complementary / tetradic 2
-    // --nb-secondary-lighter: 52 107 248;
-    // --nb-secondary-foreground: var(--nb-white);
-
-    // --nb-primary: 46 2 204; // blue primary complementary / tetradic 2
-    // --nb-primary-lighter: 2 73 255;
-    // --nb-primary-foreground: var(--nb-white);
-    // --nb-secondary: 255 184 2; // gold
-    // --nb-secondary-lighter: 255 220 2;
-    // --nb-secondary-foreground: var(--nb-black);
-
     // Scrollbars:
     --scrollbar-width: 10px;
     --scrollbar-track-color: theme('colors.cyan.200');
@@ -100,13 +89,4 @@
     --scrollbar-thumb-radius: 6px;
     --scrollbar-thumb-border: 2px solid theme('colors.black');
   }
-
-  // .dark {
-  //   --nb-input: var(--nb-black);
-  //   --nb-shadows: var(--nb-light-gray);
-  //   --nb-borders: var(--nb-light-gray);
-  //   --nb-ring: var(--nb-white);
-  //   --nb-background: var(--nb-black);
-  //   --nb-foreground: var(--nb-white);
-  // }
 }

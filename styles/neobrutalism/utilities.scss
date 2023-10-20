@@ -1,25 +1,11 @@
 @layer utilities {
-  /*
-        'titlebar-area-left': 'env(titlebar-area-x, 0)',
-        'titlebar-area-top': 'env(titlebar-area-y, 0)',
-        'titlebar-area-width': 'env(titlebar-area-width, 100%)',
-        'titlebar-area-height': 'env(titlebar-area-height, 33px)',
-        left: env(titlebar-area-x, 0);
-  /* Use the environment variable for the top anchoring with a fallback. 
-  top: env(titlebar-area-y, 0);
-  /* Use the environment variable for setting the width with a fallback. 
-  width: env(titlebar-area-width, 100%);
-  /* Use the environment variable for setting the height with a fallback. 
-  height: env(titlebar-area-height, 33px);
-        */
-
   .pwa-titlebar-area {
     position: fixed;
     background: theme('colors.primary.DEFAULT');
     left: env(titlebar-area-x, 0);
     top: env(titlebar-area-y, 0);
-    width: env(titlebar-area-width, 0);
-    height: env(titlebar-area-height, 0);
+    width: env(titlebar-area-width, 100%);
+    height: env(titlebar-area-height, 33px);
   }
 
   .styled-scrollbar {
@@ -41,9 +27,6 @@
 
   html.pwa-app {
     @apply styled-scrollbar overscroll-none;
-    &.pwa-window-controls {
-      padding-top: env(titlebar-area-height, 0);
-    }
     body {
       @apply p-safe standalone:min-h-100vmax min-h-100vmin;
       > main {

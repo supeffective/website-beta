@@ -6,13 +6,6 @@
   .with-open-menu & {
     @apply pointer-events-auto select-auto;
   }
-  .pwa-window-controls & {
-    top: env(titlebar-area-height, 0);
-  }
-}
-
-.with-open-menu .pwa-titlebar-area {
-  @apply bg-nb-banana-gold;
 }
 
 .radial-menu-container {
