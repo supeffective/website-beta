@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { RadialMenu } from '../ui/radial-menu'
 
-export function MainMenu() {
+export function NavBottomMenu() {
   const [isOpen, setIsOpen] = useState(false)
   const { data: session, status } = useSession()
   const isLoggedIn = status === 'authenticated' && session?.user
@@ -49,8 +49,8 @@ export function MainMenu() {
         },
         {
           children: <BookOpenIcon />,
-          href: '/pokedex/national',
-          title: 'National Pokédex',
+          href: '/pokedex',
+          title: 'Pokédex',
           text: 'Pokédex',
           onClick: closeMenu,
         },
@@ -81,12 +81,12 @@ export function MainMenu() {
           {user && (
             <>
               <Button title="Profile" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-                <Link href="/profile">
+                <Link href="/profile" scroll={false}>
                   <User2Icon />
                 </Link>
               </Button>
               <Button title="Logout" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-                <Link href="/auth/signout">
+                <Link href="/auth/signout" scroll={false}>
                   <LogOutIcon />
                 </Link>
               </Button>
@@ -94,7 +94,7 @@ export function MainMenu() {
           )}
           {!user && (
             <Button title="Sign In" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-              <Link href={signInUrl}>
+              <Link href={signInUrl} scroll={false}>
                 <User2Icon />
               </Link>
             </Button>

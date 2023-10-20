@@ -13,7 +13,6 @@
     scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
     &::-webkit-scrollbar {
       width: var(--scrollbar-width);
-      padding: var(--scrollbar-width);
     }
     &::-webkit-scrollbar-track {
       background: var(--scrollbar-track-color);
@@ -22,6 +21,7 @@
       background-color: var(--scrollbar-thumb-color);
       border-radius: var(--scrollbar-thumb-radius);
       border: var(--scrollbar-thumb-border);
+      background-clip: padding-box;
     }
   }
 

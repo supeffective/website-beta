@@ -13,6 +13,6 @@
   }
 
   a {
-    @apply underline hover:text-muted-foreground;
+    @apply underline hover:no-underline;
   }
 }

@@ -4,10 +4,11 @@
 // Neobrutalism fonts:
 // import { Lexend_Mega, Public_Sans, Archivo_Black, Bebas_Neue, Maven_Pro, Reem_Kufi } from 'next/font/google'
 
+import { NavTopMenu } from '@/components/layout/nav-top'
 import { baseMetadata } from '@/config'
 import { NextAuthProvider } from '@/lib/auth/components'
 import { Reem_Kufi } from 'next/font/google'
-import { MainMenu } from '../components/layout/main-menu'
+import { NavBottomMenu } from '../components/layout/nav-bottom'
 import '../styles/globals.scss'
 
 const baseFont = Reem_Kufi({ subsets: ['latin'] })
@@ -19,8 +20,11 @@ export default function RootLayout({ children, modal }: { children: React.ReactN
     <html lang="en" className="light pwa-app">
       <body className={baseFont.className}>
         <NextAuthProvider>
-          <MainMenu />
-          <main className="flex flex-col items-center justify-between p-4">{children}</main>
+          <NavBottomMenu />
+          <main className="flex flex-col items-center justify-between p-4">
+            <NavTopMenu />
+            {children}
+          </main>
           {modal}
         </NextAuthProvider>
       </body>

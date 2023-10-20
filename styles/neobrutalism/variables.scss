@@ -83,10 +83,10 @@
     --nb-accent-foreground: var(--nb-black);
 
     // Scrollbars:
-    --scrollbar-width: 10px;
-    --scrollbar-track-color: theme('colors.cyan.200');
-    --scrollbar-thumb-color: theme('colors.cyan.300');
-    --scrollbar-thumb-radius: 6px;
+    --scrollbar-width: 16px;
+    --scrollbar-track-color: theme('colors.cyan.300');
+    --scrollbar-thumb-color: theme('colors.cyan.400');
+    --scrollbar-thumb-radius: 8px;
     --scrollbar-thumb-border: 2px solid theme('colors.black');
   }
 }

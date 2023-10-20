@@ -10,7 +10,9 @@ export default async function Page() {
       {records.map((record) => {
         return (
           <li key={record.id}>
-            <Link href={`/pokemon/${record.id}`}>{record.name}</Link>
+            <Link href={`/pokemon/${record.id}`} scroll={false}>
+              {record.name}
+            </Link>
           </li>
         )
       })}
