@@ -20,17 +20,21 @@ Sentry.init({
   replaysSessionSampleRate: 0.1,
 
   // You can remove this option if you're not planning to use the Sentry Session Replay feature:
-  integrations: [
-    new Sentry.Replay({
-      // Additional Replay configuration goes in here, for example:
-      maskAllText: true,
-      blockAllMedia: true,
-    }),
-  ],
+  // integrations: [
+  //   new Sentry.Replay({
+  //     // Additional Replay configuration goes in here, for example:
+  //     maskAllText: true,
+  //     blockAllMedia: true,
+  //   }),
+  // ],
 
   beforeSend(event, hint) {
     // Check if it is an exception, and if so, show the report dialog
     if (event.exception) {
+      const errMessage = event.exception.values?.at(0)?.value ?? ''
+      if (errMessage.includes('NEXT_NOT_FOUND')) {
+        return null
+      }
       Sentry.showReportDialog({ eventId: event.event_id })
     }
     return event
