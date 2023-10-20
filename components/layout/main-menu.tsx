@@ -3,7 +3,7 @@
 import { BookOpenIcon, BoxIcon, HomeIcon, LogOutIcon, User2Icon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { RadialMenu } from '../ui/radial-menu'
 
@@ -12,6 +12,11 @@ export function MainMenu() {
   const { data: session, status } = useSession()
   const isLoggedIn = status === 'authenticated' && session?.user
   const user = isLoggedIn ? session?.user : undefined
+  const [signInUrl, setSignInUrl] = useState('')
+
+  useEffect(() => {
+    setSignInUrl('/auth/signin?callbackUrl=' + encodeURIComponent(window.location.href))
+  }, [])
 
   const closeMenu = () => {
     setTimeout(() => {
@@ -80,7 +85,7 @@ export function MainMenu() {
           )}
           {!user && (
             <Button title="Sign In" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-              <Link href={'/auth/signin?callbackUrl=' + encodeURIComponent(window.location.href)}>
+              <Link href={signInUrl}>
                 <User2Icon />
               </Link>
             </Button>

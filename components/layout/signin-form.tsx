@@ -1,6 +1,7 @@
 'use client'
 
 import { signIn } from 'next-auth/react'
+import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 
 // const providers = cache(() => {
@@ -8,7 +9,12 @@ import { Button } from '../ui/button'
 // })
 
 export function SignInForm({ callbackUrl }: { callbackUrl?: string }) {
-  const cbUrl = callbackUrl ? decodeURIComponent(callbackUrl) : window.location.origin + '/profile'
+  const [cbUrl, setCbUrl] = useState('')
+
+  useEffect(() => {
+    setCbUrl(callbackUrl ? decodeURIComponent(callbackUrl) : window.location.origin + '/profile')
+  }, [callbackUrl])
+
   return (
     <div className="flex flex-col gap-2">
       <Button
