@@ -1,6 +1,6 @@
 import '@/lib/server-only'
 
-import { envVars } from '@/config/env-server'
+import { envVars } from '@/config/env/server-vars'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
 import { existsSync } from 'node:fs'

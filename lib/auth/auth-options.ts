@@ -1,4 +1,4 @@
-import { envVars } from '@/config/env-server'
+import { envVars } from '@/config/env/server-vars'
 import { patreonCampaign } from '@/config/patreon'
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
 import { NextAuthOptions } from 'next-auth'

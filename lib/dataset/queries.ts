@@ -1,6 +1,6 @@
 import '@/lib/server-only'
 
-import { appConfig } from '@/config'
+import appConfig from '@/config/general'
 import { BoxPreset, Pokedex, Pokemon, getAllBoxPresets, getAllPokedexes, getAllPokemon } from '@supeffective/dataset'
 
 export async function getPokedexesByGameSet(gameSet: string): Promise<Pokedex[]> {

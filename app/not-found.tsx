@@ -1,4 +1,4 @@
-import { baseMetadata } from '@/config'
+import baseMetadata from '@/config/metadata'
 
 const metadata = baseMetadata
 metadata.robots = 'noindex, nofollow'

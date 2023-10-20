@@ -1,7 +1,7 @@
 import { getBaseUrl } from '../lib/utils/urls'
-import { clientEnvVars } from './env-client'
+import { clientEnvVars } from './env/client-vars'
 
-const config = {
+const appConfig = {
   version: '5.0.0',
   colors: {
     primary: '#52CBE3',
@@ -45,4 +45,4 @@ const config = {
   },
 }
 
-export default config
+export default appConfig

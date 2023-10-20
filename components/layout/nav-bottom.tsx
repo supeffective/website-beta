@@ -1,6 +1,6 @@
 'use client'
 
-import config from '@/config/config'
+import appConfig from '@/config/general'
 import { BookOpenIcon, BoxIcon, HomeIcon, LogOutIcon, User2Icon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -21,9 +21,9 @@ export function NavBottomMenu() {
 
   useEffect(() => {
     if (isOpen) {
-      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', config.colors.gold)
+      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.gold)
     } else {
-      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', config.colors.primary)
+      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.primary)
     }
   }, [isOpen])
 

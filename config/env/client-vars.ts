@@ -1,4 +1,4 @@
-import { parseEnvVars } from '../lib/env/parser'
+import { parseEnvVars } from '../../lib/env/parser'
 import { ClientEnvVars, EnvVarValues, clientEnvVarSchema } from './types'
 
 const initialVars: EnvVarValues<ClientEnvVars> = {

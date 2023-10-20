@@ -1,4 +1,4 @@
-import { appConfig } from '@/config'
+import appConfig from '@/config/general'
 import { getAllGames, getGameById } from '@supeffective/dataset'
 import { notFound } from 'next/navigation'
 import { PageProps } from '../../../lib/types'

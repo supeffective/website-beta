@@ -1,4 +1,4 @@
-import { appConfig } from '@/config'
+import appConfig from '@/config/general'
 import { fetchBoxPresetIndex } from '@supeffective/dataset'
 import Link from 'next/link'
 
