@@ -9,7 +9,7 @@ module.exports = {
     'type-enum': [
       2,
       'always',
-      ['chore', 'ci', 'docs', 'feat', 'fix', 'refactor', 'style', 'cs', 'test', 'perf', 'sec', 'cms', 'ui'],
+      ['chore', 'ci', 'docs', 'feat', 'fix', 'refactor', 'style', 'cs', 'test', 'perf', 'sec', 'cms', 'assets', 'ui'],
     ],
   },
   ignores: [(commit) => commit.includes('update deps')],
