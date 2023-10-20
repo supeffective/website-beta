@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "id": "gg.supereffective",
-  "name": "SuperEffective.gg",
+  "name": "SuperEffective",
   "short_name": "SuperEffective",
   "start_url": "/",
   "scope": "/",
@@ -31,20 +31,28 @@
   ],
   "icons": [
     {
-      "src": "/favicon/apple-touch-icon.png?v=20230331",
-      "sizes": "180x180",
+      "src": "/pwa-assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/favicon/android-chrome-192x192.png?v=20230331",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/pwa-assets/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/favicon/android-chrome-512x512.png?v=20230331",
+      "src": "/pwa-assets/manifest-icon-512.maskable.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
