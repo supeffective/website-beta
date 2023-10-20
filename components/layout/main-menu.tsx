@@ -1,5 +1,6 @@
 'use client'
 
+import config from '@/config/config'
 import { BookOpenIcon, BoxIcon, HomeIcon, LogOutIcon, User2Icon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -17,6 +18,14 @@ export function MainMenu() {
   useEffect(() => {
     setSignInUrl('/auth/signin?callbackUrl=' + encodeURIComponent(window.location.href))
   }, [])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', config.colors.gold)
+    } else {
+      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', config.colors.primary)
+    }
+  }, [isOpen])
 
   const closeMenu = () => {
     setTimeout(() => {

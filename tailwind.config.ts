@@ -62,10 +62,10 @@ const config: Config = {
         standalone: { raw: '(display-mode: standalone)' },
       },
       spacing: {
-        'safe-top': 'env(safe-area-inset-top, var(----safe-area-inset-fallback))',
-        'safe-right': 'env(safe-area-inset-right, var(----safe-area-inset-fallback))',
-        'safe-bottom': 'env(safe-area-inset-bottom, var(----safe-area-inset-fallback))',
-        'safe-left': 'env(safe-area-inset-left, var(----safe-area-inset-fallback))',
+        'safe-top': 'env(safe-area-inset-top, var(--safe-area-inset-fallback))',
+        'safe-right': 'env(safe-area-inset-right, var(--safe-area-inset-fallback))',
+        'safe-bottom': 'env(safe-area-inset-bottom, var(--safe-area-inset-fallback))',
+        'safe-left': 'env(safe-area-inset-left, var(--safe-area-inset-fallback))',
       },
       colors: {
         border: 'rgb(var(--nb-borders))',

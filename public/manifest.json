@@ -5,16 +5,32 @@
   "short_name": "SuperEffective",
   "start_url": "/",
   "scope": "/",
+  "display_override": [
+    "window-controls-overlay",
+    "minimal-ui"
+  ],
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#52CBE3",
   "background_color": "#52CBE3",
   "shortcuts": [
     {
-      "name": "Pokedex",
-      "short_name": "Pokedex",
-      "description": "Search for Pokemon",
+      "name": "Pokédex",
+      "short_name": "Pokédex",
+      "description": "Pokédex page",
       "url": "/pokedex"
+    },
+    {
+      "name": "Games",
+      "short_name": "Games",
+      "description": "Games page",
+      "url": "/games"
+    },
+    {
+      "name": "Boxes",
+      "short_name": "Boxes",
+      "description": "Boxes page",
+      "url": "/boxes"
     }
   ],
   "icons": [

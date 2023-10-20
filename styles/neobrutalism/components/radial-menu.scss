@@ -1,11 +1,18 @@
 .radial-menu-overlay {
-  @apply fixed inset-0 border-y-2 pb-safe-bottom pl-safe-left pr-safe-right pt-safe-top standalone:border-y-0;
+  @apply fixed inset-0 pb-safe-bottom pl-safe-left pr-safe-right pt-safe-top;
   @apply z-40 bg-nb-banana-gold data-[state=open]:animate-in data-[state=closed]:animate-out;
   @apply data-[state=closed]:fade-out-0 data-[state=open]:fade-in-100;
   @apply pointer-events-none select-none overflow-hidden;
   .with-open-menu & {
     @apply pointer-events-auto select-auto;
   }
+  .pwa-window-controls & {
+    top: env(titlebar-area-height, 0);
+  }
+}
+
+.with-open-menu .pwa-titlebar-area {
+  @apply bg-nb-banana-gold;
 }
 
 .radial-menu-container {

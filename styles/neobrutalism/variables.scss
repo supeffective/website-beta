@@ -5,46 +5,26 @@
     --radius: 0.375rem;
     --safe-area-inset-fallback: 20px;
 
+    // Colors (space-separated RGB values only)
     --nb-black: 0 0 0;
     --nb-white: 255 243 232;
     --nb-gray: 114 111 109;
     --nb-light-gray: 203 196 191;
 
     --nb-muted: 216 210 204; // white muted
-    --nb-muted-foreground: var(--nb-gray);
+    --nb-muted-foreground: 114 111 109; // same as nb-gray
 
     --nb-banana-gold: 255 184 2;
     --nb-berry-blue: 2 73 255;
     --nb-gum-pink: 255 145 231;
-
-    --nb-primary: 82 203 228; // cyan
-    --nb-primary-foreground: var(--nb-black);
-    --nb-secondary: var(--nb-berry-blue); // dark blue
-    --nb-secondary-foreground: var(--nb-white);
-    --nb-tertiary: 82 203 120; // green
-    --nb-tertiary-foreground: var(--nb-black);
-    --nb-accent: var(--nb-gum-pink); // chewing gum pink
-    --nb-accent-foreground: var(--nb-black);
-
-    // --nb-primary: 255 184 2; // gold
-    // --nb-primary-lighter: 255 220 2;
-    // --nb-primary-foreground: var(--nb-black);
-    // --nb-secondary: 2 73 255; // blue primary complementary / tetradic 2
-    // --nb-secondary-lighter: 52 107 248;
-    // --nb-secondary-foreground: var(--nb-white);
-
-    // --nb-primary: 46 2 204; // blue primary complementary / tetradic 2
-    // --nb-primary-lighter: 2 73 255;
-    // --nb-primary-foreground: var(--nb-white);
-    // --nb-secondary: 255 184 2; // gold
-    // --nb-secondary-lighter: 255 220 2;
-    // --nb-secondary-foreground: var(--nb-black);
+    --nb-vivid-green: 255 145 231;
 
     --nb-neon-cyan: 125 249 254;
     --nb-cyan-100: 218 244 241;
     --nb-cyan-200: 167 219 218;
     --nb-cyan-300: 134 206 235;
     --nb-cyan-400: 82 203 228;
+    --nb-cyan-500: 46 2 204;
 
     --nb-neon-green: 52 255 50;
     --nb-green-100: 183 210 173;
@@ -81,20 +61,52 @@
 
 @layer base {
   :root {
+    // Color Aliases (space-separated RGB values only)
+    // - Element groups
     --nb-input: var(--nb-white);
     --nb-shadows: var(--nb-black);
     --nb-borders: var(--nb-black);
     --nb-ring: var(--nb-black);
     --nb-background: var(--nb-white);
     --nb-foreground: var(--nb-black);
+    // - Color aliases
+    --nb-primary: var(--nb-cyan-400); // cyan
+    --nb-primary-foreground: var(--nb-black);
+    --nb-secondary: var(--nb-berry-blue); // dark blue
+    --nb-secondary-foreground: var(--nb-white);
+    --nb-tertiary: var(--vivid-green); // green
+    --nb-tertiary-foreground: var(--nb-black);
+    --nb-accent: var(--nb-gum-pink); // chewing gum pink
+    --nb-accent-foreground: var(--nb-black);
+
+    // --nb-primary: 255 184 2; // gold
+    // --nb-primary-lighter: 255 220 2;
+    // --nb-primary-foreground: var(--nb-black);
+    // --nb-secondary: 2 73 255; // blue primary complementary / tetradic 2
+    // --nb-secondary-lighter: 52 107 248;
+    // --nb-secondary-foreground: var(--nb-white);
+
+    // --nb-primary: 46 2 204; // blue primary complementary / tetradic 2
+    // --nb-primary-lighter: 2 73 255;
+    // --nb-primary-foreground: var(--nb-white);
+    // --nb-secondary: 255 184 2; // gold
+    // --nb-secondary-lighter: 255 220 2;
+    // --nb-secondary-foreground: var(--nb-black);
+
+    // Scrollbars:
+    --scrollbar-width: 10px;
+    --scrollbar-track-color: theme('colors.cyan.200');
+    --scrollbar-thumb-color: theme('colors.cyan.300');
+    --scrollbar-thumb-radius: 6px;
+    --scrollbar-thumb-border: 2px solid theme('colors.black');
   }
 
-  .dark {
-    --nb-input: var(--nb-black);
-    --nb-shadows: var(--nb-light-gray);
-    --nb-borders: var(--nb-light-gray);
-    --nb-ring: var(--nb-white);
-    --nb-background: var(--nb-black);
-    --nb-foreground: var(--nb-white);
-  }
+  // .dark {
+  //   --nb-input: var(--nb-black);
+  //   --nb-shadows: var(--nb-light-gray);
+  //   --nb-borders: var(--nb-light-gray);
+  //   --nb-ring: var(--nb-white);
+  //   --nb-background: var(--nb-black);
+  //   --nb-foreground: var(--nb-white);
+  // }
 }

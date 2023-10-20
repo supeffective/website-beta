@@ -3,7 +3,11 @@ import { clientEnvVars } from './env-client'
 
 const config = {
   version: '5.0.0',
-  themeColor: '#52CBE3',
+  colors: {
+    primary: '#52CBE3',
+    cyan: '#52CBE3',
+    gold: '#FFB804',
+  },
   texts: {
     siteName: 'SuperEffective',
     standaloneTitle: 'SuperEffective',
