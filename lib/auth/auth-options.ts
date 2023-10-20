@@ -65,5 +65,13 @@ export const authOptions: NextAuthOptions = {
     ...DrizzleAdapter(db),
   },
 
+  // https://www.youtube.com/watch?v=g6S-XZxq9Ug
+  pages: {
+    signIn: '/auth/signin',
+    signOut: '/auth/signout',
+    error: '/auth/error', // Error code passed in query string as ?error=
+    // verifyRequest: '/auth/verify-request', // (used for check email message)
+  },
+
   debug: false, // envVars.APP_ENV === 'development',
 }

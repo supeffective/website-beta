@@ -1,8 +1,8 @@
+import DialogInterceptedRoute from '@/components/ui/dialog-intercepted-route'
 import { appConfig } from '@/config'
+import { PageProps } from '@/lib/types'
 import { fetchPokemon, fetchPokemonIndex } from '@supeffective/dataset'
 import { notFound } from 'next/navigation'
-import DialogInterceptedRoute from '../../../../components/ui/dialog-intercepted-route'
-import { PageProps } from '../../../../lib/types'
 
 const records = await fetchPokemonIndex(appConfig.static.dataUrl)
 

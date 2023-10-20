@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { ComponentPropsWithoutRef, ReactNode } from 'react'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './dialog'
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from './dialog'
 
 export default function DialogInterceptedRoute({
   header,
@@ -25,11 +25,9 @@ export default function DialogInterceptedRoute({
       }}
     >
       <DialogContent className={className}>
-        <DialogHeader>
-          {header && <DialogTitle>{header}</DialogTitle>}
-          <DialogDescription>{children}</DialogDescription>
-          {footer && <DialogFooter>{footer}</DialogFooter>}
-        </DialogHeader>
+        <DialogHeader>{header && <DialogTitle>{header}</DialogTitle>}</DialogHeader>
+        {children}
+        {footer && <DialogFooter>{footer}</DialogFooter>}
       </DialogContent>
     </Dialog>
   )

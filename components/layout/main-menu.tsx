@@ -72,7 +72,7 @@ export function MainMenu() {
                 </Link>
               </Button>
               <Button title="Logout" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-                <Link href="/api/auth/signout">
+                <Link href="/auth/signout">
                   <LogOutIcon />
                 </Link>
               </Button>
@@ -80,7 +80,7 @@ export function MainMenu() {
           )}
           {!user && (
             <Button title="Sign In" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-              <Link href="/api/auth/signin">
+              <Link href={'/auth/signin?callbackUrl=' + encodeURIComponent(window.location.href)}>
                 <User2Icon />
               </Link>
             </Button>

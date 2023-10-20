@@ -19,8 +19,8 @@ type UseSearchStateReturnType<T extends NewSearchState> = [
 export function useSearchState<T extends NewSearchState>(): UseSearchStateReturnType<T> {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const state = useMemo(() => {
-    return Object.fromEntries(new URLSearchParams(searchParams).entries()) as T
+  const state: T = useMemo(() => {
+    return Object.fromEntries(new URLSearchParams(searchParams).entries()) as any
   }, [searchParams])
 
   const buildHref = useCallback(
@@ -28,8 +28,8 @@ export function useSearchState<T extends NewSearchState>(): UseSearchStateReturn
       pathname: string,
       newState: NewSearchState,
     ): {
-      pathname: string
       query: Record<string, string>
+      pathname: string
     } => {
       const query = Object.fromEntries(
         Object.entries({ ...state, ...newState }).filter(
