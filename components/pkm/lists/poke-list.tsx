@@ -13,7 +13,7 @@ type PokeListItemProps = {
 export function PokeListItem({ pokemon }: PokeListItemProps) {
   return (
     <Link
-      className="snap-scroll-item content-visibility-auto flex select-none flex-col gap-1 rounded-lg border-2 bg-white/40 p-2 text-center no-underline shadow-md duration-150 hover:bg-nb-yellow-200 active:translate-x-1 active:translate-y-1 active:shadow-none"
+      className="snap-scroll-item content-visibility-auto flex select-none flex-col gap-1 rounded-lg border-2 bg-white/40 p-2 text-center no-underline shadow-md duration-150 hover:z-10 hover:scale-125 hover:bg-nb-yellow-200 active:scale-100"
       href={`/pokemon/${pokemon.id}`}
       scroll={false}
     >
