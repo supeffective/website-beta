@@ -28,7 +28,7 @@ export function PokeListItem({ pokemon }: PokeListItemProps) {
 
 export function PokeList({ pokemon }: PokeListProps) {
   return (
-    <div className="grid w-full grid-cols-3 gap-4 pb-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 2xl:grid-cols-10">
+    <div className="grid w-full grid-cols-3 gap-2 pb-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 2xl:grid-cols-10">
       {pokemon.map((record) => {
         return <PokeListItem key={record.id} pokemon={record} />
       })}
