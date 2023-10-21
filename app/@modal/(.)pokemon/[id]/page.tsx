@@ -14,7 +14,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function Page({ params, searchParams }: PageProps<['id']>) {
+export default async function Page({ params }: PageProps<['id']>) {
+  // await waitMs(5000)
   const found = records.find((record) => record.id === params.id)
   if (!found) {
     notFound()
