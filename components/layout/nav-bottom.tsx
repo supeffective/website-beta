@@ -1,6 +1,5 @@
 'use client'
 
-import appConfig from '@/config/general'
 import { BookOpenIcon, BoxIcon, HomeIcon, LogOutIcon, User2Icon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -19,13 +18,13 @@ export function NavBottomMenu() {
     setSignInUrl('/auth/signin?callbackUrl=' + encodeURIComponent(window.location.href))
   }, [])
 
-  useEffect(() => {
-    if (isOpen) {
-      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.gold)
-    } else {
-      document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.primary)
-    }
-  }, [isOpen])
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.gold)
+  //   } else {
+  //     document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.primary)
+  //   }
+  // }, [isOpen])
 
   useEffect(() => {
     // if is standalone, remove window title:
