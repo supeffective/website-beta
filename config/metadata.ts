@@ -11,7 +11,7 @@ const baseMetadata: Metadata = {
     default: config.texts.siteName,
   },
   manifest: '/manifest.json',
-  themeColor: config.colors.cyan,
+  themeColor: config.colors.primary,
   viewport: {
     // 'width=device-width, initial-scale=1, viewport-fit=cover',
     width: 'device-width',

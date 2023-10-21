@@ -4,7 +4,8 @@ import { clientEnvVars } from './env/client-vars'
 const appConfig = {
   version: '5.0.0',
   colors: {
-    primary: '#52CBE3',
+    primary: '#A288EC',
+    purple: '#A288EC',
     cyan: '#52CBE3',
     gold: '#FFB804',
   },
@@ -35,6 +36,7 @@ const appConfig = {
   },
   static: {
     dataUrl: clientEnvVars.NEXT_PUBLIC_PKM_DATA_URL,
+    assetsUrl: `${clientEnvVars.NEXT_PUBLIC_PKM_ASSETS_URL}`,
     imagesUrl: `${clientEnvVars.NEXT_PUBLIC_PKM_ASSETS_URL}/images`,
     versions: {
       images: {

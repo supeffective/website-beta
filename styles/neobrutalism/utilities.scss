@@ -25,6 +25,10 @@
     }
   }
 
+  .content-visibility-auto {
+    content-visibility: auto;
+  }
+
   html.pwa-app {
     @apply styled-scrollbar overscroll-none;
     body {
@@ -36,8 +40,20 @@
     a {
       -webkit-touch-callout: none !important; // disable preview links on long press
       -webkit-tap-highlight-color: transparent; // disable tap highlight
-      -webkit-user-drag: none; // disable dragging of links
+      // -webkit-user-drag: none; // disable dragging of links
     }
+  }
+
+  .snap-scroll-container {
+    overflow: auto;
+    scroll-snap-type: both mandatory;
+    overscroll-behavior-x: contain;
+    background-attachment: local;
+  }
+
+  .snap-scroll-item {
+    scroll-snap-stop: always;
+    scroll-snap-align: start;
   }
 
   .p-safe {

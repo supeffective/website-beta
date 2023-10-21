@@ -7,6 +7,8 @@
   }
 
   .btn {
+    -webkit-user-drag: none; // disable dragging of links
+
     &-default {
       @apply bg-background text-foreground hover:bg-background/90 hover:text-foreground;
     }

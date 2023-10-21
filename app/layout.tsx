@@ -7,6 +7,7 @@
 import { NavTopMenu } from '@/components/layout/nav-top'
 import baseMetadata from '@/config/metadata'
 import { NextAuthProvider } from '@/lib/auth/components'
+import { cn } from '@/lib/utils'
 import { Reem_Kufi } from 'next/font/google'
 import { NavBottomMenu } from '../components/layout/nav-bottom'
 import '../styles/globals.scss'
@@ -18,13 +19,11 @@ export const metadata = baseMetadata
 export default function RootLayout({ children, modal }: { children: React.ReactNode; modal?: React.ReactNode }) {
   return (
     <html lang="en" className="light pwa-app">
-      <body className={baseFont.className}>
+      <body className={cn(baseFont.className, ' bg-nb-purple-300')}>
         <NextAuthProvider>
+          <NavTopMenu />
           <NavBottomMenu />
-          <main className="flex flex-col items-center justify-between p-4">
-            <NavTopMenu />
-            {children}
-          </main>
+          <main className="flex flex-col items-center justify-between p-4">{children}</main>
           {modal}
         </NextAuthProvider>
       </body>

@@ -73,6 +73,8 @@ const config: Config = {
         ring: 'rgb(var(--nb-ring))',
         background: 'rgb(var(--nb-background))',
         foreground: 'rgb(var(--nb-foreground))',
+        white: 'rgb(var(--nb-white))',
+        black: 'rgb(var(--nb-black))',
         primary: {
           DEFAULT: 'rgb(var(--nb-primary))',
           foreground: 'rgb(var(--nb-primary-foreground))',

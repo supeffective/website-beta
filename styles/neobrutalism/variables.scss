@@ -77,15 +77,15 @@
     --nb-primary-foreground: var(--nb-black);
     --nb-secondary: var(--nb-berry-blue); // dark blue
     --nb-secondary-foreground: var(--nb-white);
-    --nb-tertiary: var(--vivid-green); // green
+    --nb-tertiary: var(--nb-vivid-green); // green
     --nb-tertiary-foreground: var(--nb-black);
     --nb-accent: var(--nb-gum-pink); // chewing gum pink
     --nb-accent-foreground: var(--nb-black);
 
     // Scrollbars:
     --scrollbar-width: 16px;
-    --scrollbar-track-color: theme('colors.cyan.300');
-    --scrollbar-thumb-color: theme('colors.cyan.400');
+    --scrollbar-track-color: rgba(255, 255, 255, 0.4);
+    --scrollbar-thumb-color: #896fd8;
     --scrollbar-thumb-radius: 8px;
     --scrollbar-thumb-border: 2px solid theme('colors.black');
   }
