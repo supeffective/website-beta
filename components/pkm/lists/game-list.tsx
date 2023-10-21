@@ -13,17 +13,20 @@ type GameListItemProps = {
 export function GameListItem({ record }: GameListItemProps) {
   return (
     <Link
-      className="gb-cartridge content-visibility-auto flex select-none flex-col gap-2 rounded-2xl border-[3px] border-slate-900 bg-black/50 px-2 pb-5 pt-2 text-center no-underline shadow-md duration-150 hover:z-10 hover:scale-110 active:scale-100"
+      className="content-visibility-auto flex select-none flex-col rounded-2xl border-4 bg-slate-800 px-1 pt-4 text-center no-underline shadow-md duration-150 hover:z-10 hover:scale-110 active:scale-100"
       href={`/games/${record.id}`}
       title={`Pokémon ${record.name}`}
       // scroll={false}
     >
       <GameImg
         className="pointer-events-none block aspect-square w-full"
-        imgClassName="rounded-md border-2  border-slate-900 border-t-4 border-l-4 block w-full"
+        imgClassName="rounded-md block border-2 bg-black w-full"
         title={`Pokémon ${record.name}`}
         assetId={record.id}
       />
+      <span className="flex flex-1 items-center justify-center py-2 text-sm text-slate-500">
+        <span className="block flex-1 rounded-xl bg-slate-950 p-2">{record.name}</span>
+      </span>
     </Link>
   )
 }
