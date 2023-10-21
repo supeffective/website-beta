@@ -27,6 +27,16 @@ export function NavBottomMenu() {
     }
   }, [isOpen])
 
+  useEffect(() => {
+    // if is standalone, remove window title:
+    if ((window.navigator as any).standalone || window.matchMedia('(display-mode: standalone)').matches) {
+      const titleElement = document.head.querySelector('title')
+      if (titleElement) {
+        titleElement.innerHTML = ''
+      }
+    }
+  }, [])
+
   const closeMenu = () => {
     setTimeout(() => {
       setIsOpen(false)
