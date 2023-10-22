@@ -19,7 +19,7 @@ export const metadata = baseMetadata
 export default function RootLayout({ children, modal }: { children: React.ReactNode; modal?: React.ReactNode }) {
   return (
     <html lang="en" className="light pwa-app">
-      <body className={cn(baseFont.className, ' bg-nb-purple-300')}>
+      <body className={cn(baseFont.className, ' bg-primary')}>
         <NextAuthProvider>
           <NavTopMenu />
           <NavBottomMenu />

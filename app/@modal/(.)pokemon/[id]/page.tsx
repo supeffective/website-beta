@@ -1,6 +1,7 @@
 import DialogInterceptedRoute from '@/components/ui/dialog-intercepted-route'
 import appConfig from '@/config/general'
 import { PageProps } from '@/lib/types'
+import { waitMs } from '@/lib/utils'
 import { fetchPokemon, fetchPokemonIndex } from '@supeffective/dataset'
 import { notFound } from 'next/navigation'
 
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: PageProps<['id']>) {
-  // await waitMs(5000)
+  await waitMs(5000)
   const found = records.find((record) => record.id === params.id)
   if (!found) {
     notFound()
