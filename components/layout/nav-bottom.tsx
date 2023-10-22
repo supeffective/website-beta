@@ -1,6 +1,6 @@
 'use client'
 
-import { BookOpenIcon, BoxIcon, HomeIcon, LogOutIcon, User2Icon } from 'lucide-react'
+import { BookOpenIcon, BoxIcon, GithubIcon, HomeIcon, LogOutIcon, User2Icon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -73,11 +73,18 @@ export function NavBottomMenu() {
       ]}
     >
       <div className="flex justify-between p-4">
-        <Button title="Home" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-          <Link href="/">
-            <HomeIcon />
-          </Link>
-        </Button>
+        <div className="flex flex-col gap-2">
+          <Button title="Home" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
+            <Link href="/">
+              <HomeIcon />
+            </Link>
+          </Button>
+          <Button title="Github" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
+            <a href="https://github.com/itsjavi/supereffective-2024" target="_blank" rel="noreferrer">
+              <GithubIcon />
+            </a>
+          </Button>
+        </div>
         <div className="text-center">
           <div className="text-3xl font-extrabold">SupEffective</div>
           {user && (
