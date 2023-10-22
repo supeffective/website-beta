@@ -1,19 +1,49 @@
-'use client'
-
 import appConfig from '@/config/general'
-import { BaseAssetImg, PokeImg as BasePokeImg, PokeImgProps } from '@supeffective/ui'
+import { BaseAssetImg, type BaseAssetImgProps } from './base-img'
 
 const BASE_ASSETS_URL = appConfig.static.assetsUrl
 
-export const PokeImg = (props: PokeImgProps) => {
-  return <BasePokeImg baseUrl={BASE_ASSETS_URL} variant="home2d-icon" {...props} />
+type PokeImgProps = {
+  shiny?: boolean
+} & BaseAssetImgProps
+
+export const PokeImg = ({ assetId, shiny, ...rest }: PokeImgProps) => {
+  const resolvedAssetId = shiny
+    ? `images/pokemon/home2d-icon/shiny/${assetId}`
+    : `images/pokemon/home2d-icon/regular/${assetId}`
+
+  return (
+    <BaseAssetImg
+      {...rest}
+      assetId={resolvedAssetId}
+      fallback={`images/pokemon/home2d-icon/unknown`}
+      extension="png"
+      baseWidth={128}
+      baseHeight={128}
+      baseUrl={BASE_ASSETS_URL}
+    />
+  )
 }
 
-export const PokeImg3d = (props: PokeImgProps) => {
-  return <BasePokeImg baseUrl={BASE_ASSETS_URL} variant="home3d-icon" {...props} />
+export const PokeImg3d = ({ assetId, shiny, ...rest }: PokeImgProps) => {
+  const resolvedAssetId = shiny
+    ? `images/pokemon/home3d-icon-bordered/shiny/${assetId}`
+    : `images/pokemon/home3d-icon-bordered/regular/${assetId}`
+
+  return (
+    <BaseAssetImg
+      {...rest}
+      assetId={resolvedAssetId}
+      fallback={`images/pokemon/home3d-icon-bordered/unknown`}
+      extension="png"
+      baseWidth={264}
+      baseHeight={264}
+      baseUrl={BASE_ASSETS_URL}
+    />
+  )
 }
 
-export const GameImg = ({ assetId, ...rest }: PokeImgProps) => {
+export const GameImg = ({ assetId, ...rest }: BaseAssetImgProps) => {
   return (
     <BaseAssetImg
       {...rest}
@@ -25,7 +55,7 @@ export const GameImg = ({ assetId, ...rest }: PokeImgProps) => {
     />
   )
 }
-export const GameAvatarImg = ({ assetId, ...rest }: PokeImgProps) => {
+export const GameAvatarImg = ({ assetId, ...rest }: BaseAssetImgProps) => {
   return (
     <BaseAssetImg
       {...rest}
@@ -38,7 +68,7 @@ export const GameAvatarImg = ({ assetId, ...rest }: PokeImgProps) => {
   )
 }
 
-export const ItemImg = ({ assetId, ...rest }: PokeImgProps) => {
+export const ItemImg = ({ assetId, ...rest }: BaseAssetImgProps) => {
   return (
     <BaseAssetImg
       {...rest}
@@ -51,7 +81,7 @@ export const ItemImg = ({ assetId, ...rest }: PokeImgProps) => {
   )
 }
 
-export const RibbonImg = ({ assetId, ...rest }: PokeImgProps) => {
+export const RibbonImg = ({ assetId, ...rest }: BaseAssetImgProps) => {
   return (
     <BaseAssetImg
       {...rest}
@@ -63,7 +93,7 @@ export const RibbonImg = ({ assetId, ...rest }: PokeImgProps) => {
     />
   )
 }
-export const MarkImg = ({ assetId, ...rest }: PokeImgProps) => {
+export const MarkImg = ({ assetId, ...rest }: BaseAssetImgProps) => {
   return (
     <BaseAssetImg
       {...rest}

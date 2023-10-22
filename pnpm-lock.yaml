@@ -24,11 +24,8 @@ dependencies:
     specifier: ^7.74.1
     version: 7.74.1(next@13.5.6)(react@18.2.0)
   '@supeffective/dataset':
-    specifier: ^0.5.3
-    version: 0.5.3
-  '@supeffective/ui':
-    specifier: ^0.5.3
-    version: 0.5.3(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.6.0
+    version: 0.6.0
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -1534,46 +1531,11 @@ packages:
       { integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA== }
     dev: true
 
-  /@supeffective/dataset@0.5.3:
+  /@supeffective/dataset@0.6.0:
     resolution:
-      { integrity: sha512-QuPSNUUq5UUoRbV33W7+ArCwoRPWqwCQ6dorYyVLgHWg/J6w8qBGhs2ONC8Aywm3qe+FzQZhRaSfAm2FWAQcuQ== }
+      { integrity: sha512-r1Zqx3uFYdhkxjH2Ajh0IpvX3Iy2G9wR8Gi+F3BhPZBFxiY1RpUswurhkQI7nmxdT3DeI8Y5y26Y7gQzReNCdg== }
     dependencies:
       zod: 3.22.4
-    dev: false
-
-  /@supeffective/dextracker@0.5.3:
-    resolution:
-      { integrity: sha512-l2EEqNb3XcJv+wIJjRXiRKV/Re1SHhZQmkvGlkk/gpJ6ffWHTjwshUWxWMPHIyFKz14zVGJ++IrxC8EM1WHoWw== }
-    dependencies:
-      '@supeffective/dataset': 0.5.3
-      zod: 3.22.4
-    dev: false
-
-  /@supeffective/icons@0.5.3(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      { integrity: sha512-J8Qxlh5KtYav10eMyda5mYefSkUo23M0TWUb3vgMmaAF5rjZmBpIKxEMK+uUdK9fVW+19Za76YYIoIBQmUFYXg== }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@supeffective/ui@0.5.3(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      { integrity: sha512-nHg1rvnks/sQw64M4FF9j9QjoMHqhmUyYBgn+vhwkOnaypjp7RvWp2ICU+OTFLi+XiWOpSBPA0v1ptNBIp2znw== }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      '@supeffective/dataset': 0.5.3
-      '@supeffective/dextracker': 0.5.3
-      '@supeffective/icons': 0.5.3(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@swc/helpers@0.5.2:
@@ -2112,7 +2074,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.22.1
-      caniuse-lite: 1.0.30001551
+      caniuse-lite: 1.0.30001553
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -2198,7 +2160,7 @@ packages:
     engines: { node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7 }
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001551
+      caniuse-lite: 1.0.30001553
       electron-to-chromium: 1.4.563
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
@@ -2288,9 +2250,9 @@ packages:
     engines: { node: '>=14.16' }
     dev: true
 
-  /caniuse-lite@1.0.30001551:
+  /caniuse-lite@1.0.30001553:
     resolution:
-      { integrity: sha512-vtBAez47BoGMMzlbYhfXrMV1kvRF2WP/lqiMuDu1Sb4EE4LKEgjopFDSRtZfdVnslNRpOqV/woE+Xgrwj6VQlg== }
+      { integrity: sha512-N0ttd6TrFfuqKNi+pMgWJTb9qrdJu4JSpgPFLe/lrD19ugC6fZgF0pUewRowDwzdDnb9V41mFcdlYgl/PyKf4A== }
 
   /ccount@2.0.1:
     resolution:
@@ -5907,7 +5869,7 @@ packages:
       '@next/env': 13.5.6
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001551
+      caniuse-lite: 1.0.30001553
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

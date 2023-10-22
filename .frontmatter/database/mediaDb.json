@@ -1,1 +1,1 @@
-{ "lib": { "env": {} }, "config": {} }
+{ "lib": { "env": {} }, "config": {}, "components": { "pkm": {} } }
