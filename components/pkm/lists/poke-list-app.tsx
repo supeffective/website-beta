@@ -1,10 +1,12 @@
 'use client'
 
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
 import { useDebouncedState } from '@/lib/hooks/useDebouncedState'
 import { createPokemonSearchIndex, searchPokemon } from '@/lib/pokemon/repository/pokemon'
 import { OptimizedPokemonList, SearchIndex } from '@/lib/pokemon/types'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { PokeList } from './poke-list'
 
 type PokeListAppProps = {
@@ -19,20 +21,28 @@ export function PokeListApp({ pokemon: allPokemon }: PokeListAppProps) {
   }
 
   const initialSearch = 'region:kanto'
-  const [results, setResults] = useState<OptimizedPokemonList>(searchPokemon(initialSearch, searchIndex, allPokemon))
+  const [withForms, setWithForms] = useState<boolean>(false)
+
+  const filteredForms = useMemo(
+    () => (withForms === false ? allPokemon.filter((p) => !p.isForm) : allPokemon),
+    [withForms, allPokemon],
+  )
+  const [results, setResults] = useState<OptimizedPokemonList>(searchPokemon(initialSearch, searchIndex, filteredForms))
   const [search, setDebouncedSearch] = useDebouncedState<string>(initialSearch, 300)
+  // const speciesCount = results.filter((p) => !p.isForm).length
+  // const formsCount = results.filter((p) => p.isForm).length
 
   useEffect(() => {
     if (search === '') {
-      setResults(allPokemon)
+      setResults(filteredForms)
       return
     }
-    setResults(searchPokemon(search, searchIndex, allPokemon))
-  }, [search, allPokemon])
+    setResults(searchPokemon(search, searchIndex, filteredForms))
+  }, [search, filteredForms])
 
   return (
     <div className="flex flex-col gap-4 pt-4">
-      <div className="sticky top-16 z-20 flex justify-center">
+      <div className="sticky top-16 z-20 flex justify-center gap-2">
         <Input
           type="search"
           className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
@@ -44,13 +54,23 @@ export function PokeListApp({ pokemon: allPokemon }: PokeListAppProps) {
             setDebouncedSearch(e.target.value)
           }}
         />
+        <div className="flex items-center space-x-2">
+          <Switch
+            id="forms-switch"
+            defaultChecked={withForms}
+            onCheckedChange={(checked) => {
+              setWithForms(checked)
+            }}
+          />
+          <Label htmlFor="forms-switc">With Forms</Label>
+        </div>
       </div>
       <div className="flex justify-center gap-1 text-foreground/70">
         {results.length === 0 && <span className="font-thin italic">No results</span>}
-        {results.length > 0 && results.length < allPokemon.length && (
+        {results.length > 0 && results.length < filteredForms.length && (
           <span className="font-thin italic">{results.length} results found:</span>
         )}
-        {results.length === allPokemon.length && (
+        {results.length === filteredForms.length && (
           <span className="font-thin italic">Showing all {results.length} discovered species:</span>
         )}
       </div>

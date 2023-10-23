@@ -4,7 +4,7 @@ import { fetchOptimizedPokemonIndex } from '@/lib/pokemon/repository/pokemon'
 
 export default async function Page() {
   const records = await fetchOptimizedPokemonIndex()
-  const filtered = records.filter((p) => !p.isForm && !p.nid.startsWith('0000'))
+  const filtered = records.filter((p) => !p.nid.startsWith('0000'))
 
   return (
     <section className="w-full pb-24">
