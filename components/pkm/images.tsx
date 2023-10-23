@@ -9,7 +9,7 @@ type PokeImgProps = {
 
 export const PokeImg = ({ assetId, shiny, ...rest }: PokeImgProps) => {
   const resolvedAssetId = shiny
-    ? `images/pokemon/home2d-icon/shiny/${assetId}`
+    ? `images/pokemon/home3d-icon-bordered/shiny/${assetId}`
     : `images/pokemon/home2d-icon/regular/${assetId}`
 
   return (

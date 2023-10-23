@@ -18,8 +18,9 @@ export function PokeListApp({ pokemon: allPokemon }: PokeListAppProps) {
     searchIndex = createPokemonSearchIndex(allPokemon)
   }
 
-  const [results, setResults] = useState<OptimizedPokemonList>(allPokemon)
-  const [search, setDebouncedSearch] = useDebouncedState<string>('', 300)
+  const initialSearch = 'region:kanto'
+  const [results, setResults] = useState<OptimizedPokemonList>(searchPokemon(initialSearch, searchIndex, allPokemon))
+  const [search, setDebouncedSearch] = useDebouncedState<string>(initialSearch, 300)
 
   useEffect(() => {
     if (search === '') {
@@ -37,6 +38,7 @@ export function PokeListApp({ pokemon: allPokemon }: PokeListAppProps) {
           className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
           placeholder="Search by name, number, type, color, etc."
           autoCorrect="off"
+          defaultValue={search}
           autoCapitalize="none"
           onChange={(e) => {
             setDebouncedSearch(e.target.value)
@@ -49,7 +51,7 @@ export function PokeListApp({ pokemon: allPokemon }: PokeListAppProps) {
           <span className="font-thin italic">{results.length} results found:</span>
         )}
         {results.length === allPokemon.length && (
-          <span className="font-thin italic">Showing {results.length} discovered species:</span>
+          <span className="font-thin italic">Showing all {results.length} discovered species:</span>
         )}
       </div>
       {results.length > 0 && <PokeList pokemon={results} />}

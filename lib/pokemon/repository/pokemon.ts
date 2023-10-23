@@ -73,6 +73,9 @@ export function searchPokemon(
   pokemon: OptimizedPokemonList,
 ): OptimizedPokemonListItem[] {
   const q = parseQuery(query)
+  if (q.length === 0) {
+    return pokemon
+  }
 
   const results = index.filter((record) => {
     const [keywords] = record
