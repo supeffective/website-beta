@@ -51,7 +51,7 @@ type SearchQuery = {
 }
 
 function parseQuery(query: string): SearchQuery[] {
-  const queryParts = query.replace(/\s+/g, ' ').trim().split(' ')
+  const queryParts = query.replace(/\s+/g, ' ').trim().toLowerCase().split(' ')
   const parsedQuery: SearchQuery[] = []
 
   queryParts.forEach((part) => {
@@ -79,7 +79,7 @@ export function searchPokemon(
 
     return q.every((query) => {
       const { field, value, negated } = query
-      const matches = keywords.includes(`${field}:${value}`) || keywords.includes(`${value}`)
+      const matches = field !== '' ? keywords.includes(`${field}:${value}`) : keywords.includes(`${value}`)
 
       return negated ? !matches : matches
     })

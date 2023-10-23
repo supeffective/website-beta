@@ -36,6 +36,8 @@ export function PokeListApp({ pokemon: allPokemon }: PokeListAppProps) {
           type="search"
           className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
           placeholder="Search by name, number, type, color, etc."
+          autoCorrect="off"
+          autoCapitalize="none"
           onChange={(e) => {
             setDebouncedSearch(e.target.value)
           }}
