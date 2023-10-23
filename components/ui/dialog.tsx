@@ -1,4 +1,5 @@
 'use client'
+// @see https://ui.shadcn.com/docs/components/dialog
 
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { XIcon } from 'lucide-react'

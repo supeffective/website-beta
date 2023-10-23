@@ -1,4 +1,5 @@
 'use client'
+// @see https://ui.shadcn.com/docs/components/dialog
 
 import { useRouter } from 'next/navigation'
 import React, { ComponentPropsWithoutRef, ReactNode, useState } from 'react'

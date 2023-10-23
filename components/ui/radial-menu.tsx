@@ -1,4 +1,5 @@
 'use client'
+// @see https://ui.shadcn.com/docs/components/button
 
 import { MenuIcon, XIcon } from 'lucide-react'
 import Link from 'next/link'
