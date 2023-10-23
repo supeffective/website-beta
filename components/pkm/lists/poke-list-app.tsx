@@ -42,9 +42,15 @@ export function PokeListApp({ pokemon: allPokemon }: PokeListAppProps) {
         />
       </div>
       <div className="flex justify-center gap-1 text-foreground/70">
-        <span className="font-thin italic">Showing {results.length} species</span>
+        {results.length === 0 && <span className="font-thin italic">No results</span>}
+        {results.length > 0 && results.length < allPokemon.length && (
+          <span className="font-thin italic">{results.length} results found:</span>
+        )}
+        {results.length === allPokemon.length && (
+          <span className="font-thin italic">Showing {results.length} discovered species:</span>
+        )}
       </div>
-      <PokeList pokemon={results} />
+      {results.length > 0 && <PokeList pokemon={results} />}
     </div>
   )
 }

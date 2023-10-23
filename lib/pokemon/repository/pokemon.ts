@@ -1,8 +1,9 @@
+import { dd } from '@/lib/utils'
 import { csvJsonToCollection } from '@/lib/utils/json'
 import { OptimizedPokemonList, OptimizedPokemonListItem, SearchIndex } from '../types'
 
 export async function fetchOptimizedPokemonIndex(): Promise<OptimizedPokemonList> {
-  const csvData = require('../data/pokemon-index.min.json')
+  const csvData = require('../data/pokemon-index.csv.json')
   const data = csvJsonToCollection<OptimizedPokemonListItem>(csvData)
 
   return Promise.resolve(data)
@@ -35,6 +36,11 @@ export function createPokemonSearchIndex(pokemon: OptimizedPokemonList): SearchI
     index.push([keywordsText, p.id])
   })
 
+  dd(
+    `Created search index with ${index.length} records. Memory needed: ${Math.round(
+      JSON.stringify(index).length / 1024,
+    )} KB`,
+  )
   return index
 }
 
