@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
-import { fetchPageBySlug, fetchPages } from '../../../lib/cms/client'
-import { MarkdownPage } from '../../../lib/cms/renderer'
-import { PageType } from '../../../lib/cms/types'
+import { fetchPageBySlug, fetchPages } from '../../../lib/mdx/client'
+import { MarkdownPage } from '../../../lib/mdx/renderer'
+import { PageType } from '../../../lib/mdx/types'
 
 const pageType = PageType.Blog
 

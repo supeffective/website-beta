@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { fetchPages } from '../../lib/cms/client'
-import { PageType } from '../../lib/cms/types'
+import { fetchPages } from '../../lib/mdx/client'
+import { PageType } from '../../lib/mdx/types'
 
 const pageType = PageType.Blog
 
