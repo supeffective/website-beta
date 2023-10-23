@@ -3,13 +3,10 @@
 import { useEffect, useState } from 'react'
 
 // T is a generic type for value parameter
-export function useDebouncedState<T = string>(
-  initialValue: T | undefined,
-  delay?: number,
-): [T | undefined, (value: T) => void] {
-  const [value, setValue] = useState<T | undefined>(initialValue)
+export function useDebouncedState<T = string>(initialValue: T, delay?: number): [T, (value: T) => void] {
+  const [value, setValue] = useState<T>(initialValue)
   // State and setters for debounced value
-  const [debouncedValue, setDebouncedValue] = useState<T | undefined>(value)
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
   const changed = value !== debouncedValue
 
   useEffect(
