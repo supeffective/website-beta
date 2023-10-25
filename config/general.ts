@@ -4,8 +4,8 @@ import { clientEnvVars } from './env/client-vars'
 const appConfig = {
   version: '5.0.0',
   colors: {
-    primary: '#A288EC',
-    purple: '#A288EC',
+    primary: '#ae6bc7',
+    purple: '#ae6bc7',
     cyan: '#52CBE3',
     gold: '#FFB804',
   },

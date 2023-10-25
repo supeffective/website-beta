@@ -13,7 +13,7 @@
     "format-code": "prettier . --write",
     "format-package-json": "sort-package-json",
     "generate": "pnpm db:generate",
-    "generate:assets": "pwa-asset-generator resources/logo/logo.svg public/pwa-assets --path '' --favicon --padding '5%' --manifest public/manifest.json --background '#52CBE3' --index resources/metadata.html --xhtml",
+    "generate:assets": "pwa-asset-generator resources/assets/logo/logo-favicon.svg public/pwa-assets --path '' --favicon --padding '5%' --manifest public/manifest.json --background '#ae6bc7' --index resources/metadata.html --xhtml",
     "generate:data": "bun ./lib/pokemon/maintenance/optimize-dataset.ts",
     "hooks:pre-commit": "pnpm lint-staged",
     "hooks:pre-push": "pnpm quality-checks:ci",

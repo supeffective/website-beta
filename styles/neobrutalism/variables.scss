@@ -54,10 +54,10 @@
 
     --nb-neon-blue: 50 1 255;
 
-    --nb-purple-100: 227 223 242;
-    --nb-purple-200: 196 161 255;
-    --nb-purple-300: 162 136 236;
-    --nb-purple-400: 151 35 200;
+    --nb-purple-100: 221, 192, 231;
+    --nb-purple-200: 195, 144, 213;
+    --nb-purple-300: 174, 107, 199;
+    --nb-purple-400: 136, 69, 161;
   }
 }
 
@@ -85,7 +85,7 @@
     // Scrollbars:
     --scrollbar-width: 16px;
     --scrollbar-track-color: rgba(255, 255, 255, 0.4);
-    --scrollbar-thumb-color: #896fd8;
+    --scrollbar-thumb-color: rgb(var(--nb-purple-400));
     --scrollbar-thumb-radius: 8px;
     --scrollbar-thumb-border: 2px solid theme('colors.black');
   }
