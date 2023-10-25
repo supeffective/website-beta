@@ -86,7 +86,9 @@ export function NavBottomMenu() {
           </Button>
         </div>
         <div className="text-center">
-          <div className="text-3xl font-extrabold">SupEffective</div>
+          <div className="text-3xl font-extrabold">
+            <img src="/logo.svg?v=1" alt="Super Effective" className="h-26 w-36" />
+          </div>
           {user && (
             <div>
               {user.email} - {user.provider}
