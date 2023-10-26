@@ -4,9 +4,9 @@
 // Neobrutalism fonts:
 // import { Lexend_Mega, Public_Sans, Archivo_Black, Bebas_Neue, Maven_Pro, Reem_Kufi } from 'next/font/google'
 
+import { Providers } from '@/components/Providers'
 import { NavTopMenu } from '@/components/layout/nav-top'
 import { baseMetadata, baseViewport } from '@/config/metadata'
-import { NextAuthProvider } from '@/lib/auth/components'
 import { cn } from '@/lib/utils'
 import { Reem_Kufi } from 'next/font/google'
 import { NavBottomMenu } from '../components/layout/nav-bottom'
@@ -21,12 +21,12 @@ export default function RootLayout({ children, modal }: { children: React.ReactN
   return (
     <html lang="en" className="light pwa-app">
       <body className={cn(baseFont.className, ' bg-primary')}>
-        <NextAuthProvider>
+        <Providers>
           <NavTopMenu />
           <NavBottomMenu />
           <main className="flex flex-col items-center justify-between p-4">{children}</main>
           {modal}
-        </NextAuthProvider>
+        </Providers>
       </body>
     </html>
   )

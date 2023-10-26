@@ -1,14 +1,14 @@
 import { envVars } from '@/config/env/server-vars'
 import { patreonCampaign } from '@/config/patreon'
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
-import { NextAuthOptions } from 'next-auth'
+import { NextAuthOptions as NextAuthConfig } from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import PatreonProvider from 'next-auth/providers/patreon'
 import db from '../db/client'
 import { findHighestPatreonTier } from '../patreon/utils'
 
 // https://medium.com/@rohitkumarkhatri/next-auth-in-app-router-of-next-js-7df037f7a2ad
-export const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthConfig = {
   // Secret for Next-auth, without this JWT encryption/decryption won't work
   secret: envVars.NEXTAUTH_SECRET,
   session: {
