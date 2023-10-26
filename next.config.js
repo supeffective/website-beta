@@ -3,6 +3,9 @@ const { withSentryConfig } = require('@sentry/nextjs')
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // serverActions: true,
+  experimental: {
+    webpackBuildWorker: true,
+  },
 }
 
 module.exports = withSentryConfig(
