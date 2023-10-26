@@ -2,7 +2,7 @@
 // @see https://ui.shadcn.com/docs/components/dialog
 
 import { useRouter } from 'next/navigation'
-import React, { ComponentPropsWithoutRef, ReactNode, useState } from 'react'
+import { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from './dialog'
 
 export default function DialogInterceptedRoute({
@@ -16,18 +16,11 @@ export default function DialogInterceptedRoute({
   footer?: ReactNode
 }) {
   const router = useRouter()
-  const [closing, setClosing] = useState(false)
-  const dialogRef = React.useRef<HTMLDivElement>(null)
   return (
     <Dialog
       defaultOpen
       onOpenChange={(open) => {
-        if (!open && !closing) {
-          // Trigger an extra render to delay giving focus on backdrop elements
-          setClosing(true)
-          return
-        }
-        if (closing && !open) {
+        if (!open) {
           router.back()
         }
       }}
