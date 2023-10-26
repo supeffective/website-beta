@@ -1,6 +1,17 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import config from './general'
 import splashScreenConfig from './splash-screen'
+
+const baseViewport: Viewport = {
+  // 'width=device-width, initial-scale=1, viewport-fit=cover',
+  width: 'device-width',
+  height: 'device-height',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#000000',
+}
 
 const baseMetadata: Metadata = {
   applicationName: config.texts.standaloneTitle,
@@ -11,16 +22,6 @@ const baseMetadata: Metadata = {
     default: config.texts.siteName,
   },
   manifest: '/manifest.json',
-  themeColor: '#000000',
-  viewport: {
-    // 'width=device-width, initial-scale=1, viewport-fit=cover',
-    width: 'device-width',
-    height: 'device-height',
-    initialScale: 1,
-    minimumScale: 1,
-    maximumScale: 1,
-    viewportFit: 'cover',
-  },
   appleWebApp: {
     title: config.texts.standaloneTitle,
     statusBarStyle: 'black-translucent',
@@ -41,4 +42,4 @@ const baseMetadata: Metadata = {
   // ],
 }
 
-export default baseMetadata
+export { baseMetadata, baseViewport }

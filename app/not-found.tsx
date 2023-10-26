@@ -1,9 +1,11 @@
-import baseMetadata from '@/config/metadata'
+import { baseMetadata, baseViewport } from '@/config/metadata'
 
-const metadata = baseMetadata
-metadata.robots = 'noindex, nofollow'
+export const metadata = {
+  ...baseMetadata,
+  robots: 'noindex, nofollow',
+}
 
-export { metadata }
+export const viewport = baseViewport
 
 export default function NotFoundPage() {
   return (

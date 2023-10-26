@@ -5,7 +5,7 @@
 // import { Lexend_Mega, Public_Sans, Archivo_Black, Bebas_Neue, Maven_Pro, Reem_Kufi } from 'next/font/google'
 
 import { NavTopMenu } from '@/components/layout/nav-top'
-import baseMetadata from '@/config/metadata'
+import { baseMetadata, baseViewport } from '@/config/metadata'
 import { NextAuthProvider } from '@/lib/auth/components'
 import { cn } from '@/lib/utils'
 import { Reem_Kufi } from 'next/font/google'
@@ -15,6 +15,7 @@ import '../styles/globals.scss'
 const baseFont = Reem_Kufi({ subsets: ['latin'] })
 
 export const metadata = baseMetadata
+export const viewport = baseViewport
 
 export default function RootLayout({ children, modal }: { children: React.ReactNode; modal?: React.ReactNode }) {
   return (
