@@ -21,6 +21,11 @@ export const viewport = baseViewport
 export default function RootLayout({ children, modal }: { children: React.ReactNode; modal?: React.ReactNode }) {
   return (
     <html lang="en" className="light pwa-app">
+      <head>
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+      </head>
       <body className={cn(baseFont.className, ' bg-primary')}>
         <Providers>
           <NavTopMenu />

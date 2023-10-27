@@ -21,7 +21,7 @@ const baseMetadata: Metadata = {
     absolute: config.texts.defaultMetaTitle,
     default: config.texts.siteName,
   },
-  manifest: '/manifest.json',
+  manifest: '/manifest.webmanifest',
   appleWebApp: {
     title: config.texts.standaloneTitle,
     statusBarStyle: 'black-translucent',

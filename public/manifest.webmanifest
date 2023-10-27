@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "id": "gg.supereffective",
+  "name": "SuperEffective",
+  "short_name": "SuperEffective",
+  "description": "The most complete Living Dex tracker. Your Pokémon game companion.",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "lang": "en-US",
+  "orientation": "portrait",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "edge_side_panel": {
+    "preferred_width": 496
+  },
+  "categories": ["games", "utilities"],
+  "icons": [
+    {
+      "src": "/pwa-assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa-assets/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-assets/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/pwa-assets/screenshots/1280x800-screenshot.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "platform": "wide",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/pwa-assets/screenshots/750x1334-screenshot.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Pokédex",
+      "short_name": "Pokédex",
+      "description": "Pokédex page",
+      "url": "/pokedex"
+    },
+    {
+      "name": "Games",
+      "short_name": "Games",
+      "description": "Games page",
+      "url": "/games"
+    },
+    {
+      "name": "Boxes",
+      "short_name": "Boxes",
+      "description": "Boxes page",
+      "url": "/boxes"
+    }
+  ]
+}
