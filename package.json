@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm generate:data && next build",
-    "build:vercel": "pnpm -g i bun && pnpm db:migrate && pnpm build",
+    "build:vercel": "pnpm db:migrate && pnpm build",
     "db:generate": "pnpm drizzle-kit generate:mysql",
     "db:migrate": "bun lib/db/migrate.ts",
     "db:push": "env-cmd pnpm drizzle-kit push:mysql",
