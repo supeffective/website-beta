@@ -5,7 +5,6 @@ coverage
 .turbo
 build
 out
-public
 assets
 data
 db/migrations
