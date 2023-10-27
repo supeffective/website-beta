@@ -22,6 +22,7 @@ export const Img = (props: ImgProps) => {
     <img
       src={originalSrc}
       loading={loading}
+      crossOrigin="anonymous"
       data-state={'loading'}
       onLoad={(e) => {
         e.currentTarget.setAttribute('data-state', 'loaded')

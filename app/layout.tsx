@@ -5,6 +5,7 @@
 // import { Lexend_Mega, Public_Sans, Archivo_Black, Bebas_Neue, Maven_Pro, Reem_Kufi } from 'next/font/google'
 
 import { Providers } from '@/components/Providers'
+import { ServiceWorkers } from '@/components/ServiceWorkers'
 import { NavTopMenu } from '@/components/layout/nav-top'
 import { baseMetadata, baseViewport } from '@/config/metadata'
 import { cn } from '@/lib/utils'
@@ -27,6 +28,7 @@ export default function RootLayout({ children, modal }: { children: React.ReactN
           <main className="flex flex-col items-center justify-between p-4">{children}</main>
           {modal}
         </Providers>
+        <ServiceWorkers />
       </body>
     </html>
   )
