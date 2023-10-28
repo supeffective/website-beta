@@ -105,3 +105,15 @@ export const MarkImg = ({ assetId, ...rest }: BaseAssetImgProps) => {
     />
   )
 }
+export const CharacterImg = ({ assetId, ...rest }: BaseAssetImgProps) => {
+  return (
+    <BaseAssetImg
+      {...rest}
+      assetId={`images/characters/masters-icons/${assetId}`}
+      extension="png"
+      baseWidth={92}
+      baseHeight={92}
+      baseUrl={BASE_ASSETS_URL}
+    />
+  )
+}

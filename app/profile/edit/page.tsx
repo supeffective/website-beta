@@ -1,4 +1,4 @@
-import { UserProfile } from '@/components/user/UserProfile'
+import { UserProfileEditor } from '@/components/user/UserProfileEditor'
 import { getServerSideUser, redirectToLogin } from '@/lib/auth/get-session'
 
 export default async function Page() {
@@ -6,5 +6,5 @@ export default async function Page() {
   if (!user) {
     redirectToLogin()
   }
-  return <UserProfile user={user} />
+  return <UserProfileEditor user={user} />
 }

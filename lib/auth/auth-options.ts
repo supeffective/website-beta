@@ -1,45 +1,20 @@
 import { envVars } from '@/config/env/server-vars'
-import { patreonCampaign } from '@/config/patreon'
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
 import { NextAuthOptions as NextAuthConfig } from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import PatreonProvider from 'next-auth/providers/patreon'
 import db from '../db/client'
-import { findHighestPatreonTier } from '../patreon/utils'
 
 // https://medium.com/@rohitkumarkhatri/next-auth-in-app-router-of-next-js-7df037f7a2ad
 export const authOptions: NextAuthConfig = {
-  // Secret for Next-auth, without this JWT encryption/decryption won't work
   secret: envVars.NEXTAUTH_SECRET,
-  session: {
-    strategy: 'jwt',
-  },
   callbacks: {
-    session: async ({ session, token }) => {
-      if (!session.user) {
+    session: async ({ session, user }) => {
+      if (!session.user || !user) {
         return session
       }
-      session.user.provider = token?.provider as string
-      session.user.tier = token?.tier as string
+      session.user.id = user.id
       return session
-    },
-    jwt: async (params) => {
-      const isLogin = params.trigger === 'signIn' || params.trigger === 'signUp'
-      const { token, account, profile } = params
-      if (isLogin && account) {
-        token.provider = account.provider
-
-        if (token.provider === 'patreon' && profile) {
-          // TODO: save tier in db after signin if its different (but needs sync when pledges change)
-          const highestTier = findHighestPatreonTier(profile as any)
-          token.tier = highestTier.rewardId
-        } else {
-          // if login with other providers, set tier to 'everyone'
-          token.tier = patreonCampaign.tierIds.none
-        }
-      }
-      // console.log('jwt callback', params)
-      return token
     },
   },
 

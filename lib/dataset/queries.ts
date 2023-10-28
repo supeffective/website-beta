@@ -1,7 +1,16 @@
 import '@/lib/server-only'
 
 import appConfig from '@/config/general'
-import { BoxPreset, Pokedex, Pokemon, getAllBoxPresets, getAllPokedexes, getAllPokemon } from '@supeffective/dataset'
+import {
+  BoxPreset,
+  Character,
+  Pokedex,
+  Pokemon,
+  getAllBoxPresets,
+  getAllCharacters,
+  getAllPokedexes,
+  getAllPokemon,
+} from '@supeffective/dataset'
 
 export async function getPokedexesByGameSet(gameSet: string): Promise<Pokedex[]> {
   const dexes = await getAllPokedexes(appConfig.static.dataUrl)
@@ -15,4 +24,8 @@ export async function getBoxPresetsByGameSet(gameSet: string): Promise<BoxPreset
 
 export async function getPokemonCollection(): Promise<Pokemon[]> {
   return getAllPokemon(appConfig.static.dataUrl)
+}
+
+export async function getCharacterCollection(): Promise<Character[]> {
+  return getAllCharacters(appConfig.static.dataUrl)
 }

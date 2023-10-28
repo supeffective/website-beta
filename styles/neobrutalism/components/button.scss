@@ -1,12 +1,14 @@
 @layer components {
-  .btn {
+  .btn,
+  a.btn {
     @apply inline-flex items-center justify-center border-2 text-sm font-medium ring-offset-background;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
     @apply focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
     @apply no-underline shadow-sm transition-all duration-300 active:translate-y-[2px] active:shadow-none;
   }
 
-  .btn {
+  .btn,
+  a.btn {
     -webkit-user-drag: none; // disable dragging of links
 
     &-default {

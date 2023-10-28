@@ -30,7 +30,7 @@ export default function RootLayout({ children, modal }: { children: React.ReactN
         <Providers>
           <NavTopMenu />
           <NavBottomMenu />
-          <main className="flex flex-col items-center justify-between p-4">{children}</main>
+          <main className="flex flex-col p-4">{children}</main>
           {modal}
         </Providers>
         <ServiceWorkers />

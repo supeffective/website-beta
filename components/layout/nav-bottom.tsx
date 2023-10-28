@@ -89,11 +89,7 @@ export function NavBottomMenu() {
           <div className="text-3xl font-extrabold">
             <img src="/logo.svg?v=1" alt="Super Effective" className="h-26 w-36" />
           </div>
-          {user && (
-            <div>
-              {user.email} - {user.provider}
-            </div>
-          )}
+          {user && <div>{user.email}</div>}
         </div>
         <div className="flex flex-col gap-2">
           {user && (

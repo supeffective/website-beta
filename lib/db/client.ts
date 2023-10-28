@@ -1,20 +1,30 @@
 import { envVars } from '@/config/env/server-vars'
 import '@/lib/server-only'
 import { connect as planetscale_connect } from '@planetscale/database'
-import { drizzle as mysql_drizzle } from 'drizzle-orm/mysql2'
+import { DefaultLogger, LogWriter } from 'drizzle-orm'
+import { MySql2Database, drizzle as mysql_drizzle } from 'drizzle-orm/mysql2'
 import { migrate as mysql_migrate } from 'drizzle-orm/mysql2/migrator'
-import { drizzle as planetscale_drizzle } from 'drizzle-orm/planetscale-serverless'
+import { PlanetScaleDatabase, drizzle as planetscale_drizzle } from 'drizzle-orm/planetscale-serverless'
 import { migrate as planetscale_migrate } from 'drizzle-orm/planetscale-serverless/migrator'
 import mysql from 'mysql2/promise'
+import * as schema from './schema'
 
 const migrationsFolder = __dirname + '/migrations'
 
-type DrizzleMysqlClient = ReturnType<typeof planetscale_drizzle> | ReturnType<typeof mysql_drizzle>
+type DrizzleMysqlClient = PlanetScaleDatabase<typeof schema> | MySql2Database<typeof schema>
 
 const globalForDrizzle = globalThis as unknown as {
   drizzleDb?: DrizzleMysqlClient
   drizzleMigrate?: () => Promise<void>
 }
+
+class ConsoleLogWriter implements LogWriter {
+  write(message: string) {
+    console.log('[drizzle-orm]', message)
+  }
+}
+
+const logger = envVars.APP_ENV === 'development' ? new DefaultLogger({ writer: new ConsoleLogWriter() }) : undefined
 
 const _initDrizzleClient = (): [DrizzleMysqlClient, () => Promise<void>] => {
   if (envVars.DB_PROVIDER === 'mysql_planetscale') {
@@ -26,7 +36,7 @@ const _initDrizzleClient = (): [DrizzleMysqlClient, () => Promise<void>] => {
       password: envVars.DB_PASSWORD,
     })
 
-    const planetscaleClient = planetscale_drizzle(connection)
+    const planetscaleClient = planetscale_drizzle(connection, { schema, logger })
     return [
       planetscaleClient,
       async () => {
@@ -51,7 +61,7 @@ const _initDrizzleClient = (): [DrizzleMysqlClient, () => Promise<void>] => {
     pool: true,
   })
 
-  const mysqlClient = mysql_drizzle(mysqlPool)
+  const mysqlClient = mysql_drizzle(mysqlPool, { schema, mode: 'default', logger })
 
   return [
     mysqlClient,
@@ -64,7 +74,11 @@ const _initDrizzleClient = (): [DrizzleMysqlClient, () => Promise<void>] => {
         database: envVars.DB_DATABASE,
         port: parseInt(envVars.DB_PORT),
       })
-      const mysqlMigrationsClient = mysql_drizzle(mysqlMigrationsConnection)
+      const mysqlMigrationsClient = mysql_drizzle(mysqlMigrationsConnection, {
+        schema,
+        mode: 'default',
+        logger,
+      })
       await mysql_migrate(mysqlMigrationsClient, { migrationsFolder })
       console.log('[drizzle-orm] Migrations done.')
       process.exit(0)
