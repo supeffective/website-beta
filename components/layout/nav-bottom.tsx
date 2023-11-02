@@ -87,7 +87,8 @@ export function NavBottomMenu() {
         </div>
         <div className="text-center">
           <div className="text-3xl font-extrabold">
-            <img src="/logo.svg?v=1" alt="Super Effective" className="h-26 w-36" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logo/logo.svg?v=1" height={112} width={144} alt="Super Effective" className="h-28 w-36" />
           </div>
           {user && <div>{user.email}</div>}
         </div>

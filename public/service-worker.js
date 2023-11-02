@@ -52,12 +52,12 @@ if (IS_PROD) {
 
 const CURRENT_URL = `${self.location.protocol}//${self.location.host}`
 const FALLBACKS = {
-  png: '/fallbacks/fallbacks.png',
-  jpg: '/fallbacks/fallbacks.jpg',
-  jpeg: '/fallbacks/fallbacks.jpg',
-  gif: '/fallbacks/fallbacks.jpg',
-  svg: '/fallbacks/fallbacks.jpg',
-  webp: '/fallbacks/fallbacks.jpg',
+  png: '/images/fallbacks/fallbacks.png',
+  jpg: '/images/fallbacks/fallbacks.jpg',
+  jpeg: '/images/fallbacks/fallbacks.jpg',
+  gif: '/images/fallbacks/fallbacks.jpg',
+  svg: '/images/fallbacks/fallbacks.jpg',
+  webp: '/images/fallbacks/fallbacks.jpg',
 }
 
 const INVALIDATION_INTERVAL = 14 * 24 * 60 * 60 * 1000 // 14 days
@@ -145,7 +145,7 @@ async function _proxyRequest(caches, request, requestUrl) {
           return networkResponse
         })
         .catch(function () {
-          return fetch('/fallbacks/fallbacks.jpg', { mode: 'no-cors' })
+          return fetch('/images/fallbacks/fallbacks.jpg', { mode: 'no-cors' })
         })
     })
   })

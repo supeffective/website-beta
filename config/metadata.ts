@@ -30,14 +30,14 @@ const baseMetadata: Metadata = {
   },
   // icons: [
   //   {
-  //     url: '/pwa-assets/favicon-196.png',
+  //     url: '/images/pwa/favicon-196.png',
   //     rel: 'icon',
   //     type: 'image/png',
   //     sizes: '196x196',
   //   },
   //   {
   //     rel: 'apple-touch-icon',
-  //     url: '/pwa-assets/apple-touch-icon-180.png',
+  //     url: '/images/pwa/apple-touch-icon-180.png',
   //   },
   // ],
 }
