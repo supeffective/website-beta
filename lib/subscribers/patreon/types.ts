@@ -12,6 +12,7 @@ export type PatreonCampaign = {
 export type PatreonTier = {
   rewardId: string
   name: string
+  slug: string
   description: string
   tierWeight: number
   perks: {

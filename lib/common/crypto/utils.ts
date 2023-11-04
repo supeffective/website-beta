@@ -1,3 +1,5 @@
+import '@/lib/common/env/server-only'
+
 export const UNIX_EPOCH_MS = 1609459200000
 export const RUNTIME_PROCESS_UID = Math.min((process.pid ?? 0) + (process.ppid ?? 0), 9999)
 

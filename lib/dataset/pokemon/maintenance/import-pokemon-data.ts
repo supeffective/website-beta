@@ -1,5 +1,5 @@
 import appConfig from '@/config/general'
-import { csvJsonToCollection, jsonStringifyCompact } from '@/lib/utils/json'
+import { csvJsonToCollection, jsonStringifyCompact } from '@/lib/common/utils/json'
 import { Pokemon, fetchCollection } from '@supeffective/dataset'
 import fs from 'node:fs'
 import path from 'node:path'

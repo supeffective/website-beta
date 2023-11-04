@@ -1,7 +1,7 @@
 import appConfig from '@/config/general'
+import { PageProps } from '@/lib/router/types'
 import { fetchPokedex, fetchPokedexIndex } from '@supeffective/dataset'
 import { notFound } from 'next/navigation'
-import { PageProps } from '../../../lib/types'
 
 const records = await fetchPokedexIndex(appConfig.static.dataUrl)
 

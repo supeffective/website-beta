@@ -1,5 +1,5 @@
-import { dd } from '@/lib/utils'
-import { csvJsonToCollection } from '@/lib/utils/json'
+import { dd } from '@/lib/common/utils'
+import { csvJsonToCollection } from '@/lib/common/utils/json'
 import { OptimizedPokemonList, OptimizedPokemonListItem, SearchIndex } from '../types'
 
 export async function fetchOptimizedPokemonIndex(): Promise<OptimizedPokemonList> {

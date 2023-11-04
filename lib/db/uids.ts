@@ -1,6 +1,6 @@
+import { SimpleKSortableIDGenerator } from '@/lib/common/crypto/ksuidlib'
+import { NOMISTAKES_ALPHABET, RUNTIME_PROCESS_UID, UNIX_EPOCH_MS } from '@/lib/common/crypto/utils'
 import nanoid from 'nanoid'
-import { SimpleKSortableIDGenerator } from '../crypto/ksuidlib'
-import { NOMISTAKES_ALPHABET, RUNTIME_PROCESS_UID, UNIX_EPOCH_MS } from '../crypto/utils'
 import { DB_PRIMARY_KEY_LENGTH, DB_PUBLIC_ID_LENGTH } from './column-types'
 
 const KSUID_MAX_PREFIX_LENGTH = DB_PRIMARY_KEY_LENGTH - 21 // 21 = base ksuid length

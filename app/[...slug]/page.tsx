@@ -1,7 +1,7 @@
+import { fetchPageBySlug, fetchPages } from '@/lib/common/mdx/client'
+import { MarkdownPage } from '@/lib/common/mdx/renderer'
+import { PageType } from '@/lib/common/mdx/types'
 import { notFound } from 'next/navigation'
-import { fetchPageBySlug, fetchPages } from '../../lib/mdx/client'
-import { MarkdownPage } from '../../lib/mdx/renderer'
-import { PageType } from '../../lib/mdx/types'
 
 export async function generateStaticParams() {
   const pages = await fetchPages(PageType.Page)

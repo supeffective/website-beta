@@ -1,4 +1,4 @@
-import { OptimizedPokemonListItem } from '@/lib/pokemon/types'
+import { OptimizedPokemonListItem } from '@/lib/dataset/pokemon/types'
 import Link from 'next/link'
 import { PokeImg } from '../images'
 

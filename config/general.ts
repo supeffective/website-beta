@@ -1,4 +1,4 @@
-import { getBaseUrl } from '../lib/utils/urls'
+import { getBaseUrl } from '@/lib/common/utils/urls'
 import { clientEnvVars } from './env/client-vars'
 
 const appConfig = {

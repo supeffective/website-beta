@@ -1,4 +1,4 @@
-import { OptimizedPokemonList } from '@/lib/pokemon/types'
+import { OptimizedPokemonList } from '@/lib/dataset/pokemon/types'
 import { PokeListItem } from './poke-list-item'
 
 type PokeListProps = {

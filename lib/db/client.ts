@@ -1,5 +1,5 @@
 import { envVars } from '@/config/env/server-vars'
-import '@/lib/server-only'
+import '@/lib/common/env/server-only'
 import { connect as planetscale_connect } from '@planetscale/database'
 import { DefaultLogger, LogWriter } from 'drizzle-orm'
 import { MySql2Database, drizzle as mysql_drizzle } from 'drizzle-orm/mysql2'

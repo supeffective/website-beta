@@ -1,4 +1,4 @@
-import { UserRecord } from '@/lib/auth/types'
+import { UserRecord } from '@/lib/users/types'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { Button } from '../ui/button'

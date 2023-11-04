@@ -1,6 +1,6 @@
-import '@/lib/server-only'
+import '@/lib/common/env/server-only'
 
-import { parseEnvVars } from '../../lib/env/parser'
+import { parseEnvVars } from '@/lib/common/env/parser'
 import { EnvVarValues, ServerEnvVars, serverEnvVarSchema } from './types'
 
 const envName = process.env.APP_ENV === 'dev' ? 'development' : process.env.APP_ENV ?? 'development'

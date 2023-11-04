@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/common/utils'
 import { Maven_Pro as HeadingFont } from 'next/font/google'
 
 const fontFamily = HeadingFont({ subsets: ['latin'], weight: '800' })

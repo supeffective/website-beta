@@ -1,6 +1,6 @@
 import { PokeListApp } from '@/components/pkm/lists/poke-list-app'
 import { Heading } from '@/components/typography/heading'
-import { fetchOptimizedPokemonIndex } from '@/lib/pokemon/repository/pokemon'
+import { fetchOptimizedPokemonIndex } from '@/lib/dataset/pokemon/repository/pokemon'
 
 export default async function Page() {
   const records = await fetchOptimizedPokemonIndex()

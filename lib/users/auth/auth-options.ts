@@ -1,9 +1,9 @@
 import { envVars } from '@/config/env/server-vars'
+import db from '@/lib/db/client'
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
 import { NextAuthOptions as NextAuthConfig } from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import PatreonProvider from 'next-auth/providers/patreon'
-import db from '../db/client'
 
 // https://medium.com/@rohitkumarkhatri/next-auth-in-app-router-of-next-js-7df037f7a2ad
 export const authOptions: NextAuthConfig = {

@@ -1,3 +1,5 @@
+import '@/lib/common/env/server-only'
+
 import { generateRandomHexString } from './random'
 import { bigIntToBase36, rotlBigInt } from './utils'
 

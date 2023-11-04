@@ -1,6 +1,6 @@
+import { fetchPages } from '@/lib/common/mdx/client'
+import { PageType } from '@/lib/common/mdx/types'
 import Link from 'next/link'
-import { fetchPages } from '../../lib/mdx/client'
-import { PageType } from '../../lib/mdx/types'
 
 const pageType = PageType.Blog
 

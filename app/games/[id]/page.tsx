@@ -1,7 +1,7 @@
 import appConfig from '@/config/general'
+import { PageProps } from '@/lib/router/types'
 import { getAllGames, getGameById } from '@supeffective/dataset'
 import { notFound } from 'next/navigation'
-import { PageProps } from '../../../lib/types'
 
 const records = await getAllGames(appConfig.static.dataUrl)
 

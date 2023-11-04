@@ -1,4 +1,4 @@
-import '@/lib/server-only'
+import '@/lib/common/env/server-only'
 
 import { cache } from 'react'
 import { parseAllMarkdownPages, parseMarkdownPage, resolveMarkdownFilePath } from './parser'

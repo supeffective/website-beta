@@ -1,5 +1,5 @@
 import appConfig from '@/config/general'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/common/utils'
 import type { ComponentPropsWithoutRef } from 'react'
 import { Img } from '../primitives/img'
 

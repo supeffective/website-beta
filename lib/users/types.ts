@@ -1,5 +1,5 @@
 import { DefaultSession } from 'next-auth'
-import { userTable } from './db-schema'
+import { userTable } from './auth/db-schema'
 
 export type UserRecord = typeof userTable.$inferSelect
 

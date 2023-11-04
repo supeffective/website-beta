@@ -1,6 +1,6 @@
 import { SignInForm } from '@/components/layout/signin-form'
 import DialogInterceptedRoute from '@/components/ui/dialog-intercepted-route'
-import { PageProps } from '@/lib/types'
+import { PageProps } from '@/lib/router/types'
 export default async function Page({ searchParams }: PageProps) {
   const header = <div>Sign In</div>
   const footer = null

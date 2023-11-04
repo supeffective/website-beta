@@ -1,4 +1,4 @@
-import '@/lib/server-only'
+import '@/lib/common/env/server-only'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { ComponentPropsWithoutRef } from 'react'

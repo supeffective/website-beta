@@ -1,5 +1,5 @@
 import { SignInForm } from '@/components/layout/signin-form'
-import { PageProps } from '@/lib/types'
+import { PageProps } from '@/lib/router/types'
 
 /**
  * The following errors are passed as error query parameters to the default or overridden sign-in page.

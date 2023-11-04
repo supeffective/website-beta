@@ -3,9 +3,9 @@
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import { useDebouncedState } from '@/lib/hooks/useDebouncedState'
-import { createPokemonSearchIndex, searchPokemon } from '@/lib/pokemon/repository/pokemon'
-import { OptimizedPokemonList, SearchIndex } from '@/lib/pokemon/types'
+import { createPokemonSearchIndex, searchPokemon } from '@/lib/dataset/pokemon/repository/pokemon'
+import { OptimizedPokemonList, SearchIndex } from '@/lib/dataset/pokemon/types'
+import { useDebouncedState } from '@/hooks/useDebouncedState'
 import { useEffect, useMemo, useState } from 'react'
 import { PokeList } from './poke-list'
 

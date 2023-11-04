@@ -1,10 +1,10 @@
+import db from '@/lib/db/client'
 import { eq } from 'drizzle-orm'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
-import db from '../db/client'
+import { UserRecord } from '../types'
 import { authOptions } from './auth-options'
 import { userTable } from './db-schema'
-import { UserRecord } from './types'
 
 export async function getServerSideSession() {
   return await getServerSession(authOptions)
