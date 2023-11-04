@@ -14,7 +14,7 @@
     "format-package-json": "sort-package-json",
     "generate": "pnpm db:generate",
     "generate:assets": "./scripts/generate-pwa-assets.sh",
-    "generate:data": "bun ./lib/pokemon/maintenance/optimize-dataset.ts",
+    "generate:data": "bun ./lib/dataset/maintenance/optimize-dataset.ts",
     "hooks:pre-commit": "pnpm lint-staged",
     "hooks:pre-push": "pnpm quality-checks:ci",
     "postinstall": "pnpm format-package-json",

@@ -3,7 +3,7 @@ import { csvJsonToCollection, jsonStringifyCompact } from '@/lib/common/utils/js
 import { Pokemon, fetchCollection } from '@supeffective/dataset'
 import fs from 'node:fs'
 import path from 'node:path'
-import { OptimizedPokemonListItem, optimizedPokemonListItemSchema } from '../types'
+import { OptimizedPokemonListItem, optimizedPokemonListItemSchema } from '../pokemon/types'
 
 const pokemon = await fetchCollection<Pokemon>('pokemon.min.json', appConfig.static.dataUrl)
 const DEST_DIR = path.join(__dirname, '..', 'data')

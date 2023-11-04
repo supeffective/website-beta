@@ -1,6 +1,6 @@
 import { dd } from '@/lib/common/utils'
 import { csvJsonToCollection } from '@/lib/common/utils/json'
-import { OptimizedPokemonList, OptimizedPokemonListItem, SearchIndex } from '../types'
+import { OptimizedPokemonList, OptimizedPokemonListItem, SearchIndex } from './types'
 
 export async function fetchOptimizedPokemonIndex(): Promise<OptimizedPokemonList> {
   const csvData = require('../data/pokemon-index.csv.json')
