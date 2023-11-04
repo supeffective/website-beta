@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { createPokemonSearchIndex, searchPokemon } from '@/lib/dataset/pokemon/repository/pokemon'
 import { OptimizedPokemonList, SearchIndex } from '@/lib/dataset/pokemon/types'
-import { useDebouncedState } from '@/hooks/useDebouncedState'
+import { useDebouncedState } from '@/lib/common/hooks/useDebouncedState'
 import { useEffect, useMemo, useState } from 'react'
 import { PokeList } from './poke-list'
 
