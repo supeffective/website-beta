@@ -1,5 +1,5 @@
-import { patreonCampaign, patreonTiers } from '@/config/patreon'
 import { boolean, int, mysqlTable } from 'drizzle-orm/mysql-core'
+import { patreonCampaign, patreonTiers } from '../../config/patreon'
 import {
   createdAtColumn,
   descriptionColumn,

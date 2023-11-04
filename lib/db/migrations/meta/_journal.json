@@ -15,6 +15,13 @@
       "when": 1698464068837,
       "tag": "0001_skinny_talkback",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1699095908495,
+      "tag": "0002_regular_fixer",
+      "breakpoints": true
     }
   ]
 }
