@@ -4,7 +4,7 @@ function padCap(num: string, size: number) {
   return ('000000000' + num).slice(-size)
 }
 
-export function getMachineFootprint(pid: number, hostname: string, padding = 2) {
+export function getMachineFootprintFor(pid: number, hostname: string, padding = 2) {
   const pidStr = padCap(pid.toString(36), padding)
   const hostId = padCap(
     hostname
@@ -16,6 +16,6 @@ export function getMachineFootprint(pid: number, hostname: string, padding = 2) 
   return pidStr + hostId
 }
 
-export function getMachineId(padding = 2) {
-  return getMachineFootprint(process.pid, os.hostname(), padding)
+export function getMachineFootprint(padding = 2) {
+  return getMachineFootprintFor(process.pid, os.hostname(), padding)
 }

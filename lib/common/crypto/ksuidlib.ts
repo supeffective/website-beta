@@ -1,7 +1,6 @@
 import '@/lib/common/env/server-only'
 
-import { randomInt } from 'crypto'
-import { getMachineId } from './machineid'
+import { getMachineFootprint } from './machineid'
 import { generateRandomHexString } from './random'
 import { UNIX_EPOCH_MS, bigIntToBase36, rotlBigInt } from './utils'
 
@@ -49,7 +48,7 @@ export class SimpleKSortableIDGenerator {
   constructor(epoch: number = UNIX_EPOCH_MS, maxLength: number = KSUID_DEFAULT_MAX_ID_LENGTH) {
     this.maxLength = maxLength
     this.epoch = epoch ?? UNIX_EPOCH_MS
-    this.machineId = getMachineId(3)
+    this.machineId = getMachineFootprint(3)
   }
 
   nextId(prefix: string = '', separator = ''): string {
@@ -74,15 +73,11 @@ export class SimpleKSortableIDGenerator {
 
     this.lastTimestamp = timestamp
 
-    const _timestampSeq = BigInt(this.lastTimestamp - this.epoch) + this.sequence
-    const _randomMachineNum = BigInt(randomInt(Number(BigInt('0xFFF')))) // 0..65535
-    const _randomBytes = generateRandomHexString(2)
+    const _timing = BigInt(this.lastTimestamp - this.epoch) + this.sequence
+    const _timingStr = bigIntToBase36(rotlBigInt(_timing, 1n)).padStart(9, '0') // 9 chars = up until year 5138
+    const _randomBytes = generateRandomHexString(3)
 
-    const _timingComponent = bigIntToBase36(rotlBigInt(_timestampSeq, 2n)).padStart(9, '0') // 9 chars = up until year 5138
-    const _machineComponent = this.machineId
-    const _randomComponent = (bigIntToBase36(_randomMachineNum, 3) + _randomBytes).slice(1) // skip first char
-
-    const baseId = [_timingComponent, _machineComponent, _randomComponent].join(separator)
+    const baseId = [_timingStr, this.machineId, _randomBytes].join(separator)
 
     const baseLength = baseId.length - separator.length * 2
     const id = prefix + baseId
