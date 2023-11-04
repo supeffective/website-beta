@@ -1,4 +1,4 @@
-import { datetime, tinyint, varchar } from 'drizzle-orm/mysql-core'
+import { timestamp, tinyint, varchar } from 'drizzle-orm/mysql-core'
 
 export const DB_PRIMARY_KEY_LENGTH = 24
 export const DB_PUBLIC_ID_LENGTH = 20 // for nanoid, 21 chars = similar collision rate to UUIDv4
@@ -10,20 +10,32 @@ export function primaryKeyColumn(columnName: string = 'id') {
   return varchar(columnName, { length: DB_PRIMARY_KEY_LENGTH }).notNull().primaryKey()
 }
 
+export function foreignKeyColumn(columnName: string) {
+  return varchar(columnName, { length: DB_PRIMARY_KEY_LENGTH })
+}
+
 export function publicIdColumn(columnName: string = 'pubId') {
   return varchar(columnName, { length: DB_PUBLIC_ID_LENGTH }).notNull().unique()
 }
 
+export function timestampColumn(columnName: string) {
+  return timestamp(columnName, { mode: 'date' })
+}
+
 export function createdAtColumn() {
-  return datetime('createdAt').notNull()
+  return timestampColumn('createdAt').notNull()
 }
 
 export function updatedAtColumn() {
-  return datetime('updatedAt')
+  return timestampColumn('updatedAt')
 }
 
 export function deletedAtColumn() {
-  return datetime('deletedAt')
+  return timestampColumn('deletedAt')
+}
+
+export function expiresAtColumn() {
+  return timestampColumn('expiresAt')
 }
 
 export function titleColumn(columnName: string = 'title') {
