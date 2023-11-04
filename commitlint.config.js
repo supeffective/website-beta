@@ -24,6 +24,7 @@ module.exports = {
         'cms',
         'assets',
         'ui',
+        'lib',
         'wip',
       ],
     ],
