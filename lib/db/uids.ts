@@ -5,7 +5,7 @@ import { DB_PRIMARY_KEY_LENGTH, DB_PUBLIC_ID_LENGTH } from './column-types'
 
 const KSUID_MAX_PREFIX_LENGTH = DB_PRIMARY_KEY_LENGTH - 19 // 19 = base ksuid length
 
-const ksuidGenerator = new SimpleKSortableIDGenerator(undefined, undefined, DB_PRIMARY_KEY_LENGTH)
+const ksuidGenerator = new SimpleKSortableIDGenerator(undefined, DB_PRIMARY_KEY_LENGTH)
 
 /**
  * Generates a new K-Sortable Unique ID, pseudo-random, and suitable for use as a primary key in a database.

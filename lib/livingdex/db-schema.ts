@@ -2,9 +2,11 @@ import { boolean, datetime, int, json, mysqlTable } from 'drizzle-orm/mysql-core
 import {
   createdAtColumn,
   descriptionColumn,
+  foreignKeyColumn,
   genderColumn,
   languageColumn,
   primaryKeyColumn,
+  publicIdColumn,
   shortSlugColumn,
   slugColumn,
   titleColumn,
@@ -13,7 +15,9 @@ import {
 
 export const gameSaveTable = mysqlTable('gamesave', {
   id: primaryKeyColumn(),
-  publicId: slugColumn('publicId'),
+  publicId: publicIdColumn(),
+  userId: foreignKeyColumn('userId'),
+  //
   gameSlug: slugColumn('game'),
   title: titleColumn(),
   description: descriptionColumn(),
@@ -27,6 +31,9 @@ export const gameSaveTable = mysqlTable('gamesave', {
 
 export const pokemonTable = mysqlTable('pokemon', {
   id: primaryKeyColumn(),
+  publicId: publicIdColumn(),
+  userId: foreignKeyColumn('userId'),
+  //
   pokemonSlug: slugColumn('pokemon'),
   nickname: shortSlugColumn('nickname'),
   level: shortSlugColumn('level'),

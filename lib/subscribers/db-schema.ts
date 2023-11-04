@@ -6,6 +6,7 @@ import {
   expiresAtColumn,
   foreignKeyColumn,
   primaryKeyColumn,
+  publicIdColumn,
   shortSlugColumn,
   updatedAtColumn,
 } from '../db/column-types'
@@ -15,7 +16,9 @@ const defaultPokemonLimit = 30 * 32 * 5 // 30 slots per box, 32 boxes, 5 game sa
 
 export const donationsTable = mysqlTable('donation', {
   id: primaryKeyColumn(),
+  publicId: publicIdColumn(),
   userId: foreignKeyColumn('userId'),
+  //
   tierSlug: shortSlugColumn('tier').default(patreonTiers[patreonCampaign.tierIds.none].slug),
   totalPledged: int('totalPledged').default(0),
   isRecurring: boolean('recurring').default(false),
