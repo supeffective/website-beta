@@ -20,7 +20,7 @@ export function bigIntToBase36(num: bigint, numDigits?: number): string {
 /**
  * Rotates a 64-bit number to the left by a given number of bits.
  */
-export function rotlBigInt(num: bigint, rotationBits: bigint): bigint {
+export function rotlBigInt(num: bigint, rotationBits: bigint = 1n): bigint {
   if (rotationBits === 0n) {
     return num
   }

@@ -1,14 +1,13 @@
 import { SimpleKSortableIDGenerator } from './ksuidlib'
-import { UNIX_EPOCH_MS } from './utils'
 
-const simpleGenerator = new SimpleKSortableIDGenerator(UNIX_EPOCH_MS, process.pid)
+const simpleGenerator = new SimpleKSortableIDGenerator()
 
-export function generateUid(prefix: string = '', separator = ''): string {
+export function generateUid(prefix: string = 'pk-', separator = ''): string {
   return simpleGenerator.nextId(prefix, separator)
 }
 
 function testSamples(samples = 100) {
-  const ids = [...Array.from({ length: samples }, () => generateUid('pk-', ''))]
+  const ids = [...Array.from({ length: samples }, () => generateUid())]
 
   const areSequential = ids.every((id, i) => {
     if (i === 0) return true
@@ -51,6 +50,12 @@ describe('SimpleKSortableIDGenerator', () => {
 
   it('generates 1_000_000 sequential IDs without errors', () => {
     const ids = testSamples(1_000_000)
+    expect(new Set(ids).size).toBe(ids.length)
+    expect(consoleErrorSpy).not.toHaveBeenCalled()
+  })
+
+  it('generates 10_000_000 sequential IDs without errors', () => {
+    const ids = testSamples(10_000_000)
     expect(new Set(ids).size).toBe(ids.length)
     expect(consoleErrorSpy).not.toHaveBeenCalled()
   })

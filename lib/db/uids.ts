@@ -1,23 +1,22 @@
 import { SimpleKSortableIDGenerator } from '@/lib/common/crypto/ksuidlib'
-import { NOMISTAKES_ALPHABET, RUNTIME_PROCESS_UID, UNIX_EPOCH_MS } from '@/lib/common/crypto/utils'
+import { NOMISTAKES_ALPHABET } from '@/lib/common/crypto/utils'
 import nanoid from 'nanoid'
 import { DB_PRIMARY_KEY_LENGTH, DB_PUBLIC_ID_LENGTH } from './column-types'
 
-const KSUID_MAX_PREFIX_LENGTH = DB_PRIMARY_KEY_LENGTH - 21 // 21 = base ksuid length
+const KSUID_MAX_PREFIX_LENGTH = DB_PRIMARY_KEY_LENGTH - 19 // 19 = base ksuid length
 
-const ksuidGenerator = new SimpleKSortableIDGenerator(UNIX_EPOCH_MS, RUNTIME_PROCESS_UID, DB_PRIMARY_KEY_LENGTH)
+const ksuidGenerator = new SimpleKSortableIDGenerator(undefined, undefined, DB_PRIMARY_KEY_LENGTH)
 
 /**
  * Generates a new K-Sortable Unique ID, pseudo-random, and suitable for use as a primary key in a database.
  *
- * Length can vary from 17 to 20 characters, depending on the prefix (which cannot be more than 3 characters).
+ * Length can vary from 19 to 24 characters, depending on the prefix (which cannot be more than 5 characters).
  */
 export function generateNextId(prefix: string = 'k'): string {
-  const separator = ''
   if (prefix.length > KSUID_MAX_PREFIX_LENGTH) {
     throw new Error('Prefix must be 3 characters or less.')
   }
-  return ksuidGenerator.nextId(prefix, separator)
+  return ksuidGenerator.nextId(prefix, '')
 }
 
 const generatePublicIdNanoId = nanoid.customAlphabet(NOMISTAKES_ALPHABET, DB_PUBLIC_ID_LENGTH)
@@ -26,6 +25,10 @@ const generateVoucherNanoId = nanoid.customAlphabet(NOMISTAKES_ALPHABET, 6)
 
 /**
  * Generates a totally random alpha-numeric ID string, without any ambiguous characters.
+ *
+ * With 20 characters, around 136 thousand years (or 4.30e+12 seconds) are needed,
+ * in order to have a 1% probability of at least one collision if 10,000 IDs are
+ * generated every second.
  *
  * @example 'ESumLafaHy3qsg5geh5H'
  * @returns {string} 20 characters

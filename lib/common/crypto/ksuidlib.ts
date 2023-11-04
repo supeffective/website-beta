@@ -1,13 +1,11 @@
 import '@/lib/common/env/server-only'
 
+import { randomInt } from 'crypto'
+import { getMachineId } from './machineid'
 import { generateRandomHexString } from './random'
-import { bigIntToBase36, rotlBigInt } from './utils'
+import { UNIX_EPOCH_MS, bigIntToBase36, rotlBigInt } from './utils'
 
 const KSUID_PREXIX_REGEX = /^([a-z]{1,})([a-z0-9]{0,})-?$/
-const KSUID_MACHINE_MAX = 99_999
-const KSUID_MACHINE_MAX_DIGITS = 5
-const KSUID_ROTATIONS = 3n
-const KSUID_RANDOM_BYTES = 4
 const KSUID_DEFAULT_MAX_ID_LENGTH = 24
 
 /**
@@ -19,7 +17,8 @@ const KSUID_DEFAULT_MAX_ID_LENGTH = 24
  *    - _Uniqueness_: KSUIDs are unique across machines, and are guaranteed to be unique for 1 millisecond, even if
  *      generated on different machines that are not synchronized.
  *    - _Sortability_: KSUIDs are sortable by generation time, and can be used as keys in databases that are sorted by
- *      creation time.
+ *      creation time. In distributed systems, make sure they all use the same epoch, and that the clocks are
+ *     synchronized.
  *    - _Predictability_ of the next ID: KSUIDs are somehow predictable for the first bits, but not for the last ones.
  *    - _Leaks_: KSUIDs partially leak how many IDs have been generated in a given time period, the creation date,
  *      and the machine ID, even though these parts are obfuscated, it is recommended to use a dedicated machine ID
@@ -42,18 +41,15 @@ const KSUID_DEFAULT_MAX_ID_LENGTH = 24
  */
 export class SimpleKSortableIDGenerator {
   private epoch: number
-  private machineId: number
+  private machineId: string
+  private maxLength: number
   private sequence: bigint = 0n
   private lastTimestamp: number = -1
-  private maxUidLength: number
 
-  constructor(epoch: number, machineId: number, maxUidLength: number = KSUID_DEFAULT_MAX_ID_LENGTH) {
-    if (machineId < 0 || machineId > KSUID_MACHINE_MAX) {
-      throw new Error(`Machine ID must be between 0 and ${KSUID_MACHINE_MAX} (inclusive), got: ${machineId}`)
-    }
-    this.maxUidLength = maxUidLength
-    this.epoch = epoch
-    this.machineId = machineId
+  constructor(epoch: number = UNIX_EPOCH_MS, maxLength: number = KSUID_DEFAULT_MAX_ID_LENGTH) {
+    this.maxLength = maxLength
+    this.epoch = epoch ?? UNIX_EPOCH_MS
+    this.machineId = getMachineId(3)
   }
 
   nextId(prefix: string = '', separator = ''): string {
@@ -78,18 +74,22 @@ export class SimpleKSortableIDGenerator {
 
     this.lastTimestamp = timestamp
 
-    const baseId = [
-      bigIntToBase36(rotlBigInt(BigInt(this.lastTimestamp - this.epoch) + this.sequence, KSUID_ROTATIONS)),
-      bigIntToBase36(rotlBigInt(BigInt(this.machineId), KSUID_ROTATIONS), KSUID_MACHINE_MAX_DIGITS),
-      generateRandomHexString(KSUID_RANDOM_BYTES),
-    ].join(separator)
+    const _timestampSeq = BigInt(this.lastTimestamp - this.epoch) + this.sequence
+    const _randomMachineNum = BigInt(randomInt(Number(BigInt('0xFFF')))) // 0..65535
+    const _randomBytes = generateRandomHexString(2)
+
+    const _timingComponent = bigIntToBase36(rotlBigInt(_timestampSeq, 2n)).padStart(9, '0') // 9 chars = up until year 5138
+    const _machineComponent = this.machineId
+    const _randomComponent = (bigIntToBase36(_randomMachineNum, 3) + _randomBytes).slice(1) // skip first char
+
+    const baseId = [_timingComponent, _machineComponent, _randomComponent].join(separator)
 
     const baseLength = baseId.length - separator.length * 2
     const id = prefix + baseId
 
-    if (id.length > this.maxUidLength) {
-      throw new Error(
-        `KSUID length must be from ${baseLength} to ${this.maxUidLength} characters or less, got ${id.length}: '${id}'.`,
+    if (id.length > this.maxLength) {
+      throw Error(
+        `KSUID length must be from ${baseLength} to ${this.maxLength} characters or less, got ${id.length}: '${id}'.`,
       )
     }
 
