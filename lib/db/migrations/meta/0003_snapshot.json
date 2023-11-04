@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "698006d4-4e41-45e6-8726-7626d4a3b12f",
-  "prevId": "5d5b2221-883f-4170-9b60-fcbc40ffe334",
+  "id": "883f5af2-8c60-484b-9987-d9b463c181b0",
+  "prevId": "698006d4-4e41-45e6-8726-7626d4a3b12f",
   "tables": {
     "gamesave": {
       "name": "gamesave",
@@ -523,6 +523,16 @@
         "userId_idx": {
           "name": "userId_idx",
           "columns": ["userId"],
+          "isUnique": false
+        },
+        "gameSaveIdx_idx": {
+          "name": "gameSaveIdx_idx",
+          "columns": ["gameSaveId"],
+          "isUnique": false
+        },
+        "boxSlotIdx_idx": {
+          "name": "boxSlotIdx_idx",
+          "columns": ["gameSaveId", "box", "boxSlot"],
           "isUnique": false
         }
       },

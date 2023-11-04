@@ -14,6 +14,10 @@ export function foreignKeyColumn(columnName: string) {
   return varchar(columnName, { length: DB_PRIMARY_KEY_LENGTH })
 }
 
+export function userIdForeignColumn() {
+  return varchar('userId', { length: 255 })
+}
+
 export function publicIdColumn(columnName: string = 'pubId') {
   return varchar(columnName, { length: DB_PUBLIC_ID_LENGTH }).notNull().unique()
 }

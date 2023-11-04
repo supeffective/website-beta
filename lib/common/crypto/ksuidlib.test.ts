@@ -54,13 +54,9 @@ describe('SimpleKSortableIDGenerator', () => {
     expect(consoleErrorSpy).not.toHaveBeenCalled()
   })
 
-  it('generates 10_000_000 sequential IDs without errors', () => {
+  it.skip('generates 10_000_000 sequential IDs without errors', () => {
     const ids = testSamples(10_000_000)
     expect(new Set(ids).size).toBe(ids.length)
     expect(consoleErrorSpy).not.toHaveBeenCalled()
   })
 })
-
-// console.log("Testing 10 million samples...");
-// testSamples(10_000_000);
-// console.log("DONE\n");

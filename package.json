@@ -23,7 +23,7 @@
     "prepare": "husky install",
     "pretty": "pnpm run format",
     "preview": "pnpm start",
-    "quality-checks": "turbo build && turbo lint && turbo typelint && turbo test:ci",
+    "quality-checks": "turbo lint && turbo typelint && turbo test:ci && turbo build",
     "quality-checks:ci": "turbo lint && turbo typelint && turbo test:ci",
     "start": "next start",
     "test": "bun test",

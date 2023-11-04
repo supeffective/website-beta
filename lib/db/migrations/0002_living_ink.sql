@@ -1,6 +1,7 @@
 CREATE TABLE `gamesave` (
 	`id` varchar(24) NOT NULL,
-	`publicId` varchar(50),
+	`pubId` varchar(20) NOT NULL,
+	`userId` varchar(255),
 	`game` varchar(50),
 	`title` varchar(50),
 	`description` varchar(500),
@@ -10,18 +11,21 @@ CREATE TABLE `gamesave` (
 	`lang` varchar(10),
 	`createdAt` timestamp NOT NULL,
 	`updatedAt` timestamp,
-	CONSTRAINT `gamesave_id` PRIMARY KEY(`id`)
+	CONSTRAINT `gamesave_id` PRIMARY KEY(`id`),
+	CONSTRAINT `gamesave_pubId_unique` UNIQUE(`pubId`)
 );
 --> statement-breakpoint
 CREATE TABLE `pokemon` (
 	`id` varchar(24) NOT NULL,
+	`pubId` varchar(20) NOT NULL,
+	`userId` varchar(255),
 	`pokemon` varchar(50),
 	`nickname` varchar(15),
 	`level` varchar(15),
 	`shiny` boolean,
 	`createdAt` timestamp NOT NULL,
 	`updatedAt` timestamp,
-	`gameSaveId` varchar(50),
+	`gameSaveId` varchar(24),
 	`draft` boolean,
 	`box` int,
 	`boxSlot` int,
@@ -69,12 +73,14 @@ CREATE TABLE `pokemon` (
 	`markings` json DEFAULT ('[0,0,0,0,0,0]'),
 	`ribbons` json DEFAULT ('[]'),
 	`emblems` json DEFAULT ('[]'),
-	CONSTRAINT `pokemon_id` PRIMARY KEY(`id`)
+	CONSTRAINT `pokemon_id` PRIMARY KEY(`id`),
+	CONSTRAINT `pokemon_pubId_unique` UNIQUE(`pubId`)
 );
 --> statement-breakpoint
 CREATE TABLE `donation` (
 	`id` varchar(24) NOT NULL,
-	`userId` varchar(24),
+	`pubId` varchar(20) NOT NULL,
+	`userId` varchar(255),
 	`tier` varchar(15) DEFAULT 'none',
 	`totalPledged` int DEFAULT 0,
 	`recurring` boolean DEFAULT false,
@@ -83,5 +89,10 @@ CREATE TABLE `donation` (
 	`expiresAt` timestamp,
 	`notes` varchar(500),
 	`maxPokemon` int DEFAULT 4800,
-	CONSTRAINT `donation_id` PRIMARY KEY(`id`)
+	CONSTRAINT `donation_id` PRIMARY KEY(`id`),
+	CONSTRAINT `donation_pubId_unique` UNIQUE(`pubId`)
 );
+--> statement-breakpoint
+CREATE INDEX `userId_idx` ON `gamesave` (`userId`);--> statement-breakpoint
+CREATE INDEX `userId_idx` ON `pokemon` (`userId`);--> statement-breakpoint
+CREATE INDEX `userId_idx` ON `donation` (`userId`);
