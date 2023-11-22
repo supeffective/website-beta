@@ -9,4 +9,4 @@ runs:
   using: 'composite'
   steps:
     - shell: bash
-      run: pnpm quality-checks:ci
+      run: pnpm quality-checks

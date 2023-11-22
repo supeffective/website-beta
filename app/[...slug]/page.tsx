@@ -19,6 +19,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
+  if (!params.slug || !Array.isArray(params.slug) || params.slug.length === 0) {
+    notFound()
+  }
   const page = await fetchPageBySlug(params.slug.join('/'), PageType.Page)
   if (!page) {
     notFound()
