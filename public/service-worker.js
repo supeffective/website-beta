@@ -40,7 +40,7 @@ function _debug() {
 }
 
 const IS_PROD = ['supereffective.gg', 'supereffective2024.vercel.app'].includes(self.location.hostname)
-const DOMAIN_WHITELIST = ['localhost', 'itsjavi.com']
+const DOMAIN_WHITELIST = ['localhost', 'itsjavi.com', 'cdn.supeffective.com']
 const EXTENSION_WHITELIST = ['woff', 'woff2', 'ttf', 'eot', 'otf', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'webp']
 
 if (IS_PROD) {
