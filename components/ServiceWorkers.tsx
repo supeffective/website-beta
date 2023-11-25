@@ -8,14 +8,14 @@ export function ServiceWorkers(): JSX.Element {
       return
     }
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('./service-worker.js', { scope: './' })
-        .then(function () {
-          console.debug('Service Worker Registered')
-        })
-        .catch(function (err) {
-          console.error('Service Worker Failed to Register', err)
-        })
+      // navigator.serviceWorker
+      //   .register('./service-worker.js', { scope: './' })
+      //   .then(function () {
+      //     console.debug('Service Worker Registered')
+      //   })
+      //   .catch(function (err) {
+      //     console.error('Service Worker Failed to Register', err)
+      //   })
     }
   }, [])
 
