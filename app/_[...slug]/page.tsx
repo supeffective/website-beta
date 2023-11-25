@@ -10,6 +10,7 @@ export async function generateStaticParams() {
     .filter((page) => page.properties.slug)
     .map((page) => {
       // console.log('generateStaticParams', page.properties.slug)
+      //
       return {
         params: {
           slug: page.properties.slug,
@@ -18,10 +19,11 @@ export async function generateStaticParams() {
     })
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  if (!params.slug || !Array.isArray(params.slug) || params.slug.length === 0) {
-    notFound()
-  }
+export default async function Page({ params, ...rest }: { params: { slug: string[] } }) {
+  // // console.log('/[...slug]', { params, rest })
+  // if (!params.slug || !Array.isArray(params.slug) || params.slug.length === 0) {
+  //   return null
+  // }
   const page = await fetchPageBySlug(params.slug.join('/'), PageType.Page)
   if (!page) {
     notFound()
