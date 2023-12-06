@@ -8,19 +8,19 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "Blog",
-      "path": "[[workspace]]/app/_mdx/blog",
+      "path": "[[workspace]]/mdx/blog",
       "previewPath": "/blog/{{pathToken.relPath}}",
       "contentTypes": ["blog"]
     },
     {
       "title": "Page",
-      "path": "[[workspace]]/app/_mdx/page",
+      "path": "[[workspace]]/mdx/page",
       "previewPath": "/{{pathToken.relPath}}",
       "contentTypes": ["page"]
     },
     {
       "title": "Singleton",
-      "path": "[[workspace]]/app/_mdx/singleton",
+      "path": "[[workspace]]/mdx/singleton",
       "previewPath": "/{{pathToken.relPath}}",
       "contentTypes": ["singleton"]
     }

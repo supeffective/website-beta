@@ -1,5 +1,5 @@
-import BallImg from '@/assets/pokeball.png'
 import { cn } from '@/lib/common/utils'
+import BallImg from '@/resources/pokeball.png'
 import Image from 'next/image'
 import { ReactElement } from 'react'
 

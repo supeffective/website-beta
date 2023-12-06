@@ -57,7 +57,7 @@ out/
 .next/
 .vercel/
 *.tsbuildinfo
-next-env.d.ts
+# next-env.d.ts
 
 
 ## Nuxt.js

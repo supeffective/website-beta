@@ -14,7 +14,7 @@ const initialVars: EnvVarValues<ServerEnvVars> = {
   PKM_ASSETS_URL: process.env.PKM_ASSETS_URL ?? '/static/assets',
 
   // paths
-  MDX_RELATIVE_DIR: 'app/_mdx',
+  MDX_RELATIVE_DIR: 'mdx',
 
   // database
   DB_PROVIDER: process.env.DB_PROVIDER,

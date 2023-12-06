@@ -48,7 +48,7 @@
 - MySQL: Database engine
 - Drizzle ORM: Database abstraction layer
 
-![App Architecture Diagram](lib/architecture.drawio.svg)
+![App Architecture Diagram](assets/architecture.drawio.svg)
 
 ### Providers
 
