@@ -30,6 +30,8 @@ const initialVars: EnvVarValues<ServerEnvVars> = {
   GITHUB_APP_CLIENT_SECRET: process.env.GITHUB_APP_CLIENT_SECRET,
   PATREON_APP_CLIENT_ID: process.env.PATREON_APP_CLIENT_ID,
   PATREON_APP_CLIENT_SECRET: process.env.PATREON_APP_CLIENT_SECRET,
+  DISCORD_APP_CLIENT_ID: process.env.DISCORD_APP_CLIENT_ID,
+  DISCORD_APP_CLIENT_SECRET: process.env.DISCORD_APP_CLIENT_SECRET,
 }
 
 export const envVars = parseEnvVars<ServerEnvVars>(initialVars, serverEnvVarSchema)

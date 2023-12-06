@@ -32,6 +32,8 @@ export const serverEnvVarSchema = z.object({
   GITHUB_APP_CLIENT_SECRET: z.string(),
   PATREON_APP_CLIENT_ID: z.string(),
   PATREON_APP_CLIENT_SECRET: z.string(),
+  DISCORD_APP_CLIENT_ID: z.string(),
+  DISCORD_APP_CLIENT_SECRET: z.string(),
 })
 
 export type ClientEnvVars = z.infer<typeof clientEnvVarSchema>

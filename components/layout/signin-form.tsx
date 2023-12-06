@@ -33,6 +33,14 @@ export function SignInForm({ callbackUrl }: { callbackUrl?: string }) {
       >
         Sign in with Patreon
       </Button>
+      <Button
+        className="btn btn-tertiarty"
+        onClick={() => {
+          signIn('discord', { callbackUrl: cbUrl })
+        }}
+      >
+        Sign in with Discord
+      </Button>
     </div>
   )
 }
