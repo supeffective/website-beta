@@ -3,13 +3,16 @@
 import * as requestContext from 'next/headers'
 
 import { luciaAuth } from '@/lib/auth/lucia'
+import { cache } from 'react'
 import { UserSession } from './types'
 
-export async function getServerSideSession(): Promise<UserSession | null> {
+async function _getServerSideSession(): Promise<UserSession | null> {
   const authRequest = luciaAuth.handleRequest('GET', requestContext)
   const session = await authRequest.validate()
   return session
 }
+
+export const getServerSideSession = cache(_getServerSideSession)
 
 // async function getServerSideUser(): Promise<UserRecord | null> {
 //   const session = await getServerSideSession()
