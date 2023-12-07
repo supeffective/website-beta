@@ -27,7 +27,6 @@ export const serverEnvVarSchema = z.object({
   DB_DATABASE: z.string(),
 
   // auth
-  NEXTAUTH_SECRET: z.string(),
   GITHUB_APP_CLIENT_ID: z.string(),
   GITHUB_APP_CLIENT_SECRET: z.string(),
   PATREON_APP_CLIENT_ID: z.string(),
