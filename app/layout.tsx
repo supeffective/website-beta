@@ -6,11 +6,10 @@
 
 import { Providers } from '@/components/Providers'
 import { ServiceWorkers } from '@/components/ServiceWorkers'
-import { NavTopMenu } from '@/components/layout/nav-top'
+import { Navigation } from '@/components/layout/navigation'
 import { baseMetadata, baseViewport } from '@/config/metadata'
 import { cn } from '@/lib/common/utils'
 import { Reem_Kufi } from 'next/font/google'
-import { NavBottomMenu } from '../components/layout/nav-bottom'
 import '../styles/globals.scss'
 
 const baseFont = Reem_Kufi({ subsets: ['latin'] })
@@ -28,8 +27,7 @@ export default function RootLayout({ children, modal }: { children: React.ReactN
       </head>
       <body className={cn(baseFont.className, ' bg-primary')}>
         <Providers>
-          <NavTopMenu />
-          <NavBottomMenu />
+          <Navigation />
           <main className="flex flex-col p-4">{children}</main>
           {modal}
         </Providers>

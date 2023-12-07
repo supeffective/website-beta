@@ -9,3 +9,8 @@ export type ImgProps = {
 } & Omit<ComponentPropsWithoutRef<'img'>, 'src'>
 
 export type ImgState = 'loading' | 'error' | 'loaded'
+
+export type ApiFormProps = { children: React.ReactNode; method: string; action: string } & Omit<
+  ComponentPropsWithoutRef<'form'>,
+  'method' | 'action'
+>

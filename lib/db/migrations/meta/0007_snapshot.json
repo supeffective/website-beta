@@ -1,0 +1,1178 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "id": "73ba06ec-1c99-485d-b7c9-2a0bf955bd87",
+  "prevId": "90e17833-f41c-4d47-a6c5-985cb62d732d",
+  "tables": {
+    "user_key": {
+      "name": "user_key",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "hashed_password": {
+          "name": "hashed_password",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "user_key_id": {
+          "name": "user_key_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "user_session": {
+      "name": "user_session",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(128)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "active_expires": {
+          "name": "active_expires",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "idle_expires": {
+          "name": "idle_expires",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "user_session_id": {
+          "name": "user_session_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "auth_user": {
+      "name": "auth_user",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "emailVerified": {
+          "name": "emailVerified",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "username": {
+          "name": "username",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "displayName": {
+          "name": "displayName",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "avatar": {
+          "name": "avatar",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "bio": {
+          "name": "bio",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "language": {
+          "name": "language",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "subscriptionTier": {
+          "name": "subscriptionTier",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "githubHandle": {
+          "name": "githubHandle",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "twitterHandle": {
+          "name": "twitterHandle",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "discordHandle": {
+          "name": "discordHandle",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "twitchHandle": {
+          "name": "twitchHandle",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "youtubeHandle": {
+          "name": "youtubeHandle",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "auth_user_id": {
+          "name": "auth_user_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {
+        "auth_user_email_unique": {
+          "name": "auth_user_email_unique",
+          "columns": ["email"]
+        },
+        "auth_user_username_unique": {
+          "name": "auth_user_username_unique",
+          "columns": ["username"]
+        }
+      }
+    },
+    "gamesave": {
+      "name": "gamesave",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(24)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "pubId": {
+          "name": "pubId",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "userId": {
+          "name": "userId",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "game": {
+          "name": "game",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "otName": {
+          "name": "otName",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "otId": {
+          "name": "otId",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "otGender": {
+          "name": "otGender",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "lang": {
+          "name": "lang",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "userId_idx": {
+          "name": "userId_idx",
+          "columns": ["userId"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "gamesave_id": {
+          "name": "gamesave_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {
+        "gamesave_pubId_unique": {
+          "name": "gamesave_pubId_unique",
+          "columns": ["pubId"]
+        }
+      }
+    },
+    "pokemon": {
+      "name": "pokemon",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(24)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "pubId": {
+          "name": "pubId",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "userId": {
+          "name": "userId",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "pokemon": {
+          "name": "pokemon",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "nickname": {
+          "name": "nickname",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "level": {
+          "name": "level",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "shiny": {
+          "name": "shiny",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "gameSaveId": {
+          "name": "gameSaveId",
+          "type": "varchar(24)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "draft": {
+          "name": "draft",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "box": {
+          "name": "box",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "boxSlot": {
+          "name": "boxSlot",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "tradeBoxSlot": {
+          "name": "tradeBoxSlot",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "tradeQuantity": {
+          "name": "tradeQuantity",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "tradeBack": {
+          "name": "tradeBack",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "teraType": {
+          "name": "teraType",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "shadow": {
+          "name": "shadow",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "gmax": {
+          "name": "gmax",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "dmaxLevel": {
+          "name": "dmaxLevel",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "pvpReady": {
+          "name": "pvpReady",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "pvpGoTier": {
+          "name": "pvpGoTier",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "pvpStyle": {
+          "name": "pvpStyle",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "originMark": {
+          "name": "originMark",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "originGame": {
+          "name": "originGame",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "lang": {
+          "name": "lang",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "metDate": {
+          "name": "metDate",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "metLocation": {
+          "name": "metLocation",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "metLevel": {
+          "name": "metLevel",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "otName": {
+          "name": "otName",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "otId": {
+          "name": "otId",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "otGender": {
+          "name": "otGender",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "ball": {
+          "name": "ball",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "gender": {
+          "name": "gender",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "item": {
+          "name": "item",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "move1": {
+          "name": "move1",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "move2": {
+          "name": "move2",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "move3": {
+          "name": "move3",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "move4": {
+          "name": "move4",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "ability": {
+          "name": "ability",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "nature": {
+          "name": "nature",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "mintNature": {
+          "name": "mintNature",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "hpEv": {
+          "name": "hpEv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "atkEv": {
+          "name": "atkEv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "defEv": {
+          "name": "defEv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "spaEv": {
+          "name": "spaEv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "spdEv": {
+          "name": "spdEv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "speEv": {
+          "name": "speEv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "hpIv": {
+          "name": "hpIv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "atkIv": {
+          "name": "atkIv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "defIv": {
+          "name": "defIv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "spaIv": {
+          "name": "spaIv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "spdIv": {
+          "name": "spdIv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "speIv": {
+          "name": "speIv",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "markings": {
+          "name": "markings",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "('[0,0,0,0,0,0]')"
+        },
+        "ribbons": {
+          "name": "ribbons",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "('[]')"
+        },
+        "emblems": {
+          "name": "emblems",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "('[]')"
+        }
+      },
+      "indexes": {
+        "userId_idx": {
+          "name": "userId_idx",
+          "columns": ["userId"],
+          "isUnique": false
+        },
+        "gameSaveIdx_idx": {
+          "name": "gameSaveIdx_idx",
+          "columns": ["gameSaveId"],
+          "isUnique": false
+        },
+        "boxSlotIdx_idx": {
+          "name": "boxSlotIdx_idx",
+          "columns": ["gameSaveId", "box", "boxSlot"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "pokemon_id": {
+          "name": "pokemon_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {
+        "pokemon_pubId_unique": {
+          "name": "pokemon_pubId_unique",
+          "columns": ["pubId"]
+        }
+      }
+    },
+    "donation": {
+      "name": "donation",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(24)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "pubId": {
+          "name": "pubId",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "userId": {
+          "name": "userId",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "tier": {
+          "name": "tier",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "'none'"
+        },
+        "totalPledged": {
+          "name": "totalPledged",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": 0
+        },
+        "recurring": {
+          "name": "recurring",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "expiresAt": {
+          "name": "expiresAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "maxPokemon": {
+          "name": "maxPokemon",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": 4800
+        }
+      },
+      "indexes": {
+        "userId_idx": {
+          "name": "userId_idx",
+          "columns": ["userId"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "donation_id": {
+          "name": "donation_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {
+        "donation_pubId_unique": {
+          "name": "donation_pubId_unique",
+          "columns": ["pubId"]
+        }
+      }
+    },
+    "account": {
+      "name": "account",
+      "columns": {
+        "userId": {
+          "name": "userId",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "type": {
+          "name": "type",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "provider": {
+          "name": "provider",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "providerAccountId": {
+          "name": "providerAccountId",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "refresh_token": {
+          "name": "refresh_token",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "access_token": {
+          "name": "access_token",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "token_type": {
+          "name": "token_type",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "scope": {
+          "name": "scope",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "id_token": {
+          "name": "id_token",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "session_state": {
+          "name": "session_state",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "account_provider_providerAccountId_pk": {
+          "name": "account_provider_providerAccountId_pk",
+          "columns": ["provider", "providerAccountId"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "session": {
+      "name": "session",
+      "columns": {
+        "sessionToken": {
+          "name": "sessionToken",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "userId": {
+          "name": "userId",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires": {
+          "name": "expires",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "session_sessionToken": {
+          "name": "session_sessionToken",
+          "columns": ["sessionToken"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "user": {
+      "name": "user",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "emailVerified": {
+          "name": "emailVerified",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "image": {
+          "name": "image",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "bio": {
+          "name": "bio",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "characterAvatar": {
+          "name": "characterAvatar",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "preferredLanguage": {
+          "name": "preferredLanguage",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "username": {
+          "name": "username",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "twitterUsername": {
+          "name": "twitterUsername",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "discordUsername": {
+          "name": "discordUsername",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "twitchUsername": {
+          "name": "twitchUsername",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "youtubeUsername": {
+          "name": "youtubeUsername",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "patreonTier": {
+          "name": "patreonTier",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "user_id": {
+          "name": "user_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "verificationToken": {
+      "name": "verificationToken",
+      "columns": {
+        "identifier": {
+          "name": "identifier",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "token": {
+          "name": "token",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires": {
+          "name": "expires",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "verificationToken_identifier_token_pk": {
+          "name": "verificationToken_identifier_token_pk",
+          "columns": ["identifier", "token"]
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

@@ -1,30 +1,16 @@
 'use client'
 
+import { UserSessionAttributes } from '@/lib/auth/types'
+import routes from '@/lib/router/routes'
 import { BookOpenIcon, BoxIcon, GithubIcon, HomeIcon, LogOutIcon, User2Icon } from 'lucide-react'
-import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import ApiForm from '../primitives/api-form'
 import { Button } from '../ui/button'
 import { RadialMenu } from '../ui/radial-menu'
 
-export function NavBottomMenu() {
+export function NavBottomMenu({ user }: { user: UserSessionAttributes | undefined | null }) {
   const [isOpen, setIsOpen] = useState(false)
-  const { data: session, status } = useSession()
-  const isLoggedIn = status === 'authenticated' && session?.user
-  const user = isLoggedIn ? session?.user : undefined
-  const [signInUrl, setSignInUrl] = useState('')
-
-  useEffect(() => {
-    setSignInUrl('/auth/signin?callbackUrl=' + encodeURIComponent(window.location.href))
-  }, [])
-
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.gold)
-  //   } else {
-  //     document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', appConfig.colors.primary)
-  //   }
-  // }, [isOpen])
 
   useEffect(() => {
     // if is standalone, remove window title:
@@ -100,16 +86,16 @@ export function NavBottomMenu() {
                   <User2Icon />
                 </Link>
               </Button>
-              <Button title="Logout" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-                <Link href="/auth/signout" scroll={false}>
+              <ApiForm method="post" action="/auth/signout">
+                <Button title="Logout" variant="ghost" radius="full" size="icon">
                   <LogOutIcon />
-                </Link>
-              </Button>
+                </Button>
+              </ApiForm>
             </>
           )}
           {!user && (
             <Button title="Sign In" variant="ghost" radius="full" size="icon" asChild onClick={closeMenu}>
-              <Link href={signInUrl} scroll={false}>
+              <Link href={routes.login} scroll={false}>
                 <User2Icon />
               </Link>
             </Button>

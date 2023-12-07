@@ -18,6 +18,12 @@ dependencies:
   '@hookform/resolvers':
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.48.2)
+  '@lucia-auth/adapter-mysql':
+    specifier: ^2.1.0
+    version: 2.1.0(@planetscale/database@1.11.0)(lucia@2.7.4)(mysql2@3.6.5)
+  '@lucia-auth/oauth':
+    specifier: ^3.5.0
+    version: 3.5.0(lucia@2.7.4)
   '@planetscale/database':
     specifier: ^1.11.0
     version: 1.11.0
@@ -87,6 +93,9 @@ dependencies:
   env-cmd:
     specifier: ^10.1.0
     version: 10.1.0
+  lucia:
+    specifier: ^2.7.4
+    version: 2.7.4
   lucide-react:
     specifier: ^0.294.0
     version: 0.294.0(react@18.2.0)
@@ -2172,6 +2181,33 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  /@lucia-auth/adapter-mysql@2.1.0(@planetscale/database@1.11.0)(lucia@2.7.4)(mysql2@3.6.5):
+    resolution:
+      { integrity: sha512-LkqsJHQS9KuMs+cTJQJnaqb6obqMyJfblyyLM0Ogoimzikb5orbkWI0C8eY3Supr60bgP4PYuQxYZm8xxera0Q== }
+    peerDependencies:
+      '@planetscale/database': ^1.0.0
+      lucia: ^2.0.0
+      mysql2: ^3.0.0
+    peerDependenciesMeta:
+      '@planetscale/database':
+        optional: true
+      mysql2:
+        optional: true
+    dependencies:
+      '@planetscale/database': 1.11.0
+      lucia: 2.7.4
+      mysql2: 3.6.5
+    dev: false
+
+  /@lucia-auth/oauth@3.5.0(lucia@2.7.4):
+    resolution:
+      { integrity: sha512-JSwAMVwlDJtbvfcJV1nbkv41OD830pgICrx8zFT71SYd5I1MnEQ+GqMTXBGRyxzc5XlLatT8ZS1Jt0k81487xg== }
+    peerDependencies:
+      lucia: ^2.0.0
+    dependencies:
+      lucia: 2.7.4
+    dev: false
 
   /@mdx-js/mdx@2.3.0:
     resolution:
@@ -8037,6 +8073,11 @@ packages:
     dependencies:
       es5-ext: 0.10.62
     dev: true
+
+  /lucia@2.7.4:
+    resolution:
+      { integrity: sha512-do6Aah5kX2DUl7N0CvELWV1/b+qZGF0AUmUrkthYeNfXfgx4RAkWi4BkAlgGDBB/0c1WApb18mUD1pA5qTaWmw== }
+    dev: false
 
   /lucide-react@0.294.0(react@18.2.0):
     resolution:

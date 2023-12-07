@@ -38,7 +38,7 @@ export default function SigninPage({ searchParams }: PageProps) {
 
   return (
     <div className="">
-      <SignInForm callbackUrl={callbackUrl} />
+      <SignInForm />
       {errorType && (
         <div className="error">
           <p>

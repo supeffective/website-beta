@@ -1,4 +1,4 @@
-import { UserRecord } from '@/lib/users/types'
+import { UserSessionAttributes } from '@/lib/auth/types'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { SignInForm } from '../layout/signin-form'
@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { AvatarSelector } from './AvatarSelector'
 
 type UserProfileEditorProps = {
-  user: UserRecord
+  user: UserSessionAttributes
 }
 
 export function UserProfileEditor(props: UserProfileEditorProps) {
@@ -17,7 +17,7 @@ export function UserProfileEditor(props: UserProfileEditorProps) {
       <Card className="flex-1">
         <CardHeader>
           <CardTitle>Edit Profile</CardTitle>
-          <CardDescription>Editing user profile for {user.name}</CardDescription>
+          <CardDescription>Editing user profile for {user.displayName}</CardDescription>
         </CardHeader>
         <CardContent>
           <p>Choose an avatar:</p>

@@ -1,5 +1,1 @@
-{
-  "lib": { "env": {}, "crypto": {}, "subscribers": {}, "common": { "db": {} } },
-  "config": {},
-  "components": { "pkm": {} }
-}
+{}

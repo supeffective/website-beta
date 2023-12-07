@@ -1,45 +1,16 @@
-'use client'
-
-import { signIn } from 'next-auth/react'
-import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 
-// const providers = cache(() => {
-//   return getProviders()
-// })
-
-export function SignInForm({ callbackUrl }: { callbackUrl?: string }) {
-  const [cbUrl, setCbUrl] = useState('')
-
-  useEffect(() => {
-    setCbUrl(callbackUrl ? decodeURIComponent(callbackUrl) : window.location.origin + '/profile')
-  }, [callbackUrl])
-
+export function SignInForm() {
   return (
     <div className="flex flex-col gap-2">
-      <Button
-        className="btn btn-default"
-        onClick={() => {
-          signIn('github', { callbackUrl: cbUrl })
-        }}
-      >
-        Sign in with Github
+      <Button asChild className="btn btn-default">
+        <a href="/auth/github/authorize">Sign in with Github</a>
       </Button>
-      <Button
-        className="btn btn-secondary"
-        onClick={() => {
-          signIn('patreon', { callbackUrl: cbUrl })
-        }}
-      >
-        Sign in with Patreon
+      <Button asChild className="btn btn-secondary">
+        <a href="/auth/patreon/authorize">Sign in with Patreon</a>
       </Button>
-      <Button
-        className="btn btn-tertiarty"
-        onClick={() => {
-          signIn('discord', { callbackUrl: cbUrl })
-        }}
-      >
-        Sign in with Discord
+      <Button asChild className="btn btn-tertiary">
+        <a href="/auth/discord/authorize">Sign in with Discord</a>
       </Button>
     </div>
   )

@@ -1,10 +1,11 @@
 import { UserProfile } from '@/components/user/UserProfile'
-import { getServerSideUser, redirectToLogin } from '@/lib/users/auth/get-session'
+import { getServerSideSession } from '@/lib/auth/get-session'
+import { redirectToLogin } from '@/lib/auth/redirects'
 
 export default async function Page() {
-  const user = await getServerSideUser()
-  if (!user) {
+  const session = await getServerSideSession()
+  if (!session) {
     redirectToLogin()
   }
-  return <UserProfile user={user} />
+  return <UserProfile user={session.user} />
 }
