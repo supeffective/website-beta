@@ -9,6 +9,7 @@ import { UserSession } from './types'
 async function _getServerSideSession(): Promise<UserSession | null> {
   const authRequest = luciaAuth.handleRequest('GET', requestContext)
   const session = await authRequest.validate()
+  console.log('===-- _getServerSideSession called', session?.user)
   return session
 }
 
