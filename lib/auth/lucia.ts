@@ -2,7 +2,7 @@ import { mysql2, planetscale } from '@lucia-auth/adapter-mysql'
 import { lucia } from 'lucia'
 import { nextjs_future } from 'lucia/middleware'
 
-import { isProductionEnv } from '../common/env/utils'
+import { isDevelopmentEnv, isProductionEnv } from '../common/env/utils'
 import { connection } from '../db/client'
 import { authTableNames } from './db-schema'
 import { OAuthProviderId, UserRecord } from './types'
@@ -37,10 +37,16 @@ export const luciaAuth = lucia({
 
 // export type LuciaAuth = typeof luciaAuth
 
+const prodBaseRedirectUri =
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ??
+  process.env.APP_BASE_URL ??
+  'https://supereffective2024.vercel.app'
+const baseRedirectUri = isDevelopmentEnv() ? 'http://localhost:3000' : prodBaseRedirectUri
+
 export const githubAuth = github(luciaAuth, {
   clientId: envVars.GITHUB_APP_CLIENT_ID,
   clientSecret: envVars.GITHUB_APP_CLIENT_SECRET,
-  redirectUri: 'http://localhost:3000/auth/github/callback',
+  redirectUri: baseRedirectUri + '/auth/github/callback',
   scope: ['read:user', 'user:email'],
 })
 
@@ -48,14 +54,14 @@ export const patreonAuth = patreon(luciaAuth, {
   clientId: envVars.PATREON_APP_CLIENT_ID,
   clientSecret: envVars.PATREON_APP_CLIENT_SECRET,
   scope: ['identity[email]', 'identity.memberships'],
-  redirectUri: 'http://localhost:3000/auth/patreon/callback',
+  redirectUri: baseRedirectUri + '/auth/patreon/callback',
 })
 
 export const discordAuth = discord(luciaAuth, {
   clientId: envVars.DISCORD_APP_CLIENT_ID,
   clientSecret: envVars.DISCORD_APP_CLIENT_SECRET,
   scope: ['identify', 'email'],
-  redirectUri: 'http://localhost:3000/auth/discord/callback',
+  redirectUri: baseRedirectUri + '/auth/discord/callback',
 })
 
 export const authProviders = {
