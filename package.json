@@ -23,6 +23,7 @@
     "prepare": "husky install",
     "pretty": "pnpm run format",
     "preview": "pnpm start",
+    "qa": "turbo lint && turbo typelint && turbo test:ci",
     "quality-checks": "turbo lint && turbo typelint && turbo test:ci && turbo build",
     "quality-checks:quick": "turbo lint && turbo typelint && turbo test:ci",
     "start": "next start",
@@ -113,7 +114,7 @@
     "sort-package-json": "^2.6.0",
     "tailwindcss": "^3.3.6",
     "turbo": "^1.11.0",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "packageManager": "pnpm@8.9.2",
   "pnpm": {
