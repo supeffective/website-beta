@@ -2,7 +2,7 @@ import { mysql2, planetscale } from '@lucia-auth/adapter-mysql'
 import { lucia } from 'lucia'
 import { nextjs_future } from 'lucia/middleware'
 
-import { isDevelopmentEnv, isProductionEnv } from '../common/env/utils'
+import { getNextAppUrl, isProductionEnv } from '../common/env/utils'
 import { connection } from '../db/client'
 import { authTableNames } from './db-schema'
 import { OAuthProviderId, UserRecord } from './types'
@@ -35,13 +35,9 @@ export const luciaAuth = lucia({
   },
 })
 
-// export type LuciaAuth = typeof luciaAuth
+const baseRedirectUri = getNextAppUrl().toString().replace(/\/$/, '')
 
-const prodBaseRedirectUri =
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ??
-  process.env.APP_BASE_URL ??
-  'https://supereffective2024.vercel.app'
-const baseRedirectUri = isDevelopmentEnv() ? 'http://localhost:3000' : prodBaseRedirectUri
+console.log('==--== baseRedirectUri', baseRedirectUri)
 
 export const githubAuth = github(luciaAuth, {
   clientId: envVars.GITHUB_APP_CLIENT_ID,

@@ -29,3 +29,19 @@ export function isServerSide(): boolean {
 export function isClientSide(): boolean {
   return typeof window !== 'undefined'
 }
+
+export function getNextAppUrl(): URL {
+  if (process.env.VERCEL_URL) {
+    return new URL(`https://${process.env.VERCEL_URL}`)
+  }
+
+  if (isDevelopmentEnv()) {
+    return new URL('http://localhost:' + (process.env.PORT ?? '3000'))
+  }
+
+  if (process.env.APP_BASE_URL) {
+    return new URL(process.env.APP_BASE_URL)
+  }
+
+  throw new Error('Could not determine the Next.js app URL.')
+}
