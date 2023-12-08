@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { isProductionEnv } from '../env/utils'
+import { isDebugEnabled } from '../env/utils'
 
 export function cn(...className: ClassValue[]) {
   return twMerge(clsx(className))
@@ -12,8 +12,8 @@ export async function waitMs(ms: number) {
 }
 
 export function dd(...args: any[]): void {
-  if (isProductionEnv()) {
+  if (!isDebugEnabled()) {
     return
   }
-  console.log('🐛 Debug:', ...args)
+  console.log('🌿 [debug]', ...args)
 }

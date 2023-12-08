@@ -7,6 +7,7 @@ import { migrate as mysql_migrate } from 'drizzle-orm/mysql2/migrator'
 import { drizzle as planetscale_drizzle, PlanetScaleDatabase } from 'drizzle-orm/planetscale-serverless'
 import { migrate as planetscale_migrate } from 'drizzle-orm/planetscale-serverless/migrator'
 import mysql from 'mysql2/promise'
+import { dd } from '../common/utils'
 import * as schema from './schema'
 
 const migrationsFolder = __dirname + '/migrations'
@@ -24,7 +25,7 @@ const globalForDrizzle = globalThis as unknown as {
 
 class ConsoleLogWriter implements LogWriter {
   write(message: string) {
-    console.log('[drizzle-orm]', message)
+    dd('[drizzle-orm]', message)
   }
 }
 
@@ -32,7 +33,7 @@ const logger = envVars.APP_ENV === 'development' ? new DefaultLogger({ writer: n
 
 const _initDrizzleClient = (): [DrizzleDriverConnection, DrizzleMysqlClient, () => Promise<void>] => {
   if (envVars.DB_PROVIDER === 'mysql_planetscale') {
-    console.log('[drizzle-orm] Connecting to PlanetScale MySQL...')
+    dd('[drizzle-orm] Connecting to PlanetScale MySQL...')
 
     const connection = planetscale_connect({
       host: envVars.DB_HOST,
@@ -45,14 +46,14 @@ const _initDrizzleClient = (): [DrizzleDriverConnection, DrizzleMysqlClient, () 
       { type: 'planetscale', connection },
       planetscaleClient,
       async () => {
-        console.log('[drizzle-orm] Running migrations...')
+        dd('[drizzle-orm] Running migrations...')
         await planetscale_migrate(planetscaleClient, { migrationsFolder })
-        console.log('[drizzle-orm] Migrations done.')
+        dd('[drizzle-orm] Migrations done.')
       },
     ]
   }
 
-  console.log('[drizzle-orm] Connecting to MySQL...')
+  dd('[drizzle-orm] Connecting to MySQL...')
   const mysqlPool = mysql.createPool({
     host: envVars.DB_HOST,
     user: envVars.DB_USERNAME,
@@ -72,7 +73,7 @@ const _initDrizzleClient = (): [DrizzleDriverConnection, DrizzleMysqlClient, () 
     { type: 'mysql2', connection: mysqlPool },
     mysqlClient,
     async () => {
-      console.log('[drizzle-orm] Running migrations...')
+      dd('[drizzle-orm] Running migrations...')
       const mysqlMigrationsConnection = await mysql.createConnection({
         host: envVars.DB_HOST,
         user: envVars.DB_USERNAME,
@@ -86,7 +87,7 @@ const _initDrizzleClient = (): [DrizzleDriverConnection, DrizzleMysqlClient, () 
         logger,
       })
       await mysql_migrate(mysqlMigrationsClient, { migrationsFolder })
-      console.log('[drizzle-orm] Migrations done.')
+      dd('[drizzle-orm] Migrations done.')
       process.exit(0)
     },
   ]

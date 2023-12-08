@@ -2,6 +2,7 @@ import { luciaAuth } from '@/lib/auth/lucia'
 import { OAuthProviderId, UserRecord } from '@/lib/auth/types'
 import { resolveOAuthProvider } from '@/lib/auth/utils'
 import { isDevelopmentEnv } from '@/lib/common/env/utils'
+import { dd } from '@/lib/common/utils'
 import { OAuthRequestError } from '@lucia-auth/oauth'
 import type { DiscordUser, GithubUser, PatreonUser } from '@lucia-auth/oauth/providers'
 import { cookies, headers } from 'next/headers'
@@ -48,7 +49,7 @@ export const GET = async (request: NextRequest, context: { params: { provider: O
 
       if (authProvider.providerId === OAuthProviderId.PATREON) {
         const data = rest.patreonUser as PatreonUser
-        console.log('PATREON data = ', data)
+        dd('PATREON data = ', data)
         newUser.email = data?.attributes.email ?? null
         newUser.emailVerified =
           newUser.email && data?.attributes.is_email_verified === true ? new Date().getTime() / 1000 : null
@@ -58,21 +59,13 @@ export const GET = async (request: NextRequest, context: { params: { provider: O
 
       if (authProvider.providerId === OAuthProviderId.DISCORD) {
         const data = rest.discordUser as DiscordUser
-        console.log('DISCORD data = ', data)
+        dd('DISCORD data = ', data)
         newUser.discordHandle = data?.username ?? null
         newUser.email = data?.email ?? null
         newUser.emailVerified = newUser.email && data?.verified === true ? new Date().getTime() / 1000 : null
         newUser.avatar = data?.avatar ?? null
         newUser.displayName = data?.global_name ?? null
       }
-
-      // if (!email) {
-      //   console.log({ rest })
-      //   console.error('No email found in OAuth response for provider', authProvider.providerId)
-      //   return new Response('No email found for given provider', {
-      //     status: 500,
-      //   })
-      // }
 
       const user = await createUser({
         attributes: newUser,
@@ -82,12 +75,12 @@ export const GET = async (request: NextRequest, context: { params: { provider: O
     }
 
     const user = await getUser()
-    console.log('user = ', user)
+    dd('user = ', user)
     const session = await luciaAuth.createSession({
       userId: user.userId,
       attributes: {},
     })
-    console.log('session = ', user)
+    dd('session = ', user)
     const authRequest = luciaAuth.handleRequest(request.method, {
       cookies,
       headers,

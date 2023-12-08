@@ -26,12 +26,6 @@ export const GET = async (request: NextRequest, context: { params: { provider: O
     maxAge: 60 * 60 * 2, // 2 hours
   })
 
-  // console.log('==-===== auth/[provider]/authorize', {
-  //   provider: context.params.provider,
-  //   redirectUrl: url.toString(),
-  // })
-  // return new Response(url.toString(), { status: 200 })
-
   return new Response(null, {
     status: 302,
     headers: {

@@ -1,6 +1,7 @@
 'use client'
 
 import { type HTMLAttributes, useState } from 'react'
+import { dd } from '../utils'
 
 type HTMLElementAttrs = HTMLAttributes<HTMLElement>
 type ReactMouseEvent = React.MouseEvent<HTMLElement, MouseEvent>
@@ -95,9 +96,9 @@ export function usePressable({
       return
     }
 
-    console.log((e as ReactMouseEvent).button, (e as ReactMouseEvent).buttons, (e as ReactTouchEvent).touches?.length)
+    dd((e as ReactMouseEvent).button, (e as ReactMouseEvent).buttons, (e as ReactTouchEvent).touches?.length)
 
-    console.log('press start', e.type)
+    dd('press start', e.type)
     const target = getResolvedTarget(e)
     setTimeMs(Date.now())
     setPressType('press')
@@ -136,7 +137,7 @@ export function usePressable({
       return
     }
 
-    console.log('press end', e.type)
+    dd('press end', e.type)
     if (!isPressing) {
       return
     }
@@ -202,7 +203,7 @@ export function usePressable({
       return
     }
 
-    console.log('press cancel', e.type)
+    dd('press cancel', e.type)
     if (!isPressing) {
       return
     }

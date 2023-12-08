@@ -1,25 +1,5 @@
 function _getEnvName(): string {
-  return process.env.APP_ENV ?? process.env.NODE_ENV ?? 'development'
-}
-
-export function hasDevFeaturesEnabled(): boolean {
-  return isDevelopmentEnv() && !isCIEnv()
-}
-
-export function isProductionEnv(): boolean {
-  return _getEnvName() === 'production'
-}
-
-export function isDevelopmentEnv(): boolean {
-  return _getEnvName() === 'development'
-}
-
-export function isPreviewEnv(): boolean {
-  return _getEnvName() === 'preview'
-}
-
-export function isCIEnv(): boolean {
-  return process.env['CI'] === '1'
+  return process.env.APP_ENV ?? process.env.NEXT_PUBLIC_APP_ENV ?? process.env.NODE_ENV ?? 'development'
 }
 
 export function isServerSide(): boolean {
@@ -30,18 +10,38 @@ export function isClientSide(): boolean {
   return typeof window !== 'undefined'
 }
 
-export function getNextAppUrl(): URL {
-  if (process.env.VERCEL_URL) {
-    return new URL(`https://${process.env.VERCEL_URL}`)
-  }
+export function hasDevFeaturesEnabled(): boolean {
+  return isLocalDevelopmentEnv()
+}
 
-  if (isDevelopmentEnv()) {
-    return new URL('http://localhost:' + (process.env.PORT ?? '3000'))
-  }
+export function isProductionEnv(): boolean {
+  return _getEnvName() === 'production'
+}
 
-  if (process.env.APP_BASE_URL) {
-    return new URL(process.env.APP_BASE_URL)
-  }
+export function isDevelopmentEnv(): boolean {
+  return _getEnvName() === 'development'
+}
 
-  throw new Error('Could not determine the Next.js app URL.')
+export function isLocalDevelopmentEnv(): boolean {
+  return isDevelopmentEnv() && !isVercel() && !isCI()
+}
+
+export function isPreviewEnv(): boolean {
+  return _getEnvName() === 'preview'
+}
+
+export function isVercel(): boolean {
+  return process.env.VERCEL === '1' || process.env.VERCEL === 'true'
+}
+
+export function isCI(): boolean {
+  return process.env.CI === '1' || process.env.CI === 'true'
+}
+
+export function isDebugEnabled(): boolean {
+  return process.env.APP_DEBUG === '1' || process.env.APP_DEBUG === 'true'
+}
+
+export function isGithubActions(): boolean {
+  return process.env.GITHUB_ACTIONS === '1' || process.env.GITHUB_ACTIONS === 'true'
 }

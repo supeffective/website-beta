@@ -12,7 +12,7 @@ const appConfig = {
   texts: {
     siteName: 'SuperEffective',
     standaloneTitle: 'SuperEffective',
-    defaultMetaTitle: 'The most complete Pokédex and Living Dex tracker / SuperEffective',
+    defaultMetaTitle: 'SuperEffective, the most complete Pokédex and Living Dex tracker',
     defaultMetaDescription:
       'Supereffective, Pokémon fan website with multiple tools to assist you ' + 'in your journey as a trainer.',
   },
