@@ -1,5 +1,5 @@
-import { SignInForm } from '@/components/layout/signin-form'
-import DialogInterceptedRoute from '@/components/ui/dialog-intercepted-route'
+import { SignInForm } from '@/features/signin/components/signin-form'
+import DialogInterceptedRoute from '@/lib/components/ui/dialog-intercepted-route'
 export default async function Page() {
   const header = <div>Sign In</div>
   const footer = null

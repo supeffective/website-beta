@@ -1,6 +1,6 @@
-import '@/lib/common/env/server-only'
+import '@/lib/utils/env/server-only'
 
-import { parseEnvVars } from '@/lib/common/env/parser'
+import { parseEnvVars } from '@/lib/utils/env/parser'
 import { EnvVarValues, ServerEnvVars, serverEnvVarSchema } from './types'
 
 const envName = process.env.APP_ENV === 'dev' ? 'development' : process.env.APP_ENV ?? 'development'
@@ -14,7 +14,7 @@ const initialVars: EnvVarValues<ServerEnvVars> = {
   PKM_ASSETS_URL: process.env.PKM_ASSETS_URL ?? '/static/assets',
 
   // paths
-  MDX_RELATIVE_DIR: 'mdx',
+  MDX_RELATIVE_DIR: 'blogs', // mdx files dir name, relative to the project root
 
   // database
   DB_PROVIDER: process.env.DB_PROVIDER,

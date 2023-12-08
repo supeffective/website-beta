@@ -1,4 +1,4 @@
-import { UserProfileEditor } from '@/components/user/UserProfileEditor'
+import { UserProfileEditor } from '@/features/profiles/components/UserProfileEditor'
 import { getServerSideSession } from '@/lib/auth/get-session'
 import { redirectToLogin } from '@/lib/auth/redirects'
 

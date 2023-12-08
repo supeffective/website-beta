@@ -1,10 +1,25 @@
 # SuperEffective.gg
 
+## Folder structure
+
+- `app/`: Next.js app routes and pages
+- `blogs/`: MDX blog posts and pages
+- `config/`: Configuration files
+- `features/`: App features (functionality and UI), following a Domain Driven Design approach
+- `lib/`: Shared and reusable code for the app and its features (auth layer, db, components, hooks, styles, utils,
+  etc.).
+- `public/`: Static public files (images, fonts, etc.)
+
+### Rules
+
+- Code under the `lib/` folder SHOULD NOT import code from `app/` or `features/` folders.
+- Code under the `features/` folder SHOULD NOT import code from `app/` folder.
+
 ## Design System
 
 - Use Tailwind CSS classes as much as possible
 - Avoid having long Tailwind class lists inside `className` attributes (4 classes at max.)
-- Merge component classes using `@apply` directives inside `styles/*/components/*.scss` files (similar to Daisy UI's
+- Merge component classes using `@apply` directives inside `lib/styles/*/components/*.scss` files (similar to Daisy UI's
   approach)
 - Configure new global variables also in the `tailwind.config.ts` file.
 - Use Neobrutalism Design
@@ -48,7 +63,7 @@
 - MySQL: Database engine
 - Drizzle ORM: Database abstraction layer
 
-![App Architecture Diagram](resources/architecture.drawio.svg)
+![App Architecture Diagram](lib/resources/architecture.drawio.svg)
 
 ### Providers
 

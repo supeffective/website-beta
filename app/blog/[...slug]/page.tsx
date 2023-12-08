@@ -1,6 +1,6 @@
-import { fetchPageBySlug, fetchPages } from '@/lib/common/mdx/client'
-import { MarkdownPage } from '@/lib/common/mdx/renderer'
-import { PageType } from '@/lib/common/mdx/types'
+import { fetchPageBySlug, fetchPages } from '@/lib/utils/mdx/client'
+import { MarkdownPage } from '@/lib/utils/mdx/renderer'
+import { PageType } from '@/lib/utils/mdx/types'
 import { notFound } from 'next/navigation'
 
 const pageType = PageType.Blog

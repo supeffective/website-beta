@@ -1,4 +1,4 @@
-import '@/lib/common/env/server-only'
+import '@/lib/utils/env/server-only'
 
 import { mysql2, planetscale } from '@lucia-auth/adapter-mysql'
 import { lucia } from 'lucia'
@@ -10,8 +10,7 @@ import { OAuthProviderId, UserRecord } from './types'
 
 import { envVars } from '@/config/env/server-vars'
 import { discord, github, patreon } from '@lucia-auth/oauth/providers'
-import { dd } from '../common/utils'
-import { getAbsoluteUrl, getBaseUrl } from '../router/base-url'
+import { getAbsoluteUrl } from '../router/base-url'
 
 function resolveLuciaAdapter() {
   if (connection.type === 'planetscale') {
@@ -37,8 +36,6 @@ export const luciaAuth = lucia({
     }
   },
 })
-
-dd('==--== baseRedirectUri', getBaseUrl(), getAbsoluteUrl('/auth/github/callback'))
 
 export const githubAuth = github(luciaAuth, {
   clientId: envVars.GITHUB_APP_CLIENT_ID,

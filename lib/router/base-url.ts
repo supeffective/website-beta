@@ -1,4 +1,4 @@
-import { createBaseUrlFunction } from '../common/env/urls'
+import { createBaseUrlFunction } from '../utils/env/urls'
 
 const APP_BASE_URL_PROD = 'https://supereffective2024.vercel.app'
 

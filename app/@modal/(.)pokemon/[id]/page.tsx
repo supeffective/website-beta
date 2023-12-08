@@ -1,5 +1,5 @@
-import DialogInterceptedRoute from '@/components/ui/dialog-intercepted-route'
 import appConfig from '@/config/general'
+import DialogInterceptedRoute from '@/lib/components/ui/dialog-intercepted-route'
 import { PageProps } from '@/lib/router/types'
 // import { waitMs } from '@/lib/utils'
 import { fetchPokemon, fetchPokemonIndex } from '@supeffective/dataset'

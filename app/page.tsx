@@ -1,4 +1,4 @@
-import { Heading } from '@/components/typography/heading'
+import { Heading } from '@/lib/components/typography/heading'
 
 export default function HomePage() {
   return (

@@ -1,5 +1,5 @@
-import { PokeListApp } from '@/components/pkm/lists/poke-list-app'
-import { Heading } from '@/components/typography/heading'
+import { PokeListApp } from '@/features/pokemon/components/poke-list-app'
+import { Heading } from '@/lib/components/typography/heading'
 import { fetchOptimizedPokemonIndex } from '@/lib/dataset/pokemon/repository'
 
 export default async function Page() {

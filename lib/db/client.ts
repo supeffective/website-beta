@@ -1,5 +1,6 @@
+import '@/lib/utils/env/server-only'
+
 import { envVars } from '@/config/env/server-vars'
-import '@/lib/common/env/server-only'
 import { connect as planetscale_connect, Connection as PlanetScaleConnection } from '@planetscale/database'
 import { DefaultLogger, LogWriter } from 'drizzle-orm'
 import { MySql2Database, drizzle as mysql_drizzle } from 'drizzle-orm/mysql2'
@@ -7,7 +8,7 @@ import { migrate as mysql_migrate } from 'drizzle-orm/mysql2/migrator'
 import { drizzle as planetscale_drizzle, PlanetScaleDatabase } from 'drizzle-orm/planetscale-serverless'
 import { migrate as planetscale_migrate } from 'drizzle-orm/planetscale-serverless/migrator'
 import mysql from 'mysql2/promise'
-import { dd } from '../common/utils'
+import { dd } from '../utils'
 import * as schema from './schema'
 
 const migrationsFolder = __dirname + '/migrations'

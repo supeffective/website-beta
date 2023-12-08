@@ -1,4 +1,4 @@
-import { SignInForm } from '@/components/layout/signin-form'
+import { SignInForm } from '@/features/signin/components/signin-form'
 import { PageProps } from '@/lib/router/types'
 
 /**

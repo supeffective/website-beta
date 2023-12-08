@@ -1,4 +1,4 @@
-import '@/lib/common/env/server-only'
+import '@/lib/utils/env/server-only'
 
 import appConfig from '@/config/general'
 import {

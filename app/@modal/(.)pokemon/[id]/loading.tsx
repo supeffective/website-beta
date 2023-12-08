@@ -1,5 +1,5 @@
-import { LoadingSpinner } from '@/components/primitives/loading-spinner'
-import { Overlay } from '@/components/primitives/overlay'
+import { LoadingSpinner } from '@/lib/components/image/loading-spinner'
+import { Overlay } from '@/lib/components/overlays'
 
 export default async function Loading() {
   return (

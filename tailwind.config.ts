@@ -6,10 +6,11 @@ const config: Config = {
   darkMode: ['class'],
   content: [
     './app/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
+    // './components/**/*.{ts,tsx}',
     './config/**/*.{ts,tsx}',
+    './features/**/*.{ts,tsx}',
     './lib/**/*.{ts,tsx}',
-    './styles/**/*.{ts,tsx}',
+    // './styles/**/*.{ts,tsx}',
   ],
   theme: {
     container: {

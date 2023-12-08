@@ -1,4 +1,4 @@
-import type { PatreonCampaign, PatreonTierTable } from '@/lib/subscribers/patreon/types'
+import type { PatreonCampaign, PatreonTierTable } from '@/features/subscriptions/patreon/types'
 
 export const patreonCampaign: PatreonCampaign = {
   campaignId: '9272063',

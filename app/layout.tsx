@@ -4,13 +4,13 @@
 // Neobrutalism fonts:
 // import { Lexend_Mega, Public_Sans, Archivo_Black, Bebas_Neue, Maven_Pro, Reem_Kufi } from 'next/font/google'
 
-import { Providers } from '@/components/Providers'
-import { ServiceWorkers } from '@/components/ServiceWorkers'
-import { Navigation } from '@/components/layout/navigation'
 import { baseMetadata, baseViewport } from '@/config/metadata'
-import { cn } from '@/lib/common/utils'
+import { ContextProviders } from '@/lib/components/context-providers'
+import { Navigation } from '@/lib/components/navigation'
+import { ServiceWorkers } from '@/lib/components/service-workers'
+import '@/lib/styles/globals.scss'
+import { cn } from '@/lib/utils'
 import { Reem_Kufi } from 'next/font/google'
-import '../styles/globals.scss'
 
 const baseFont = Reem_Kufi({ subsets: ['latin'] })
 
@@ -26,11 +26,11 @@ export default function RootLayout({ children, modal }: { children: React.ReactN
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body className={cn(baseFont.className, ' bg-primary')}>
-        <Providers>
+        <ContextProviders>
           <Navigation />
           <main className="flex flex-col p-4">{children}</main>
           {modal}
-        </Providers>
+        </ContextProviders>
         <ServiceWorkers />
       </body>
     </html>
