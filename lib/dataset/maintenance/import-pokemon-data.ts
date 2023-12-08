@@ -1,5 +1,5 @@
 import appConfig from '@/config/general'
-import { csvJsonToCollection, jsonStringifyCompact } from '@/lib/common/utils/json'
+import { jsonParseCsvArray, jsonStringifyRecords } from '@/lib/common/utils/json'
 import { Pokemon, fetchCollection } from '@supeffective/dataset'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -73,8 +73,8 @@ pokemon.forEach((p) => {
 })
 
 // validate result
-optimizedPokemonListItemSchema.array().parse(csvJsonToCollection(indexCsvData))
+optimizedPokemonListItemSchema.array().parse(jsonParseCsvArray(indexCsvData))
 
-fs.writeFileSync(DEST_FILE, jsonStringifyCompact(indexCsvData))
+fs.writeFileSync(DEST_FILE, jsonStringifyRecords(indexCsvData))
 console.log('optimizedPokemonListItemSchema Validation passed')
 console.log(`Wrote ${indexCsvData.length} records to ${DEST_FILE}`)

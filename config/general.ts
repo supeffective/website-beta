@@ -1,4 +1,3 @@
-import { getBaseUrl } from '@/lib/common/utils/urls'
 import { clientEnvVars } from './env/client-vars'
 
 const appConfig = {
@@ -27,12 +26,6 @@ const appConfig = {
     roadmap: 'https://github.com/users/itsjavi/projects/9',
     discord: 'https://discord.gg/3fRXQFtrkN',
     paypal_donate: 'https://www.paypal.me/itsjavidotcom/10',
-  },
-  apis: {
-    patreon: {
-      oauthRedirectUrl: `${getBaseUrl()}/api/callbacks/patreon`,
-      webhookCallbackUrl: `${getBaseUrl()}/api/webhooks/patreon`,
-    },
   },
   static: {
     dataUrl: clientEnvVars.NEXT_PUBLIC_PKM_DATA_URL,

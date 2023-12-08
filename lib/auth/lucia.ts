@@ -4,15 +4,14 @@ import { mysql2, planetscale } from '@lucia-auth/adapter-mysql'
 import { lucia } from 'lucia'
 import { nextjs_future } from 'lucia/middleware'
 
-import { isProductionEnv } from '../common/env/utils'
 import { connection } from '../db/client'
 import { authTableNames } from './db-schema'
 import { OAuthProviderId, UserRecord } from './types'
 
 import { envVars } from '@/config/env/server-vars'
 import { discord, github, patreon } from '@lucia-auth/oauth/providers'
-import { getAbsoluteUrl, getBaseUrl } from '../common/utils/urls'
 import { dd } from '../common/utils'
+import { getAbsoluteUrl, getBaseUrl } from '../router/base-url'
 
 function resolveLuciaAdapter() {
   if (connection.type === 'planetscale') {
@@ -23,7 +22,7 @@ function resolveLuciaAdapter() {
 }
 
 export const luciaAuth = lucia({
-  env: isProductionEnv() ? 'PROD' : 'DEV',
+  env: envVars.DB_PROVIDER === 'mysql_planetscale' ? 'PROD' : 'DEV',
   adapter: resolveLuciaAdapter(),
   middleware: nextjs_future(),
   sessionCookie: {
@@ -39,7 +38,7 @@ export const luciaAuth = lucia({
   },
 })
 
-dd('==--== baseRedirectUri', getBaseUrl())
+dd('==--== baseRedirectUri', getBaseUrl(), getAbsoluteUrl('/auth/github/callback'))
 
 export const githubAuth = github(luciaAuth, {
   clientId: envVars.GITHUB_APP_CLIENT_ID,
