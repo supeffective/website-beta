@@ -15,5 +15,5 @@ export function dd(...args: any[]): void {
   if (!isDebugEnabled()) {
     return
   }
-  console.log('🌿 [debug]', ...args)
+  console.log('[app.debug]', ...args)
 }
